@@ -18,25 +18,25 @@ public class PeopleService : IPeopleService
 {
     private readonly List<Person> _people = new()
     {
-        new Person { Id = 1, Name = "Alice Johnson", Email = "alice@example.com", Department = "Engineering", Role = "Senior Developer", ConnectionIds = new List<int> { 2, 3, 5 } },
-        new Person { Id = 2, Name = "Bob Smith", Email = "bob@example.com", Department = "Engineering", Role = "Tech Lead", ConnectionIds = new List<int> { 1, 3, 4 } },
-        new Person { Id = 3, Name = "Carol Williams", Email = "carol@example.com", Department = "Product", Role = "Product Manager", ConnectionIds = new List<int> { 1, 2, 4, 6 } },
-        new Person { Id = 4, Name = "David Brown", Email = "david@example.com", Department = "Design", Role = "UX Designer", ConnectionIds = new List<int> { 2, 3, 5 } },
-        new Person { Id = 5, Name = "Eva Martinez", Email = "eva@example.com", Department = "Marketing", Role = "Marketing Lead", ConnectionIds = new List<int> { 1, 4, 6 } },
-        new Person { Id = 6, Name = "Frank Chen", Email = "frank@example.com", Department = "Sales", Role = "Sales Director", ConnectionIds = new List<int> { 3, 5 } }
+        new Person { Id = 1, Name = "Alice Johnson", Email = "alice@example.com", Department = "Family", Role = "Mother", ConnectionIds = new List<int> { 2, 3, 5 } },
+        new Person { Id = 2, Name = "Bob Johnson", Email = "bob@example.com", Department = "Family", Role = "Father", ConnectionIds = new List<int> { 1, 3, 4 } },
+        new Person { Id = 3, Name = "Carol Johnson", Email = "carol@example.com", Department = "Family", Role = "Daughter", ConnectionIds = new List<int> { 1, 2, 4, 6 } },
+        new Person { Id = 4, Name = "David Chen", Email = "david@example.com", Department = "Community", Role = "Doctor", ConnectionIds = new List<int> { 2, 3, 5 } },
+        new Person { Id = 5, Name = "Eva Martinez", Email = "eva@example.com", Department = "Community", Role = "Teacher", ConnectionIds = new List<int> { 1, 4, 6 } },
+        new Person { Id = 6, Name = "Frank Wilson", Email = "frank@example.com", Department = "Neighborhood", Role = "Neighbor", ConnectionIds = new List<int> { 3, 5 } }
     };
 
     private readonly List<Connection> _connections = new()
     {
-        new Connection { Id = 1, SourcePersonId = 1, TargetPersonId = 2, RelationType = "Colleague", Description = "Work on same team" },
-        new Connection { Id = 2, SourcePersonId = 1, TargetPersonId = 3, RelationType = "Project", Description = "Collaborate on Project X" },
-        new Connection { Id = 3, SourcePersonId = 1, TargetPersonId = 5, RelationType = "Cross-functional", Description = "Marketing liaison" },
-        new Connection { Id = 4, SourcePersonId = 2, TargetPersonId = 3, RelationType = "Stakeholder", Description = "Product review meetings" },
-        new Connection { Id = 5, SourcePersonId = 2, TargetPersonId = 4, RelationType = "Project", Description = "Design collaboration" },
-        new Connection { Id = 6, SourcePersonId = 3, TargetPersonId = 4, RelationType = "Project", Description = "UX/Product alignment" },
-        new Connection { Id = 7, SourcePersonId = 3, TargetPersonId = 6, RelationType = "Business", Description = "Sales enablement" },
-        new Connection { Id = 8, SourcePersonId = 4, TargetPersonId = 5, RelationType = "Cross-functional", Description = "Marketing materials design" },
-        new Connection { Id = 9, SourcePersonId = 5, TargetPersonId = 6, RelationType = "Partner", Description = "Marketing-Sales pipeline" }
+        new Connection { Id = 1, SourcePersonId = 1, TargetPersonId = 2, RelationType = "Spouse", Description = "Married couple" },
+        new Connection { Id = 2, SourcePersonId = 1, TargetPersonId = 3, RelationType = "Parent", Description = "Mother-daughter relationship" },
+        new Connection { Id = 3, SourcePersonId = 1, TargetPersonId = 5, RelationType = "Friend", Description = "Close friends from school" },
+        new Connection { Id = 4, SourcePersonId = 2, TargetPersonId = 3, RelationType = "Parent", Description = "Father-daughter relationship" },
+        new Connection { Id = 5, SourcePersonId = 2, TargetPersonId = 4, RelationType = "Patient", Description = "Family doctor" },
+        new Connection { Id = 6, SourcePersonId = 3, TargetPersonId = 4, RelationType = "Patient", Description = "Regular checkups" },
+        new Connection { Id = 7, SourcePersonId = 3, TargetPersonId = 6, RelationType = "Neighbor", Description = "Live next door" },
+        new Connection { Id = 8, SourcePersonId = 4, TargetPersonId = 5, RelationType = "Friend", Description = "Met at community event" },
+        new Connection { Id = 9, SourcePersonId = 5, TargetPersonId = 6, RelationType = "Teacher", Description = "Teaches neighbor's kids" }
     };
 
     private int _nextPersonId = 7;

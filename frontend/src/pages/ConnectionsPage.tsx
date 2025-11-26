@@ -28,23 +28,23 @@ const ConnectionsPage = () => {
       setError('Failed to load connections. Make sure the backend is running.');
       // Use mock data for demo
       setPeople([
-        { id: 1, name: 'Alice Johnson', email: 'alice@example.com', department: 'Engineering', role: 'Senior Developer', connectionIds: [2, 3, 5] },
-        { id: 2, name: 'Bob Smith', email: 'bob@example.com', department: 'Engineering', role: 'Tech Lead', connectionIds: [1, 3, 4] },
-        { id: 3, name: 'Carol Williams', email: 'carol@example.com', department: 'Product', role: 'Product Manager', connectionIds: [1, 2, 4, 6] },
-        { id: 4, name: 'David Brown', email: 'david@example.com', department: 'Design', role: 'UX Designer', connectionIds: [2, 3, 5] },
-        { id: 5, name: 'Eva Martinez', email: 'eva@example.com', department: 'Marketing', role: 'Marketing Lead', connectionIds: [1, 4, 6] },
-        { id: 6, name: 'Frank Chen', email: 'frank@example.com', department: 'Sales', role: 'Sales Director', connectionIds: [3, 5] },
+        { id: 1, name: 'Alice Johnson', email: 'alice@example.com', department: 'Family', role: 'Mother', connectionIds: [2, 3, 5] },
+        { id: 2, name: 'Bob Johnson', email: 'bob@example.com', department: 'Family', role: 'Father', connectionIds: [1, 3, 4] },
+        { id: 3, name: 'Carol Johnson', email: 'carol@example.com', department: 'Family', role: 'Daughter', connectionIds: [1, 2, 4, 6] },
+        { id: 4, name: 'David Chen', email: 'david@example.com', department: 'Community', role: 'Doctor', connectionIds: [2, 3, 5] },
+        { id: 5, name: 'Eva Martinez', email: 'eva@example.com', department: 'Community', role: 'Teacher', connectionIds: [1, 4, 6] },
+        { id: 6, name: 'Frank Wilson', email: 'frank@example.com', department: 'Neighborhood', role: 'Neighbor', connectionIds: [3, 5] },
       ]);
       setConnections([
-        { id: 1, sourcePersonId: 1, targetPersonId: 2, relationType: 'Colleague', description: 'Work on same team' },
-        { id: 2, sourcePersonId: 1, targetPersonId: 3, relationType: 'Project', description: 'Collaborate on Project X' },
-        { id: 3, sourcePersonId: 1, targetPersonId: 5, relationType: 'Cross-functional', description: 'Marketing liaison' },
-        { id: 4, sourcePersonId: 2, targetPersonId: 3, relationType: 'Stakeholder', description: 'Product review meetings' },
-        { id: 5, sourcePersonId: 2, targetPersonId: 4, relationType: 'Project', description: 'Design collaboration' },
-        { id: 6, sourcePersonId: 3, targetPersonId: 4, relationType: 'Project', description: 'UX/Product alignment' },
-        { id: 7, sourcePersonId: 3, targetPersonId: 6, relationType: 'Business', description: 'Sales enablement' },
-        { id: 8, sourcePersonId: 4, targetPersonId: 5, relationType: 'Cross-functional', description: 'Marketing materials design' },
-        { id: 9, sourcePersonId: 5, targetPersonId: 6, relationType: 'Partner', description: 'Marketing-Sales pipeline' },
+        { id: 1, sourcePersonId: 1, targetPersonId: 2, relationType: 'Spouse', description: 'Married couple' },
+        { id: 2, sourcePersonId: 1, targetPersonId: 3, relationType: 'Parent', description: 'Mother-daughter relationship' },
+        { id: 3, sourcePersonId: 1, targetPersonId: 5, relationType: 'Friend', description: 'Close friends from school' },
+        { id: 4, sourcePersonId: 2, targetPersonId: 3, relationType: 'Parent', description: 'Father-daughter relationship' },
+        { id: 5, sourcePersonId: 2, targetPersonId: 4, relationType: 'Patient', description: 'Family doctor' },
+        { id: 6, sourcePersonId: 3, targetPersonId: 4, relationType: 'Patient', description: 'Regular checkups' },
+        { id: 7, sourcePersonId: 3, targetPersonId: 6, relationType: 'Neighbor', description: 'Live next door' },
+        { id: 8, sourcePersonId: 4, targetPersonId: 5, relationType: 'Friend', description: 'Met at community event' },
+        { id: 9, sourcePersonId: 5, targetPersonId: 6, relationType: 'Teacher', description: 'Teaches neighbor\'s kids' },
       ]);
     } finally {
       setLoading(false);
@@ -57,12 +57,12 @@ const ConnectionsPage = () => {
 
   const getRelationTypeColor = (type: string) => {
     const colors: Record<string, string> = {
-      Colleague: '#667eea',
-      Project: '#48bb78',
-      'Cross-functional': '#ed8936',
-      Stakeholder: '#9f7aea',
-      Business: '#f56565',
-      Partner: '#4fd1c5',
+      Spouse: '#e53e3e',
+      Parent: '#667eea',
+      Friend: '#48bb78',
+      Patient: '#9f7aea',
+      Neighbor: '#ed8936',
+      Teacher: '#4fd1c5',
     };
     return colors[type] || '#718096';
   };
