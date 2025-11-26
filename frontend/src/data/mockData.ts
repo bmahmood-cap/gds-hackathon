@@ -38,7 +38,8 @@ export const mockUsers: User[] = [
 ];
 
 // Data derived from homelessness_all_years.csv dataset
-// At-risk individuals from the dataset
+// At-risk individuals from the dataset with person-to-person connections
+// Connection types: Family, Peer, Neighbor, School, Support Group
 export const mockPeople: Person[] = [
   {
     id: 2033,
@@ -47,7 +48,7 @@ export const mockPeople: Person[] = [
     email: 'r.munoz@email.com',
     department: 'Youth Housing',
     role: 'Vulnerable Child',
-    connectionIds: [1, 2],
+    connectionIds: [2336, 312, 5562], // Peers in youth housing program
     riskScore: 'red',
     signals: {
       ...defaultSignals,
@@ -70,7 +71,7 @@ export const mockPeople: Person[] = [
     email: 'm.foster@email.com',
     department: 'Care Leavers',
     role: 'At-Risk Youth',
-    connectionIds: [2, 1],
+    connectionIds: [751, 313, 312], // Fellow care leavers and peer support
     riskScore: 'red',
     signals: {
       ...defaultSignals,
@@ -91,7 +92,7 @@ export const mockPeople: Person[] = [
     email: 'j.callahan@email.com',
     department: 'Family Support',
     role: 'At-Risk Child',
-    connectionIds: [3, 1],
+    connectionIds: [8860, 9221, 9364], // Sibling (Kelly), school peer, parent figure
     riskScore: 'red',
     signals: {
       ...defaultSignals,
@@ -111,7 +112,7 @@ export const mockPeople: Person[] = [
     email: 'k.donovan@email.com',
     department: 'Family Support',
     role: 'At-Risk Child',
-    connectionIds: [3, 1],
+    connectionIds: [4023, 9221], // Sibling (Jessica), school peer
     riskScore: 'red',
     signals: {
       ...defaultSignals,
@@ -132,7 +133,7 @@ export const mockPeople: Person[] = [
     email: 'm.harmon@email.com',
     department: 'Youth Housing',
     role: 'At-Risk Youth',
-    connectionIds: [1, 2],
+    connectionIds: [2033, 2881, 5562, 1131], // Youth housing peers
     riskScore: 'red',
     signals: {
       ...defaultSignals,
@@ -154,7 +155,7 @@ export const mockPeople: Person[] = [
     email: 'a.shaffer@email.com',
     department: 'Youth Housing',
     role: 'Adult',
-    connectionIds: [1],
+    connectionIds: [312, 5562, 2336], // Youth housing support network
     riskScore: 'amber',
     signals: {
       ...defaultSignals,
@@ -175,7 +176,7 @@ export const mockPeople: Person[] = [
     email: 'g.davis@email.com',
     department: 'Family Support',
     role: 'At-Risk Child',
-    connectionIds: [3],
+    connectionIds: [4023, 8860, 8327], // School peers, neighbor
     riskScore: 'amber',
     signals: {
       ...defaultSignals,
@@ -196,7 +197,7 @@ export const mockPeople: Person[] = [
     email: 'l.hensley@email.com',
     department: 'Youth Housing',
     role: 'At-Risk Youth',
-    connectionIds: [1],
+    connectionIds: [2033, 312, 1131], // Youth housing peers
     riskScore: 'amber',
     signals: {
       ...defaultSignals,
@@ -218,7 +219,7 @@ export const mockPeople: Person[] = [
     email: 'b.ramirez@email.com',
     department: 'Youth Housing',
     role: 'At-Risk Child',
-    connectionIds: [1],
+    connectionIds: [2033, 1131], // Youth housing peer, mentor
     riskScore: 'amber',
     signals: {
       ...defaultSignals,
@@ -240,7 +241,7 @@ export const mockPeople: Person[] = [
     email: 'd.zuniga@email.com',
     department: 'Care Leavers',
     role: 'Adult',
-    connectionIds: [2],
+    connectionIds: [2881, 751], // Care leaver support network
     riskScore: 'amber',
     signals: {
       ...defaultSignals,
@@ -261,7 +262,7 @@ export const mockPeople: Person[] = [
     email: 'a.hill@email.com',
     department: 'Care Leavers',
     role: 'Young Adult',
-    connectionIds: [2],
+    connectionIds: [2881, 313], // Care leaver peers
     riskScore: 'green',
     signals: {
       ...defaultSignals,
@@ -281,7 +282,7 @@ export const mockPeople: Person[] = [
     email: 'n.rhodes@email.com',
     department: 'Family Support',
     role: 'Adult',
-    connectionIds: [3],
+    connectionIds: [4023, 8327, 720], // Family support network, parent of Jessica
     riskScore: 'green',
     signals: {
       ...defaultSignals,
@@ -301,7 +302,7 @@ export const mockPeople: Person[] = [
     email: 'd.wagner@email.com',
     department: 'Family Support',
     role: 'Adult',
-    connectionIds: [3],
+    connectionIds: [9221, 9364, 720], // Neighbor, community member
     riskScore: 'green',
     signals: {
       ...defaultSignals,
@@ -321,7 +322,7 @@ export const mockPeople: Person[] = [
     email: 'c.santos@email.com',
     department: 'Family Support',
     role: 'Adult',
-    connectionIds: [3],
+    connectionIds: [9364, 8327], // Community support network
     riskScore: 'green',
     signals: {
       ...defaultSignals,

@@ -12,24 +12,44 @@ interface ConnectionModalProps {
 
 type TabType = 'connections' | 'network' | 'signals';
 
-function getRelationType(role: string): string {
-  const types: Record<string, string> = {
-    Student: 'Student',
-    Patient: 'Patient',
-    Child: 'Child',
-    default: 'Connection',
-  };
-  return types[role] || types.default;
+function getRelationType(sourcePerson: Person, targetPerson: Person | undefined): string {
+  if (!targetPerson) return 'Connection';
+  
+  // Same department = peer/program connection
+  if (sourcePerson.department === targetPerson.department) {
+    if (sourcePerson.department === 'Youth Housing') return 'Housing Peer';
+    if (sourcePerson.department === 'Care Leavers') return 'Care Peer';
+    if (sourcePerson.department === 'Family Support') {
+      // Check if likely family (similar age group or one adult/one child)
+      const isAdult = (p: Person) => p.role === 'Adult' || (p.age && p.age >= 18);
+      const isChild = (p: Person) => p.role?.includes('Child') || (p.age && p.age < 18);
+      if ((isAdult(sourcePerson) && isChild(targetPerson)) || 
+          (isChild(sourcePerson) && isAdult(targetPerson))) {
+        return 'Family';
+      }
+      return 'Support Network';
+    }
+    return 'Peer';
+  }
+  
+  // Cross-department connections
+  return 'Community';
 }
 
-function generateConnections(person: Person): Connection[] {
-  return person.connectionIds.map((targetId, index) => ({
-    id: index + 1,
-    sourcePersonId: person.id,
-    targetPersonId: targetId,
-    relationType: getRelationType(person.role),
-    description: `${person.role} relationship`,
-  }));
+function generateConnections(person: Person, allPeople: Person[]): Connection[] {
+  return person.connectionIds.map((targetId, index) => {
+    const targetPerson = allPeople.find(p => p.id === targetId);
+    const relationType = getRelationType(person, targetPerson);
+    return {
+      id: index + 1,
+      sourcePersonId: person.id,
+      targetPersonId: targetId,
+      relationType,
+      description: targetPerson 
+        ? `${relationType} connection with ${targetPerson.name}`
+        : `${person.role} relationship`,
+    };
+  });
 }
 
 function generateNetworkData(person: Person, allPeople: Person[]): NetworkData {
@@ -46,11 +66,14 @@ function generateNetworkData(person: Person, allPeople: Person[]): NetworkData {
 
   const links = person.connectionIds
     .filter(id => allPeople.some(p => p.id === id))
-    .map(targetId => ({
-      source: person.id,
-      target: targetId,
-      label: getRelationType(person.role),
-    }));
+    .map(targetId => {
+      const targetPerson = allPeople.find(p => p.id === targetId);
+      return {
+        source: person.id,
+        target: targetId,
+        label: getRelationType(person, targetPerson),
+      };
+    });
 
   return { nodes, links };
 }
@@ -58,7 +81,7 @@ function generateNetworkData(person: Person, allPeople: Person[]): NetworkData {
 const ConnectionModal = ({ person, allPeople, onClose }: ConnectionModalProps) => {
   const [activeTab, setActiveTab] = useState<TabType>('connections');
 
-  const connections = generateConnections(person);
+  const connections = generateConnections(person, allPeople);
   const networkData = generateNetworkData(person, allPeople);
 
   const getPersonById = (id: number): Person | undefined => {
