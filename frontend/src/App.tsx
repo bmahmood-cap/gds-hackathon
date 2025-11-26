@@ -4,6 +4,7 @@ import DataStorePage from './pages/DataStorePage';
 import ConnectionsPage from './pages/ConnectionsPage';
 import PeoplePage from './pages/PeoplePage';
 import AIAssistantPage from './pages/AIAssistantPage';
+import UploadPage from './pages/UploadPage';
 import './App.css';
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
             <Route path="/connections" element={<ConnectionsPage />} />
             <Route path="/people" element={<PeoplePage />} />
             <Route path="/ai-assistant" element={<AIAssistantPage />} />
+            <Route path="/upload" element={<UploadPage />} />
           </Routes>
         </main>
       </div>

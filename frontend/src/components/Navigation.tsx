@@ -6,6 +6,7 @@ const Navigation = () => {
 
   const navItems = [
     { path: '/', label: 'Data Store', icon: '📊' },
+    { path: '/upload', label: 'Upload Data', icon: '📤' },
     { path: '/connections', label: 'Connections Map', icon: '🔗' },
     { path: '/people', label: 'People Network', icon: '👥' },
     { path: '/ai-assistant', label: 'AI Assistant', icon: '🤖' },
