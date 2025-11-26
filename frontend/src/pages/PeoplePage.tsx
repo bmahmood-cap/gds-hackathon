@@ -29,26 +29,26 @@ const PeoplePage = () => {
       setError('Failed to load network data. Make sure the backend is running.');
       // Use mock data for demo
       const mockPeople: Person[] = [
-        { id: 1, name: 'Alice Johnson', email: 'alice@example.com', department: 'Engineering', role: 'Senior Developer', connectionIds: [2, 3, 5] },
-        { id: 2, name: 'Bob Smith', email: 'bob@example.com', department: 'Engineering', role: 'Tech Lead', connectionIds: [1, 3, 4] },
-        { id: 3, name: 'Carol Williams', email: 'carol@example.com', department: 'Product', role: 'Product Manager', connectionIds: [1, 2, 4, 6] },
-        { id: 4, name: 'David Brown', email: 'david@example.com', department: 'Design', role: 'UX Designer', connectionIds: [2, 3, 5] },
-        { id: 5, name: 'Eva Martinez', email: 'eva@example.com', department: 'Marketing', role: 'Marketing Lead', connectionIds: [1, 4, 6] },
-        { id: 6, name: 'Frank Chen', email: 'frank@example.com', department: 'Sales', role: 'Sales Director', connectionIds: [3, 5] },
+        { id: 1, name: 'Alice Johnson', email: 'alice@example.com', department: 'Family', role: 'Mother', connectionIds: [2, 3, 5] },
+        { id: 2, name: 'Bob Johnson', email: 'bob@example.com', department: 'Family', role: 'Father', connectionIds: [1, 3, 4] },
+        { id: 3, name: 'Carol Johnson', email: 'carol@example.com', department: 'Family', role: 'Daughter', connectionIds: [1, 2, 4, 6] },
+        { id: 4, name: 'David Chen', email: 'david@example.com', department: 'Community', role: 'Doctor', connectionIds: [2, 3, 5] },
+        { id: 5, name: 'Eva Martinez', email: 'eva@example.com', department: 'Community', role: 'Teacher', connectionIds: [1, 4, 6] },
+        { id: 6, name: 'Frank Wilson', email: 'frank@example.com', department: 'Neighborhood', role: 'Neighbor', connectionIds: [3, 5] },
       ];
       setPeople(mockPeople);
       setNetworkData({
         nodes: mockPeople.map(p => ({ id: p.id, label: p.name, group: p.department })),
         links: [
-          { source: 1, target: 2, label: 'Colleague' },
-          { source: 1, target: 3, label: 'Project' },
-          { source: 1, target: 5, label: 'Cross-functional' },
-          { source: 2, target: 3, label: 'Stakeholder' },
-          { source: 2, target: 4, label: 'Project' },
-          { source: 3, target: 4, label: 'Project' },
-          { source: 3, target: 6, label: 'Business' },
-          { source: 4, target: 5, label: 'Cross-functional' },
-          { source: 5, target: 6, label: 'Partner' },
+          { source: 1, target: 2, label: 'Spouse' },
+          { source: 1, target: 3, label: 'Parent' },
+          { source: 1, target: 5, label: 'Friend' },
+          { source: 2, target: 3, label: 'Parent' },
+          { source: 2, target: 4, label: 'Patient' },
+          { source: 3, target: 4, label: 'Patient' },
+          { source: 3, target: 6, label: 'Neighbor' },
+          { source: 4, target: 5, label: 'Friend' },
+          { source: 5, target: 6, label: 'Teacher' },
         ],
       });
     } finally {
@@ -58,11 +58,11 @@ const PeoplePage = () => {
 
   const getDepartmentColor = (department: string) => {
     const colors: Record<string, string> = {
-      Engineering: '#667eea',
-      Product: '#764ba2',
-      Design: '#f093fb',
-      Marketing: '#f5576c',
-      Sales: '#4facfe',
+      Family: '#667eea',
+      Community: '#48bb78',
+      Neighborhood: '#ed8936',
+      Friends: '#f093fb',
+      School: '#4facfe',
     };
     return colors[department] || '#718096';
   };
