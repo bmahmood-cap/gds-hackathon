@@ -289,24 +289,33 @@ public class PeopleService : IPeopleService
     {
         return department switch
         {
-            "Youth Housing" => "Housing Support",
-            "Child Protection" => "Case Worker",
-            "Care Leavers" => "Care Support",
-            "Family Support" => "Family Support",
-            _ => "Support"
+            "Youth Housing" => "Housing Peer",
+            "Child Protection" => "Case Support",
+            "Care Leavers" => "Care Peer",
+            "Family Support" => "Family",
+            _ => "Community"
         };
     }
 
     private void LoadDefaultMockData()
     {
+        // People with person-to-person connections (not worker IDs)
         _people.AddRange(new List<Person>
         {
-            new() { Id = 101, Name = "Ryan Munoz", Email = "r.munoz@email.com", Department = "Youth Housing", Role = "Vulnerable Child", ConnectionIds = new List<int> { 1, 2 }, RiskScore = "red", Signals = new Signals { PreviousHomelessness = true, TemporaryAccommodation = true }, Age = 16, AgeGroup = "0‑17", Gender = "Female", Ethnicity = "White‑British", HousingTenure = "Private rented" },
-            new() { Id = 102, Name = "Matthew Foster", Email = "m.foster@email.com", Department = "Care Leavers", Role = "At-Risk Youth", ConnectionIds = new List<int> { 2, 1 }, RiskScore = "red", Signals = new Signals { ParentalSubstanceAbuse = true }, Age = 21, AgeGroup = "18‑24", Gender = "Male", Ethnicity = "White‑British", HousingTenure = "Owner‑occupied" },
-            new() { Id = 103, Name = "Jessica Callahan", Email = "j.callahan@email.com", Department = "Family Support", Role = "At-Risk Child", ConnectionIds = new List<int> { 3, 1 }, RiskScore = "red", Signals = new Signals(), Age = 13, AgeGroup = "0‑17", Gender = "Female", Ethnicity = "White‑British", HousingTenure = "Homeless/temporary" },
-            new() { Id = 104, Name = "Abigail Shaffer", Email = "a.shaffer@email.com", Department = "Youth Housing", Role = "Adult", ConnectionIds = new List<int> { 1 }, RiskScore = "amber", Signals = new Signals { ParentalSubstanceAbuse = true }, Age = 25, AgeGroup = "25‑34", Gender = "Female", Ethnicity = "Mixed", HousingTenure = "Social housing" },
-            new() { Id = 105, Name = "Lisa Hensley", Email = "l.hensley@email.com", Department = "Youth Housing", Role = "At-Risk Youth", ConnectionIds = new List<int> { 1 }, RiskScore = "amber", Signals = new Signals { PreviousHomelessness = true, TemporaryAccommodation = true }, Age = 22, AgeGroup = "18‑24", Gender = "Female", Ethnicity = "Black‑Caribbean", HousingTenure = "Social housing" },
-            new() { Id = 106, Name = "Allison Hill", Email = "a.hill@email.com", Department = "Care Leavers", Role = "Young Adult", ConnectionIds = new List<int> { 2 }, RiskScore = "green", Signals = new Signals(), Age = 19, AgeGroup = "18‑24", Gender = "Male", Ethnicity = "White‑British", HousingTenure = "Owner‑occupied" },
+            new() { Id = 2033, Name = "Ryan Munoz", Email = "r.munoz@email.com", Department = "Youth Housing", Role = "Vulnerable Child", ConnectionIds = new List<int> { 2336, 312, 5562 }, RiskScore = "red", Signals = new Signals { PreviousHomelessness = true, TemporaryAccommodation = true }, Age = 16, AgeGroup = "0‑17", Gender = "Female", Ethnicity = "White‑British", HousingTenure = "Private rented" },
+            new() { Id = 2881, Name = "Matthew Foster", Email = "m.foster@email.com", Department = "Care Leavers", Role = "At-Risk Youth", ConnectionIds = new List<int> { 751, 313, 312 }, RiskScore = "red", Signals = new Signals { ParentalSubstanceAbuse = true }, Age = 21, AgeGroup = "18‑24", Gender = "Male", Ethnicity = "White‑British", HousingTenure = "Owner‑occupied" },
+            new() { Id = 4023, Name = "Jessica Callahan", Email = "j.callahan@email.com", Department = "Family Support", Role = "At-Risk Child", ConnectionIds = new List<int> { 8860, 9221, 9364 }, RiskScore = "red", Signals = new Signals(), Age = 13, AgeGroup = "0‑17", Gender = "Female", Ethnicity = "White‑British", HousingTenure = "Homeless/temporary" },
+            new() { Id = 8860, Name = "Kelly Donovan", Email = "k.donovan@email.com", Department = "Family Support", Role = "At-Risk Child", ConnectionIds = new List<int> { 4023, 9221 }, RiskScore = "red", Signals = new Signals { EducationStatus = true }, Age = 8, AgeGroup = "0‑17", Gender = "Male", Ethnicity = "White‑British", HousingTenure = "Owner‑occupied" },
+            new() { Id = 312, Name = "Michelle Harmon", Email = "m.harmon@email.com", Department = "Youth Housing", Role = "At-Risk Youth", ConnectionIds = new List<int> { 2033, 2881, 5562, 1131 }, RiskScore = "red", Signals = new Signals { PreviousHomelessness = true, TemporaryAccommodation = true }, Age = 20, AgeGroup = "18‑24", Gender = "Male", Ethnicity = "Mixed", HousingTenure = "Owner‑occupied" },
+            new() { Id = 1131, Name = "Abigail Shaffer", Email = "a.shaffer@email.com", Department = "Youth Housing", Role = "Adult", ConnectionIds = new List<int> { 312, 5562, 2336 }, RiskScore = "amber", Signals = new Signals { ParentalSubstanceAbuse = true }, Age = 25, AgeGroup = "25‑34", Gender = "Female", Ethnicity = "Mixed", HousingTenure = "Social housing" },
+            new() { Id = 9221, Name = "Gabrielle Davis", Email = "g.davis@email.com", Department = "Family Support", Role = "At-Risk Child", ConnectionIds = new List<int> { 4023, 8860, 8327 }, RiskScore = "amber", Signals = new Signals { EducationStatus = true }, Age = 17, AgeGroup = "0‑17", Gender = "Female", Ethnicity = "East‑Asian", HousingTenure = "Owner‑occupied" },
+            new() { Id = 5562, Name = "Lisa Hensley", Email = "l.hensley@email.com", Department = "Youth Housing", Role = "At-Risk Youth", ConnectionIds = new List<int> { 2033, 312, 1131 }, RiskScore = "amber", Signals = new Signals { PreviousHomelessness = true, TemporaryAccommodation = true }, Age = 22, AgeGroup = "18‑24", Gender = "Female", Ethnicity = "Black‑Caribbean", HousingTenure = "Social housing" },
+            new() { Id = 2336, Name = "Brian Ramirez", Email = "b.ramirez@email.com", Department = "Youth Housing", Role = "At-Risk Child", ConnectionIds = new List<int> { 2033, 1131 }, RiskScore = "amber", Signals = new Signals { PreviousHomelessness = true, TemporaryAccommodation = true }, Age = 16, AgeGroup = "0‑17", Gender = "Male", Ethnicity = "White‑British", HousingTenure = "Owner‑occupied" },
+            new() { Id = 313, Name = "Derek Zuniga", Email = "d.zuniga@email.com", Department = "Care Leavers", Role = "Adult", ConnectionIds = new List<int> { 2881, 751 }, RiskScore = "amber", Signals = new Signals { ParentalSubstanceAbuse = true }, Age = 28, AgeGroup = "25‑34", Gender = "Female", Ethnicity = "White‑British", HousingTenure = "Owner‑occupied" },
+            new() { Id = 751, Name = "Allison Hill", Email = "a.hill@email.com", Department = "Care Leavers", Role = "Young Adult", ConnectionIds = new List<int> { 2881, 313 }, RiskScore = "green", Signals = new Signals(), Age = 19, AgeGroup = "18‑24", Gender = "Male", Ethnicity = "White‑British", HousingTenure = "Owner‑occupied" },
+            new() { Id = 9364, Name = "Noah Rhodes", Email = "n.rhodes@email.com", Department = "Family Support", Role = "Adult", ConnectionIds = new List<int> { 4023, 8327, 720 }, RiskScore = "green", Signals = new Signals(), Age = 39, AgeGroup = "35‑44", Gender = "Female", Ethnicity = "White‑British", HousingTenure = "Owner‑occupied" },
+            new() { Id = 8327, Name = "Daniel Wagner", Email = "d.wagner@email.com", Department = "Family Support", Role = "Adult", ConnectionIds = new List<int> { 9221, 9364, 720 }, RiskScore = "green", Signals = new Signals(), Age = 47, AgeGroup = "45‑54", Gender = "Male", Ethnicity = "White‑British", HousingTenure = "Private rented" },
+            new() { Id = 720, Name = "Cristian Santos", Email = "c.santos@email.com", Department = "Family Support", Role = "Adult", ConnectionIds = new List<int> { 9364, 8327 }, RiskScore = "green", Signals = new Signals(), Age = 36, AgeGroup = "35‑44", Gender = "Male", Ethnicity = "White‑British", HousingTenure = "Living with relatives" },
         });
 
         GenerateConnections();
