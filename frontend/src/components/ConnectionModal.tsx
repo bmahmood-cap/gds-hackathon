@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import NetworkGraph from './NetworkGraph';
-import type { Person, NetworkData, Connection, RiskScore, Signals } from '../types';
+import type { Person, NetworkData, Connection, Signals } from '../types';
+import { signalLabels, getRiskScoreColor, getRiskScoreLabel } from '../utils/riskUtils';
 import './ConnectionModal.css';
 
 interface ConnectionModalProps {
@@ -52,34 +53,6 @@ function generateNetworkData(person: Person, allPeople: Person[]): NetworkData {
     }));
 
   return { nodes, links };
-}
-
-const signalLabels: Record<keyof Signals, { label: string; icon: string }> = {
-  previousHomelessness: { label: 'Previous Homelessness', icon: '🏠' },
-  temporaryAccommodation: { label: 'Temporary Accommodation', icon: '🏨' },
-  careStatus: { label: 'Care Status', icon: '👶' },
-  parentalSubstanceAbuse: { label: 'Parental Substance Abuse', icon: '⚠️' },
-  parentalCrimes: { label: 'Parental Crimes', icon: '🚨' },
-  youthJustice: { label: 'Youth Justice', icon: '⚖️' },
-  educationStatus: { label: 'Education Status', icon: '📚' },
-};
-
-function getRiskScoreColor(riskScore: RiskScore): string {
-  const colors: Record<RiskScore, string> = {
-    red: '#e53e3e',
-    amber: '#ed8936',
-    green: '#48bb78',
-  };
-  return colors[riskScore];
-}
-
-function getRiskScoreLabel(riskScore: RiskScore): string {
-  const labels: Record<RiskScore, string> = {
-    red: 'High Risk',
-    amber: 'Medium Risk',
-    green: 'Low Risk',
-  };
-  return labels[riskScore];
 }
 
 const ConnectionModal = ({ person, allPeople, onClose }: ConnectionModalProps) => {

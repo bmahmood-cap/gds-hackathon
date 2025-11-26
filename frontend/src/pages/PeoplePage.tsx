@@ -1,19 +1,9 @@
 import { useState, useEffect } from 'react';
 import { peopleApi } from '../services/api';
 import NetworkGraph from '../components/NetworkGraph';
-import type { NetworkData, Person, Signals } from '../types';
+import type { NetworkData, Person } from '../types';
+import { defaultSignals } from '../utils/riskUtils';
 import './PeoplePage.css';
-
-// Default signals (all false)
-const defaultSignals: Signals = {
-  previousHomelessness: false,
-  temporaryAccommodation: false,
-  careStatus: false,
-  parentalSubstanceAbuse: false,
-  parentalCrimes: false,
-  youthJustice: false,
-  educationStatus: false,
-};
 
 const PeoplePage = () => {
   const [networkData, setNetworkData] = useState<NetworkData>({ nodes: [], links: [] });

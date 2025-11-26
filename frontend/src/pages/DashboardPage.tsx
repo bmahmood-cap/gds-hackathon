@@ -3,6 +3,7 @@ import { useAuth } from '../contexts/useAuth';
 import { mockPeople } from '../data/mockData';
 import ConnectionModal from '../components/ConnectionModal';
 import type { Person, UserRole, RiskScore } from '../types';
+import { getRiskScoreColor, getRiskScoreLabel } from '../utils/riskUtils';
 import './DashboardPage.css';
 
 const DashboardPage = () => {
@@ -17,24 +18,6 @@ const DashboardPage = () => {
   const sortedConnections = [...connections].sort((a, b) => 
     riskOrder[a.riskScore] - riskOrder[b.riskScore]
   );
-
-  const getRiskScoreColor = (riskScore: RiskScore): string => {
-    const colors: Record<RiskScore, string> = {
-      red: '#e53e3e',
-      amber: '#ed8936',
-      green: '#48bb78',
-    };
-    return colors[riskScore];
-  };
-
-  const getRiskScoreLabel = (riskScore: RiskScore): string => {
-    const labels: Record<RiskScore, string> = {
-      red: 'High Risk',
-      amber: 'Medium Risk',
-      green: 'Low Risk',
-    };
-    return labels[riskScore];
-  };
 
   const getRoleIcon = (role: UserRole): string => {
     const icons: Record<UserRole, string> = {

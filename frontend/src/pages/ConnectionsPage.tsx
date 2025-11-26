@@ -1,18 +1,8 @@
 import { useState, useEffect } from 'react';
 import { peopleApi } from '../services/api';
-import type { Connection, Person, Signals } from '../types';
+import type { Connection, Person } from '../types';
+import { defaultSignals } from '../utils/riskUtils';
 import './ConnectionsPage.css';
-
-// Default signals (all false)
-const defaultSignals: Signals = {
-  previousHomelessness: false,
-  temporaryAccommodation: false,
-  careStatus: false,
-  parentalSubstanceAbuse: false,
-  parentalCrimes: false,
-  youthJustice: false,
-  educationStatus: false,
-};
 
 const ConnectionsPage = () => {
   const [connections, setConnections] = useState<Connection[]>([]);

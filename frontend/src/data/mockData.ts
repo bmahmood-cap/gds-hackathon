@@ -1,4 +1,5 @@
-import type { User, Person, Signals } from '../types';
+import type { User, Person } from '../types';
+import { defaultSignals } from '../utils/riskUtils';
 
 // Mock users representing different roles in local council
 export const mockUsers: User[] = [
@@ -35,17 +36,6 @@ export const mockUsers: User[] = [
     connectionIds: [],
   },
 ];
-
-// Helper to create default signals (all false)
-const defaultSignals: Signals = {
-  previousHomelessness: false,
-  temporaryAccommodation: false,
-  careStatus: false,
-  parentalSubstanceAbuse: false,
-  parentalCrimes: false,
-  youthJustice: false,
-  educationStatus: false,
-};
 
 // Mock people database - individuals at risk of homelessness and their support network
 export const mockPeople: Person[] = [
