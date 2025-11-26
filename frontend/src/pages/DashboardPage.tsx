@@ -2,7 +2,7 @@ import { useState } from 'react';
 import { useAuth } from '../contexts/useAuth';
 import { mockPeople } from '../data/mockData';
 import ConnectionModal from '../components/ConnectionModal';
-import type { Person, UserRole } from '../types';
+import type { Person, UserRole, RiskScore } from '../types';
 import './DashboardPage.css';
 
 const DashboardPage = () => {
@@ -11,6 +11,30 @@ const DashboardPage = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   const connections = getConnectionsForUser();
+
+  // Sort connections by risk score: Red > Amber > Green
+  const riskOrder: Record<RiskScore, number> = { red: 0, amber: 1, green: 2 };
+  const sortedConnections = [...connections].sort((a, b) => 
+    riskOrder[a.riskScore] - riskOrder[b.riskScore]
+  );
+
+  const getRiskScoreColor = (riskScore: RiskScore): string => {
+    const colors: Record<RiskScore, string> = {
+      red: '#e53e3e',
+      amber: '#ed8936',
+      green: '#48bb78',
+    };
+    return colors[riskScore];
+  };
+
+  const getRiskScoreLabel = (riskScore: RiskScore): string => {
+    const labels: Record<RiskScore, string> = {
+      red: 'High Risk',
+      amber: 'Medium Risk',
+      green: 'Low Risk',
+    };
+    return labels[riskScore];
+  };
 
   const getRoleIcon = (role: UserRole): string => {
     const icons: Record<UserRole, string> = {
@@ -104,7 +128,7 @@ const DashboardPage = () => {
           </div>
         ) : (
           <div className="connections-grid">
-            {connections.map((person) => (
+            {sortedConnections.map((person) => (
               <div
                 key={person.id}
                 className="connection-card"
@@ -121,7 +145,16 @@ const DashboardPage = () => {
                   <span className="connection-role">{person.role}</span>
                   <span className="connection-department">{person.department}</span>
                 </div>
-                <div className="connection-action">
+                <div className="connection-right">
+                  <div 
+                    className="risk-score-badge"
+                    style={{ 
+                      background: getRiskScoreColor(person.riskScore),
+                      boxShadow: `0 0 8px ${getRiskScoreColor(person.riskScore)}40`
+                    }}
+                  >
+                    {getRiskScoreLabel(person.riskScore)}
+                  </div>
                   <span className="view-details">View Details →</span>
                 </div>
               </div>
