@@ -14,9 +14,9 @@ const DashboardPage = () => {
 
   const getRoleIcon = (role: UserRole): string => {
     const icons: Record<UserRole, string> = {
-      teacher: '👩‍🏫',
-      doctor: '👨‍⚕️',
-      parent: '👪',
+      housing_officer: '🏠',
+      social_worker: '👩‍⚕️',
+      youth_worker: '🤝',
       admin: '🔐',
     };
     return icons[role];
@@ -24,19 +24,19 @@ const DashboardPage = () => {
 
   const getConnectionLabel = (role: UserRole): string => {
     const labels: Record<UserRole, string> = {
-      teacher: 'Students',
-      doctor: 'Patients',
-      parent: 'Children',
-      admin: 'All People',
+      housing_officer: 'Cases',
+      social_worker: 'Individuals',
+      youth_worker: 'Young People',
+      admin: 'All Records',
     };
     return labels[role];
   };
 
   const getConnectionIcon = (role: UserRole): string => {
     const icons: Record<UserRole, string> = {
-      teacher: '🎓',
-      doctor: '🏥',
-      parent: '👶',
+      housing_officer: '🏡',
+      social_worker: '👶',
+      youth_worker: '🎯',
       admin: '👥',
     };
     return icons[role];
@@ -44,12 +44,14 @@ const DashboardPage = () => {
 
   const getDepartmentColor = (department: string): string => {
     const colors: Record<string, string> = {
-      'Class 5A': '#667eea',
-      'Class 3B': '#48bb78',
-      'Primary Care': '#ed8936',
-      'Emergency': '#e53e3e',
+      'Youth Housing': '#667eea',
+      'Family Support': '#48bb78',
+      'Care Leavers': '#ed8936',
+      'Child Protection': '#e53e3e',
+      'Youth Services': '#9f7aea',
+      'Family Network': '#4fd1c5',
     };
-    return colors[department] || '#9f7aea';
+    return colors[department] || '#718096';
   };
 
   const handleConnectionClick = (person: Person) => {
@@ -98,7 +100,7 @@ const DashboardPage = () => {
         {connections.length === 0 ? (
           <div className="no-connections">
             <span className="no-connections-icon">📋</span>
-            <p>No connections found for your account.</p>
+            <p>No cases assigned to your account.</p>
           </div>
         ) : (
           <div className="connections-grid">
@@ -137,11 +139,11 @@ const DashboardPage = () => {
             <span className="stat-description">Total {getConnectionLabel(user.role)}</span>
           </div>
           <div className="stat-card">
-            <span className="stat-icon">🔗</span>
+            <span className="stat-icon">🏷️</span>
             <span className="stat-number">
               {new Set(connections.map(c => c.department)).size}
             </span>
-            <span className="stat-description">Departments</span>
+            <span className="stat-description">Categories</span>
           </div>
           <div className="stat-card">
             <span className="stat-icon">✅</span>
@@ -150,7 +152,7 @@ const DashboardPage = () => {
           </div>
           <div className="stat-card">
             <span className="stat-icon">🛡️</span>
-            <span className="stat-number">{user.role.charAt(0).toUpperCase() + user.role.slice(1)}</span>
+            <span className="stat-number">{user.role.split('_').map(w => w.charAt(0).toUpperCase() + w.slice(1)).join(' ')}</span>
             <span className="stat-description">Role</span>
           </div>
         </div>

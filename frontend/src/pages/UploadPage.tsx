@@ -84,8 +84,8 @@ const UploadPage = () => {
   return (
     <div className="upload-page">
       <header className="page-header">
-        <h1>📤 Upload Data</h1>
-        <p>Upload files to the central data store</p>
+        <h1>📤 Upload Case Data</h1>
+        <p>Import individual and family data into Signify</p>
       </header>
 
       <div className="upload-notice">
@@ -93,7 +93,7 @@ const UploadPage = () => {
         <div className="notice-content">
           <strong>Coming Soon</strong>
           <p>
-            Data format specifications are being finalized. You can prepare your files now, 
+            Data format specifications are being finalised. You can prepare your case files now, 
             and full upload functionality will be available once the format is defined.
           </p>
         </div>
@@ -177,7 +177,7 @@ const UploadPage = () => {
             <h4>📋 Upload Guidelines</h4>
             <ul>
               <li>Maximum file size: TBD</li>
-              <li>Supported formats: TBD</li>
+              <li>Supported formats: CSV, Excel, JSON</li>
               <li>Multiple files can be uploaded at once</li>
               <li>Files will be validated before processing</li>
             </ul>
@@ -187,14 +187,14 @@ const UploadPage = () => {
             <h4>🔒 Data Security</h4>
             <p>
               All uploaded data is encrypted in transit and at rest. 
-              Access controls ensure only authorized users can view the data.
+              Access controls ensure only authorised council employees can view sensitive case data.
             </p>
           </div>
 
           <div className="info-card">
             <h4>❓ Need Help?</h4>
             <p>
-              Contact the data team for assistance with data formats 
+              Contact the Signify support team for assistance with data formats 
               or upload requirements.
             </p>
           </div>

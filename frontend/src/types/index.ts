@@ -1,4 +1,4 @@
-export type UserRole = 'teacher' | 'doctor' | 'parent' | 'admin';
+export type UserRole = 'housing_officer' | 'social_worker' | 'youth_worker' | 'admin';
 
 export interface UserPermissions {
   canViewAllData: boolean;

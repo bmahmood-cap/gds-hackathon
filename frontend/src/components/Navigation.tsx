@@ -9,16 +9,16 @@ const Navigation = () => {
   const navItems = [
     { path: '/', label: 'Dashboard', icon: '📊' },
     { path: '/upload', label: 'Upload Data', icon: '📤' },
-    { path: '/connections', label: 'Connections Map', icon: '🔗' },
-    { path: '/people', label: 'People Network', icon: '👥' },
+    { path: '/connections', label: 'Relationships', icon: '🔗' },
+    { path: '/people', label: 'Individuals', icon: '👥' },
     { path: '/ai-assistant', label: 'AI Assistant', icon: '🤖' },
   ];
 
   const getRoleIcon = (role: string): string => {
     const icons: Record<string, string> = {
-      teacher: '👩‍🏫',
-      doctor: '👨‍⚕️',
-      parent: '👪',
+      housing_officer: '🏠',
+      social_worker: '👩‍⚕️',
+      youth_worker: '🤝',
       admin: '🔐',
     };
     return icons[role] || '👤';
@@ -27,8 +27,8 @@ const Navigation = () => {
   return (
     <nav className="navigation">
       <div className="nav-brand">
-        <span className="brand-icon">🏢</span>
-        <span className="brand-text">Central Data Store</span>
+        <span className="brand-icon">🏡</span>
+        <span className="brand-text">Signify</span>
       </div>
       <ul className="nav-links">
         {navItems.map((item) => (

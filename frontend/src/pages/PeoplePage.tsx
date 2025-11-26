@@ -27,28 +27,28 @@ const PeoplePage = () => {
       setError(null);
     } catch {
       setError('Failed to load network data. Make sure the backend is running.');
-      // Use mock data for demo
+      // Use mock data for demo - homelessness prevention context
       const mockPeople: Person[] = [
-        { id: 1, name: 'Alice Johnson', email: 'alice@example.com', department: 'Family', role: 'Mother', connectionIds: [2, 3, 5] },
-        { id: 2, name: 'Bob Johnson', email: 'bob@example.com', department: 'Family', role: 'Father', connectionIds: [1, 3, 4] },
-        { id: 3, name: 'Carol Johnson', email: 'carol@example.com', department: 'Family', role: 'Daughter', connectionIds: [1, 2, 4, 6] },
-        { id: 4, name: 'David Chen', email: 'david@example.com', department: 'Community', role: 'Doctor', connectionIds: [2, 3, 5] },
-        { id: 5, name: 'Eva Martinez', email: 'eva@example.com', department: 'Community', role: 'Teacher', connectionIds: [1, 4, 6] },
-        { id: 6, name: 'Frank Wilson', email: 'frank@example.com', department: 'Neighborhood', role: 'Neighbor', connectionIds: [3, 5] },
+        { id: 1, name: 'Tyler Wilson', email: 'tyler.w@email.com', department: 'Youth Housing', role: 'At-Risk Youth', connectionIds: [2, 3, 5] },
+        { id: 2, name: 'Maria Wilson', email: 'maria.w@email.com', department: 'Family Network', role: 'Parent', connectionIds: [1, 3] },
+        { id: 3, name: 'Emma Davis', email: 'emma.d@council.gov.uk', department: 'Child Protection', role: 'Social Worker', connectionIds: [1, 2, 4, 6] },
+        { id: 4, name: 'Jack Roberts', email: 'jack.r@council.gov.uk', department: 'Youth Services', role: 'Youth Worker', connectionIds: [3, 5, 6] },
+        { id: 5, name: 'Sarah Mitchell', email: 'sarah.m@council.gov.uk', department: 'Youth Housing', role: 'Housing Officer', connectionIds: [1, 4, 6] },
+        { id: 6, name: 'Noah Anderson', email: 'noah.a@email.com', department: 'Care Leavers', role: 'Care Leaver', connectionIds: [3, 4, 5] },
       ];
       setPeople(mockPeople);
       setNetworkData({
         nodes: mockPeople.map(p => ({ id: p.id, label: p.name, group: p.department })),
         links: [
-          { source: 1, target: 2, label: 'Spouse' },
-          { source: 1, target: 3, label: 'Parent' },
-          { source: 1, target: 5, label: 'Friend' },
-          { source: 2, target: 3, label: 'Parent' },
-          { source: 2, target: 4, label: 'Patient' },
-          { source: 3, target: 4, label: 'Patient' },
-          { source: 3, target: 6, label: 'Neighbor' },
-          { source: 4, target: 5, label: 'Friend' },
-          { source: 5, target: 6, label: 'Teacher' },
+          { source: 1, target: 2, label: 'Family' },
+          { source: 1, target: 3, label: 'Case Worker' },
+          { source: 1, target: 5, label: 'Housing Support' },
+          { source: 2, target: 3, label: 'Family Support' },
+          { source: 3, target: 4, label: 'Referral' },
+          { source: 3, target: 6, label: 'Case Worker' },
+          { source: 4, target: 5, label: 'Collaboration' },
+          { source: 4, target: 6, label: 'Youth Support' },
+          { source: 5, target: 6, label: 'Housing Support' },
         ],
       });
     } finally {
@@ -58,9 +58,12 @@ const PeoplePage = () => {
 
   const getDepartmentColor = (department: string) => {
     const colors: Record<string, string> = {
-      Family: '#667eea',
-      Community: '#48bb78',
-      Neighborhood: '#ed8936',
+      'Youth Housing': '#667eea',
+      'Family Network': '#48bb78',
+      'Child Protection': '#e53e3e',
+      'Youth Services': '#9f7aea',
+      'Care Leavers': '#ed8936',
+      'Family Support': '#4fd1c5',
     };
     return colors[department] || '#718096';
   };
@@ -68,8 +71,8 @@ const PeoplePage = () => {
   return (
     <div className="people-page">
       <header className="page-header">
-        <h1>👥 People Network</h1>
-        <p>Interactive visualization of team connections and relationships</p>
+        <h1>👥 Individuals Network</h1>
+        <p>Interactive visualization of individuals and their support relationships</p>
       </header>
 
       {error && (
@@ -95,7 +98,7 @@ const PeoplePage = () => {
 
           <div className="people-sidebar">
             <section className="people-list-section">
-              <h2>Team Members ({people.length})</h2>
+              <h2>Individuals ({people.length})</h2>
               <div className="people-list">
                 {people.map((person) => (
                   <div
@@ -115,7 +118,7 @@ const PeoplePage = () => {
                       <span className="person-dept">{person.department}</span>
                     </div>
                     <span className="connection-count">
-                      {person.connectionIds.length} connections
+                      {person.connectionIds.length} relationships
                     </span>
                   </div>
                 ))}
@@ -144,12 +147,12 @@ const PeoplePage = () => {
                       <span>{selectedPerson.email}</span>
                     </div>
                     <div className="detail-item">
-                      <label>🏢 Department</label>
+                      <label>🏷️ Category</label>
                       <span>{selectedPerson.department}</span>
                     </div>
                     <div className="detail-item">
-                      <label>🔗 Connections</label>
-                      <span>{selectedPerson.connectionIds.length} team members</span>
+                      <label>🔗 Relationships</label>
+                      <span>{selectedPerson.connectionIds.length} individuals</span>
                     </div>
                     <div className="connected-to">
                       <label>Connected To</label>
@@ -173,7 +176,7 @@ const PeoplePage = () => {
       )}
 
       <section className="team-stats">
-        <h2>Team Overview</h2>
+        <h2>Category Overview</h2>
         <div className="stats-row">
           {Object.entries(
             people.reduce((acc, p) => {

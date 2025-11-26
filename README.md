@@ -1,13 +1,23 @@
-# Central Data Store
+# Signify - Early Homelessness Prevention
 
-A modern web application featuring a React frontend, .NET API backend, and AWS Bedrock integration for AI-powered insights.
+A modern web application for local council employees to identify and prevent youth homelessness through relationship mapping and early intervention. Features a React frontend, .NET API backend, and AWS Bedrock integration for AI-powered insights.
 
 ## 🚀 Features
 
-- **Central Data Store**: Browse and manage organizational data assets across multiple categories
-- **Connections Map**: Visualize relationships and connections between team members with filtering capabilities
-- **People Network**: Interactive network graph visualization showing team structure and relationships
-- **AI Assistant**: AWS Bedrock-powered AI assistant for insights about data and networks
+- **Dashboard**: View and manage at-risk individuals in your caseload
+- **Relationships Map**: Visualise relationships between individuals, families, and support workers
+- **Individuals Network**: Interactive network graph showing connections and support networks
+- **AI Assistant**: AWS Bedrock-powered AI for identifying risk factors and intervention opportunities
+- **Data Upload**: Import case data into the system (coming soon)
+
+## 🎯 Use Cases
+
+Signify helps local council employees:
+- Identify young people at risk of homelessness
+- Map support networks around at-risk individuals
+- Track relationships between families, social workers, and housing officers
+- Discover early intervention opportunities
+- Collaborate across agencies on complex cases
 
 ## 🛠️ Tech Stack
 
@@ -114,6 +124,15 @@ Set the `VITE_API_URL` environment variable or update `frontend/src/services/api
 ```typescript
 const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5050';
 ```
+
+## 👥 User Roles
+
+Signify supports different user roles for local council employees:
+
+- **Housing Officer**: Manage housing cases and at-risk individuals
+- **Social Worker**: Support vulnerable children and families
+- **Youth Worker**: Engage with young people at risk
+- **Administrator**: Full system access
 
 ## 📸 Screenshots
 

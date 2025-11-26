@@ -25,26 +25,26 @@ const ConnectionsPage = () => {
       setPeople(peopleData);
       setError(null);
     } catch {
-      setError('Failed to load connections. Make sure the backend is running.');
-      // Use mock data for demo
+      setError('Failed to load relationships. Make sure the backend is running.');
+      // Use mock data for demo - homelessness prevention context
       setPeople([
-        { id: 1, name: 'Alice Johnson', email: 'alice@example.com', department: 'Family', role: 'Mother', connectionIds: [2, 3, 5] },
-        { id: 2, name: 'Bob Johnson', email: 'bob@example.com', department: 'Family', role: 'Father', connectionIds: [1, 3, 4] },
-        { id: 3, name: 'Carol Johnson', email: 'carol@example.com', department: 'Family', role: 'Daughter', connectionIds: [1, 2, 4, 6] },
-        { id: 4, name: 'David Chen', email: 'david@example.com', department: 'Community', role: 'Doctor', connectionIds: [2, 3, 5] },
-        { id: 5, name: 'Eva Martinez', email: 'eva@example.com', department: 'Community', role: 'Teacher', connectionIds: [1, 4, 6] },
-        { id: 6, name: 'Frank Wilson', email: 'frank@example.com', department: 'Neighborhood', role: 'Neighbor', connectionIds: [3, 5] },
+        { id: 1, name: 'Tyler Wilson', email: 'tyler.w@email.com', department: 'Youth Housing', role: 'At-Risk Youth', connectionIds: [2, 3, 5] },
+        { id: 2, name: 'Maria Wilson', email: 'maria.w@email.com', department: 'Family Network', role: 'Parent', connectionIds: [1, 3] },
+        { id: 3, name: 'Emma Davis', email: 'emma.d@email.com', department: 'Child Protection', role: 'Social Worker', connectionIds: [1, 2, 4] },
+        { id: 4, name: 'Jack Roberts', email: 'jack.r@council.gov.uk', department: 'Youth Services', role: 'Youth Worker', connectionIds: [3, 5, 6] },
+        { id: 5, name: 'Sarah Mitchell', email: 'sarah.m@council.gov.uk', department: 'Youth Housing', role: 'Housing Officer', connectionIds: [1, 4, 6] },
+        { id: 6, name: 'Noah Anderson', email: 'noah.a@email.com', department: 'Care Leavers', role: 'Care Leaver', connectionIds: [4, 5] },
       ]);
       setConnections([
-        { id: 1, sourcePersonId: 1, targetPersonId: 2, relationType: 'Spouse', description: 'Married couple' },
-        { id: 2, sourcePersonId: 1, targetPersonId: 3, relationType: 'Parent', description: 'Mother-daughter relationship' },
-        { id: 3, sourcePersonId: 1, targetPersonId: 5, relationType: 'Friend', description: 'Close friends from school' },
-        { id: 4, sourcePersonId: 2, targetPersonId: 3, relationType: 'Parent', description: 'Father-daughter relationship' },
-        { id: 5, sourcePersonId: 2, targetPersonId: 4, relationType: 'Patient', description: 'Family doctor' },
-        { id: 6, sourcePersonId: 3, targetPersonId: 4, relationType: 'Patient', description: 'Regular checkups' },
-        { id: 7, sourcePersonId: 3, targetPersonId: 6, relationType: 'Neighbor', description: 'Live next door' },
-        { id: 8, sourcePersonId: 4, targetPersonId: 5, relationType: 'Friend', description: 'Met at community event' },
-        { id: 9, sourcePersonId: 5, targetPersonId: 6, relationType: 'Teacher', description: 'Teaches neighbor\'s kids' },
+        { id: 1, sourcePersonId: 1, targetPersonId: 2, relationType: 'Family', description: 'Parent-child relationship' },
+        { id: 2, sourcePersonId: 1, targetPersonId: 3, relationType: 'Case Worker', description: 'Assigned social worker' },
+        { id: 3, sourcePersonId: 1, targetPersonId: 5, relationType: 'Housing Support', description: 'Housing case management' },
+        { id: 4, sourcePersonId: 2, targetPersonId: 3, relationType: 'Family Support', description: 'Family intervention support' },
+        { id: 5, sourcePersonId: 3, targetPersonId: 4, relationType: 'Referral', description: 'Cross-agency referral' },
+        { id: 6, sourcePersonId: 4, targetPersonId: 5, relationType: 'Collaboration', description: 'Joint case management' },
+        { id: 7, sourcePersonId: 4, targetPersonId: 6, relationType: 'Youth Support', description: 'Ongoing youth engagement' },
+        { id: 8, sourcePersonId: 5, targetPersonId: 6, relationType: 'Housing Support', description: 'Housing placement support' },
+        { id: 9, sourcePersonId: 3, targetPersonId: 6, relationType: 'Case Worker', description: 'Care leaver support' },
       ]);
     } finally {
       setLoading(false);
@@ -57,12 +57,13 @@ const ConnectionsPage = () => {
 
   const getRelationTypeColor = (type: string) => {
     const colors: Record<string, string> = {
-      Spouse: '#e53e3e',
-      Parent: '#667eea',
-      Friend: '#48bb78',
-      Patient: '#9f7aea',
-      Neighbor: '#ed8936',
-      Teacher: '#4fd1c5',
+      Family: '#e53e3e',
+      'Case Worker': '#667eea',
+      'Housing Support': '#48bb78',
+      'Family Support': '#9f7aea',
+      Referral: '#ed8936',
+      Collaboration: '#4fd1c5',
+      'Youth Support': '#f687b3',
     };
     return colors[type] || '#718096';
   };
@@ -75,8 +76,8 @@ const ConnectionsPage = () => {
   return (
     <div className="connections-page">
       <header className="page-header">
-        <h1>🔗 Connections Map</h1>
-        <p>Visualize relationships and connections between team members</p>
+        <h1>🔗 Relationships Map</h1>
+        <p>Visualize relationships between individuals, families, and support workers</p>
       </header>
 
       {error && (
@@ -104,12 +105,12 @@ const ConnectionsPage = () => {
       {loading ? (
         <div className="loading-spinner">
           <div className="spinner"></div>
-          <span>Loading connections...</span>
+          <span>Loading relationships...</span>
         </div>
       ) : (
         <div className="connections-content">
           <section className="connections-grid-section">
-            <h2>Connection Matrix ({filteredConnections.length} connections)</h2>
+            <h2>Relationship Matrix ({filteredConnections.length} relationships)</h2>
             <div className="connections-list">
               {filteredConnections.map((connection) => (
                 <div key={connection.id} className="connection-card">
@@ -135,33 +136,33 @@ const ConnectionsPage = () => {
           </section>
 
           <section className="connection-stats">
-            <h2>Connection Statistics</h2>
+            <h2>Relationship Statistics</h2>
             <div className="stats-cards">
               <div className="stat-card">
                 <span className="stat-icon">🔗</span>
                 <span className="stat-value">{connections.length}</span>
-                <span className="stat-label">Total Connections</span>
+                <span className="stat-label">Total Relationships</span>
               </div>
               <div className="stat-card">
                 <span className="stat-icon">👥</span>
                 <span className="stat-value">{people.length}</span>
-                <span className="stat-label">Team Members</span>
+                <span className="stat-label">Individuals</span>
               </div>
               <div className="stat-card">
                 <span className="stat-icon">📊</span>
                 <span className="stat-value">{(connections.length / people.length).toFixed(1)}</span>
-                <span className="stat-label">Avg. Connections</span>
+                <span className="stat-label">Avg. Relationships</span>
               </div>
               <div className="stat-card">
                 <span className="stat-icon">🏷️</span>
                 <span className="stat-value">{new Set(connections.map(c => c.relationType)).size}</span>
-                <span className="stat-label">Relation Types</span>
+                <span className="stat-label">Relationship Types</span>
               </div>
             </div>
           </section>
 
           <section className="relation-types-breakdown">
-            <h2>Connections by Type</h2>
+            <h2>Relationships by Type</h2>
             <div className="type-bars">
               {[...new Set(connections.map(c => c.relationType))].map((type) => {
                 const count = connections.filter(c => c.relationType === type).length;
