@@ -13,8 +13,8 @@ export const defaultSignals: Signals = {
 export function getRiskScoreColor(riskScore: RiskScore): string {
   const colors: Record<RiskScore, string> = {
     red: '#e53e3e',
-    amber: '#ed8936',
-    green: '#48bb78',
+    amber: '#f97316',
+    green: '#eab308',
   };
   return colors[riskScore];
 }

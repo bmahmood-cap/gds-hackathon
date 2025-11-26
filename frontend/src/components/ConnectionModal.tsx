@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import NetworkGraph from './NetworkGraph';
 import SignalLogGraph from './SignalLogGraph';
-import type { Person, NetworkData, Connection, Signals, SignalLogEvent } from '../types';
-import { signalLabels, getRiskScoreColor, getRiskScoreLabel, signalEventLabels } from '../utils/riskUtils';
+import type { Person, NetworkData, Connection, Signals, SignalLogEvent, RiskScore } from '../types';
+import { signalLabels, getRiskScoreColor, getRiskScoreLabel, signalEventLabels, defaultSignals } from '../utils/riskUtils';
 import { mockSignalLogs } from '../data/mockData';
 import './ConnectionModal.css';
 import './SignalLogGraph.css';
@@ -14,6 +14,14 @@ interface ConnectionModalProps {
 }
 
 type TabType = 'connections' | 'network' | 'signals' | 'signalLog';
+
+// Calculate risk score based on number of active signals
+function calculateRiskScore(signals: Signals): RiskScore {
+  const activeCount = Object.values(signals).filter(Boolean).length;
+  if (activeCount >= 3) return 'red';
+  if (activeCount >= 1) return 'amber';
+  return 'green';
+}
 
 function getRelationType(role: string): string {
   const types: Record<string, string> = {
@@ -60,6 +68,8 @@ function generateNetworkData(person: Person, allPeople: Person[]): NetworkData {
 
 const ConnectionModal = ({ person, allPeople, onClose }: ConnectionModalProps) => {
   const [activeTab, setActiveTab] = useState<TabType>('connections');
+  const [signals, setSignals] = useState<Signals>({ ...person.signals });
+  const [riskScore, setRiskScore] = useState<RiskScore>(person.riskScore);
 
   const connections = generateConnections(person);
   const networkData = generateNetworkData(person, allPeople);
@@ -70,6 +80,26 @@ const ConnectionModal = ({ person, allPeople, onClose }: ConnectionModalProps) =
 
   const getPersonById = (id: number): Person | undefined => {
     return allPeople.find(p => p.id === id);
+  };
+
+  // Handle toggling a signal (edit)
+  const handleToggleSignal = (key: keyof Signals) => {
+    const newSignals = { ...signals, [key]: !signals[key] };
+    setSignals(newSignals);
+    setRiskScore(calculateRiskScore(newSignals));
+  };
+
+  // Handle deleting (clearing) a signal
+  const handleDeleteSignal = (key: keyof Signals) => {
+    const newSignals = { ...signals, [key]: false };
+    setSignals(newSignals);
+    setRiskScore(calculateRiskScore(newSignals));
+  };
+
+  // Handle clearing all signals
+  const handleClearAllSignals = () => {
+    setSignals({ ...defaultSignals });
+    setRiskScore(calculateRiskScore(defaultSignals));
   };
 
   const getDepartmentColor = (department: string): string => {
@@ -219,19 +249,25 @@ const ConnectionModal = ({ person, allPeople, onClose }: ConnectionModalProps) =
                   <div 
                     className="risk-score-badge-large"
                     style={{ 
-                      background: getRiskScoreColor(person.riskScore),
-                      boxShadow: `0 0 12px ${getRiskScoreColor(person.riskScore)}40`
+                      background: getRiskScoreColor(riskScore),
+                      boxShadow: `0 0 12px ${getRiskScoreColor(riskScore)}40`
                     }}
                   >
-                    {getRiskScoreLabel(person.riskScore)}
+                    {getRiskScoreLabel(riskScore)}
                   </div>
                 </div>
                 <p>The following signals contribute to {person.name}'s risk score.</p>
+                <button 
+                  className="clear-all-signals-btn"
+                  onClick={handleClearAllSignals}
+                >
+                  🗑️ Clear All Signals
+                </button>
               </div>
               
               <div className="signals-list">
                 {(Object.keys(signalLabels) as Array<keyof Signals>).map((key) => {
-                  const isActive = person.signals[key];
+                  const isActive = signals[key];
                   return (
                     <div 
                       key={key} 
@@ -242,6 +278,24 @@ const ConnectionModal = ({ person, allPeople, onClose }: ConnectionModalProps) =
                       <span className={`signal-status ${isActive ? 'flagged' : 'clear'}`}>
                         {isActive ? '⚠️ Flagged' : '✓ Clear'}
                       </span>
+                      <div className="signal-actions">
+                        <button 
+                          className="signal-edit-btn"
+                          onClick={() => handleToggleSignal(key)}
+                          title={isActive ? 'Clear this signal' : 'Flag this signal'}
+                        >
+                          ✏️
+                        </button>
+                        {isActive && (
+                          <button 
+                            className="signal-delete-btn"
+                            onClick={() => handleDeleteSignal(key)}
+                            title="Delete this signal"
+                          >
+                            🗑️
+                          </button>
+                        )}
+                      </div>
                     </div>
                   );
                 })}
