@@ -15,6 +15,7 @@ public class ComprehendService : IComprehendService
     private readonly IAmazonComprehend? _comprehendClient;
     private readonly ILogger<ComprehendService> _logger;
     private readonly bool _isSimulated;
+    private static readonly Random _random = new();
 
     public bool IsConnected => !_isSimulated;
 
@@ -164,7 +165,7 @@ public class ComprehendService : IComprehendService
                     {
                         Text = word,
                         Type = entityType,
-                        Score = 0.85f + (float)(new Random().NextDouble() * 0.1)
+                        Score = 0.85f + (float)(_random.NextDouble() * 0.1)
                     });
                 }
             }
@@ -186,7 +187,7 @@ public class ComprehendService : IComprehendService
                 keyPhrases.Add(new KeyPhraseResult
                 {
                     Text = phrase,
-                    Score = 0.9f + (float)(new Random().NextDouble() * 0.08)
+                    Score = 0.9f + (float)(_random.NextDouble() * 0.08)
                 });
             }
         }
