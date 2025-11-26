@@ -55,7 +55,7 @@ const UploadPage = () => {
     for (const file of textFiles) {
       const content = await readFileContent(file);
       newFiles.push({
-        id: `${Date.now()}-${Math.random().toString(36).substr(2, 9)}`,
+        id: `${Date.now()}-${Math.random().toString(36).substring(2, 11)}`,
         name: file.name,
         size: file.size,
         type: file.type || 'text/plain',
