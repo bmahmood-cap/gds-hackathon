@@ -69,7 +69,7 @@ function generateNetworkData(person: Person, allPeople: Person[]): NetworkData {
 const ConnectionModal = ({ person, allPeople, onClose }: ConnectionModalProps) => {
   const [activeTab, setActiveTab] = useState<TabType>('connections');
   const [signals, setSignals] = useState<Signals>({ ...person.signals });
-  const [riskScore, setRiskScore] = useState<RiskScore>(person.riskScore);
+  const [riskScore, setRiskScore] = useState<RiskScore>(() => calculateRiskScore(person.signals));
 
   const connections = generateConnections(person);
   const networkData = generateNetworkData(person, allPeople);
