@@ -1,0 +1,101 @@
+person_id,year,name,age,age_group,gender,ethnicity,marital_status,education_level,employment_status,num_children,disability_flag,primary_language,immigration_status,housing_tenure,annual_income_bracket,socio_economic_status,household_type,overcrowding_flag,damp_and_mould,single_parent_flag,council_tax_arrears,eviction_flag,history_temp_accommodation,temp_accommodation_status,familiar_domestic_abuse_flag,social_worker_involvement,youth_justice_history,school_attendance,future_homeless,risk_score
+b11efed0,2022,Melissa Brewer,4,0‑17,Male,White‑British,Married/Civil partnership,Vocational,Employed‑full‑time,0,0,English,Settled,Living with relatives,£30‑45k,High,Private,0,0,0,1,0,0,None,0,0,0,Full,0,0.07
+5b2243a7,2022,Ricky Davis II,32,25‑34,Female,White‑British,Single,Vocational,Employed‑part‑time,0,0,Polish,Refugee,Owner‑occupied,£30‑45k,Medium,Public,0,0,0,0,0,0,None,1,1,0,N/A,0,0.12000000000000001
+e75de99e,2022,Elizabeth Perkins,48,45‑54,Male,White‑British,Married/Civil partnership,A‑Level,Student,2,0,English,British citizen,Social housing,<£10k,Medium,Private,0,0,0,0,0,0,None,0,0,0,N/A,0,0.02
+d8881a39,2022,Joseph Coleman,41,35‑44,Female,White‑British,Single,Vocational,Employed‑part‑time,1,0,English,British citizen,Private rented,£45‑60k,Low,Private,0,0,0,0,0,0,None,1,0,0,N/A,0,0.07
+52b9cf23,2022,Erin Warner,69,65+,Male,White‑British,Single,A‑Level,Disabled‑not‑working,3,0,English,British citizen,Private rented,£30‑45k,Medium,Private,0,0,0,0,0,True,Hostel,0,0,0,N/A,0,0.12000000000000001
+6650c8c1,2022,David Martinez,52,45‑54,Female,Mixed,Divorced,A‑Level,Employed‑full‑time,1,0,English,Asylum seeker,Owner‑occupied,£30‑45k,Low,Private,0,0,0,0,0,0,None,0,0,0,N/A,0,0.02
+0a44fd1d,2022,Bryan Herrera,28,25‑34,Male,White‑British,Married/Civil partnership,No formal,Unemployed,0,1,English,Pre‑settled,Owner‑occupied,<£10k,Low,Private,0,0,0,1,0,0,None,0,0,0,N/A,0,0.07
+1e8c3581,2022,Cathy Robinson,43,35‑44,Male,White‑British,Married/Civil partnership,Postgraduate,Disabled‑not‑working,2,0,English,British citizen,Private rented,£45‑60k,Low,Private,0,0,1,0,0,0,None,0,0,0,N/A,0,0.07
+96729d97,2022,Dr. William Warren,44,35‑44,Female,White‑British,Divorced,GCSE/O‑Level,Unemployed,0,0,Other,British citizen,Owner‑occupied,£30‑45k,Low,Private,0,0,0,0,0,True,Hostel,0,0,0,N/A,0,0.12000000000000001
+708fdbaf,2022,Brian Lee,74,65+,Female,White‑British,Married/Civil partnership,A‑Level,Employed‑full‑time,1,0,English,British citizen,Homeless/temporary,£10‑20k,Low,Private,0,0,0,0,1,True,Hostel,0,0,0,N/A,1,0.17
+94243d30,2022,Christopher Smith,32,25‑34,Female,White‑British,Divorced,Vocational,Disabled‑not‑working,1,0,English,British citizen,Social housing,£45‑60k,Medium,Public,0,0,0,1,0,0,None,0,0,0,N/A,0,0.07
+b431e042,2022,Denise Mccann,45,45‑54,Female,White‑British,Cohabiting,A‑Level,Retired,0,0,English,British citizen,Social housing,£20‑30k,High,Private,0,0,0,1,0,0,None,0,0,0,N/A,0,0.07
+b8502dbb,2022,Melissa Martinez,48,45‑54,Male,White‑British,Married/Civil partnership,GCSE/O‑Level,Student,0,0,English,British citizen,Private rented,<£10k,Low,Private,0,0,0,0,0,0,None,0,0,0,N/A,0,0.02
+08828bdf,2022,Katherine Salas,37,35‑44,Male,Other,Married/Civil partnership,No formal,Retired,1,0,English,Pre‑settled,Owner‑occupied,£45‑60k,Low,Private,1,0,0,0,0,0,None,0,0,0,N/A,0,0.07
+67bbb680,2022,Julie Alexander,32,25‑34,Male,White‑British,Single,Undergraduate,Employed‑full‑time,2,0,English,Settled,Homeless/temporary,<£10k,Low,Private,0,0,0,1,1,0,None,0,0,0,N/A,0,0.12000000000000001
+4fce9fdf,2022,Anthony Everett,56,55‑64,Male,Black‑Caribbean,Single,Vocational,Disabled‑not‑working,0,0,English,British citizen,Social housing,>£60k,Low,Private,0,0,0,0,0,0,None,0,0,0,N/A,0,0.02
+f40c8a56,2022,Rodney Morales,25,25‑34,Male,White‑British,Married/Civil partnership,No formal,Employed‑full‑time,0,0,English,British citizen,Owner‑occupied,£20‑30k,High,Public,0,0,0,0,1,0,None,0,0,0,N/A,0,0.07
+cc20d9e4,2022,Mark Brown,12,0‑17,Non‑binary,White‑British,Single,A‑Level,Student,2,0,English,British citizen,Owner‑occupied,>£60k,Medium,Public,0,0,0,0,0,0,None,0,0,0,Partial,0,0.02
+d1a15a3f,2022,Justin Torres,23,18‑24,Male,White‑British,Married/Civil partnership,A‑Level,Employed‑full‑time,1,0,English,British citizen,Owner‑occupied,£30‑45k,Medium,Private,0,0,0,0,0,0,None,0,0,0,N/A,0,0.02
+f66e5f54,2022,Bailey Duran DDS,8,0‑17,Male,White‑British,Cohabiting,GCSE/O‑Level,Disabled‑not‑working,1,0,Urdu,Refugee,Owner‑occupied,£20‑30k,Medium,Private,0,0,0,1,0,0,None,0,0,0,Full,0,0.07
+81253c48,2022,Courtney Mills,34,25‑34,Male,White‑British,Widowed,GCSE/O‑Level,Student,1,1,English,British citizen,Private rented,£45‑60k,Low,Private,0,1,0,0,0,True,Supported housing,1,0,0,N/A,0,0.22
+3c55b8f8,2022,Jeremy Dalton,40,35‑44,Female,White‑British,Single,GCSE/O‑Level,Employed‑full‑time,0,0,English,British citizen,Owner‑occupied,>£60k,Medium,Public,0,0,1,0,0,0,None,0,0,0,N/A,0,0.07
+2ea0e9a3,2022,Elizabeth Oliver DDS,19,18‑24,Male,Black‑African,Single,GCSE/O‑Level,Employed‑full‑time,2,0,English,British citizen,Social housing,£45‑60k,Low,Public,0,0,0,0,0,0,None,0,0,0,N/A,0,0.02
+68f8fdd0,2022,Theresa Clark,50,45‑54,Female,White‑British,Married/Civil partnership,A‑Level,Employed‑full‑time,0,0,English,British citizen,Private rented,£20‑30k,High,Private,0,0,0,0,0,True,Rough sleeping,0,0,0,N/A,1,0.12000000000000001
+242e536d,2022,Matthew Moore,38,35‑44,Female,White‑British,Married/Civil partnership,No formal,Student,0,0,English,British citizen,Owner‑occupied,£45‑60k,Medium,Public,0,0,1,0,0,0,None,0,0,0,N/A,0,0.07
+f00f92a9,2022,Benjamin Smith,51,45‑54,Female,White‑British,Single,No formal,Employed‑full‑time,0,0,English,Refugee,Private rented,£45‑60k,Medium,Private,0,0,0,0,0,0,None,0,0,0,N/A,0,0.02
+1a255700,2022,Kirk Carter,50,45‑54,Male,Other,Widowed,No formal,Retired,1,0,English,Other,Living with relatives,£20‑30k,Medium,Private,0,0,0,0,0,0,None,0,0,0,N/A,0,0.02
+d356840b,2022,Michael Warner,48,45‑54,Male,White‑British,Widowed,GCSE/O‑Level,Employed‑part‑time,0,0,English,Settled,Owner‑occupied,£20‑30k,Medium,Private,0,1,0,0,0,0,None,0,0,0,N/A,0,0.07
+a60d6fdc,2022,Michael Bradshaw,28,25‑34,Female,East‑Asian,Single,A‑Level,Employed‑full‑time,0,0,Arabic,Settled,Owner‑occupied,£45‑60k,Medium,Private,0,0,1,0,0,0,None,0,0,0,N/A,1,0.07
+40b5429d,2022,Lori Guerrero,13,0‑17,Female,White‑British,Single,A‑Level,Retired,0,0,English,British citizen,Owner‑occupied,£45‑60k,Medium,Private,0,0,0,0,0,1,None,0,0,0,Full,0,0.07
+7b2d6ab8,2022,Jessica Stephens,39,35‑44,Male,Black‑Caribbean,Married/Civil partnership,Undergraduate,Employed‑full‑time,2,0,English,Refugee,Owner‑occupied,£30‑45k,Medium,Private,0,0,0,0,0,0,None,0,0,0,N/A,0,0.02
+3bcd2abb,2022,Susan Serrano,52,45‑54,Female,White‑Other,Single,GCSE/O‑Level,Student,1,0,English,British citizen,Homeless/temporary,£20‑30k,Low,Private,0,0,0,0,0,0,None,0,0,0,N/A,0,0.02
+6c3486d2,2022,Christopher Parker,34,25‑34,Male,Black‑African,Single,GCSE/O‑Level,Employed‑full‑time,0,0,English,British citizen,Social housing,£10‑20k,High,Private,0,0,1,0,0,0,None,0,0,0,N/A,0,0.07
+5a725790,2022,Laura Roberts,41,35‑44,Female,White‑Other,Single,No formal,Employed‑part‑time,2,0,English,British citizen,Private rented,>£60k,Medium,Public,0,0,0,1,0,0,None,0,0,0,N/A,0,0.07
+c0d95a7d,2022,Michael Lyons,49,45‑54,Male,Mixed,Single,Undergraduate,Student,0,1,English,Asylum seeker,Private rented,£45‑60k,High,Private,0,1,0,0,0,0,None,0,0,0,N/A,0,0.07
+271034ce,2022,Kathryn Snyder,24,18‑24,Female,White‑British,Divorced,GCSE/O‑Level,Retired,1,0,English,Refugee,Living with relatives,£30‑45k,Low,Public,0,0,0,0,0,True,Hostel,0,0,0,N/A,0,0.12000000000000001
+95830fe7,2022,Andrew Reynolds,18,18‑24,Non‑binary,Other,Cohabiting,GCSE/O‑Level,Employed‑full‑time,0,0,English,Asylum seeker,Private rented,£45‑60k,Low,Private,0,0,0,0,0,True,Hostel,0,0,0,N/A,0,0.12000000000000001
+08e880e2,2022,David Davis,60,55‑64,Male,White‑British,Cohabiting,GCSE/O‑Level,Unemployed,1,0,English,British citizen,Social housing,£10‑20k,Medium,Private,0,0,0,0,0,0,None,0,0,0,N/A,0,0.02
+5d8921dc,2022,Sara Johnston,18,18‑24,Male,White‑British,Single,Vocational,Employed‑part‑time,1,0,English,British citizen,Owner‑occupied,£30‑45k,Medium,Public,0,0,0,0,0,0,None,0,0,0,N/A,0,0.02
+8ad648a8,2022,Yvonne Chambers,66,65+,Female,White‑British,Divorced,Vocational,Employed‑part‑time,1,0,English,British citizen,Owner‑occupied,>£60k,Medium,Private,0,0,0,0,0,0,None,1,0,0,N/A,0,0.07
+2e678a72,2022,Andrew Avila,27,25‑34,Female,Mixed,Married/Civil partnership,GCSE/O‑Level,Employed‑part‑time,0,0,English,British citizen,Private rented,<£10k,Low,Public,0,0,0,0,0,0,None,0,0,0,N/A,0,0.02
+d46ae10c,2022,Matthew Moon,28,25‑34,Male,Other,Single,Vocational,Student,0,0,English,British citizen,Owner‑occupied,<£10k,Low,Public,0,0,0,1,0,0,None,0,0,0,N/A,0,0.07
+3b293dbb,2022,Kevin Walters,36,35‑44,Female,White‑British,Married/Civil partnership,Vocational,Employed‑full‑time,1,0,English,Pre‑settled,Living with relatives,<£10k,Low,Public,0,0,0,0,0,0,None,0,1,0,N/A,0,0.07
+5cf9248b,2022,Brandon Bailey MD,28,25‑34,Female,White‑Other,Single,Postgraduate,Employed‑full‑time,0,1,English,Asylum seeker,Private rented,£45‑60k,Medium,Private,0,0,0,1,0,0,None,0,0,0,N/A,0,0.07
+d1b94857,2022,Shannon Rivera,36,35‑44,Female,White‑British,Divorced,A‑Level,Employed‑full‑time,1,0,Arabic,Other,Private rented,£20‑30k,Medium,Private,0,0,0,1,0,0,None,0,0,0,N/A,0,0.07
+293e8d78,2022,Donna Landry,33,25‑34,Male,White‑British,Married/Civil partnership,No formal,Student,0,0,English,British citizen,Owner‑occupied,£45‑60k,High,Public,0,0,0,0,0,True,Rough sleeping,0,0,0,N/A,0,0.12000000000000001
+cc801e8a,2022,Krista Gibson,35,35‑44,Female,White‑British,Single,Undergraduate,Employed‑part‑time,1,0,Arabic,British citizen,Owner‑occupied,£30‑45k,High,Private,0,0,0,0,0,0,None,0,0,0,N/A,0,0.02
+31747c21,2022,Frank Cordova,45,45‑54,Male,White‑British,Single,A‑Level,Unemployed,0,0,Other,British citizen,Owner‑occupied,£10‑20k,Low,Private,0,0,0,1,0,0,None,0,0,0,N/A,0,0.07
+f8ae3b1d,2022,Jose Travis,39,35‑44,Female,Black‑African,Single,Undergraduate,Employed‑full‑time,0,0,English,British citizen,Living with relatives,>£60k,Low,Private,0,0,0,0,0,0,None,0,0,0,N/A,0,0.02
+cc06fcbe,2022,Kimberly Gutierrez,31,25‑34,Male,Other,Cohabiting,Vocational,Employed‑part‑time,0,0,English,British citizen,Social housing,£30‑45k,Low,Private,1,1,0,0,0,0,None,0,0,0,N/A,1,0.12000000000000001
+a2a1f846,2022,Isaiah Avila,27,25‑34,Female,White‑British,Married/Civil partnership,Undergraduate,Unemployed,1,1,English,British citizen,Social housing,£45‑60k,Medium,Private,0,0,0,0,0,0,None,0,0,0,N/A,0,0.02
+d1aed7b1,2022,Olivia Harris,41,35‑44,Male,White‑British,Married/Civil partnership,No formal,Retired,1,0,English,British citizen,Owner‑occupied,£30‑45k,Low,Private,0,0,1,0,0,0,None,0,0,0,N/A,0,0.07
+578dc36a,2022,Tanya Kim,23,18‑24,Female,South‑Asian,Single,No formal,Student,0,0,English,British citizen,Living with relatives,£10‑20k,Low,Private,0,1,0,0,0,0,None,0,0,0,N/A,0,0.07
+39b9b594,2022,Barbara Dudley,41,35‑44,Male,South‑Asian,Married/Civil partnership,GCSE/O‑Level,Employed‑full‑time,0,0,English,Other,Social housing,£20‑30k,Low,Private,0,0,0,0,0,0,None,0,0,0,N/A,0,0.02
+7bf5e30d,2022,Cynthia Moore,36,35‑44,Female,Black‑Caribbean,Married/Civil partnership,GCSE/O‑Level,Retired,1,0,English,British citizen,Owner‑occupied,£20‑30k,Medium,Private,0,0,0,0,0,0,None,0,0,0,N/A,0,0.02
+731a6e58,2022,Kristen Davis,22,18‑24,Female,White‑British,Single,A‑Level,Employed‑full‑time,1,0,English,British citizen,Owner‑occupied,£20‑30k,High,Public,0,0,0,0,0,0,None,0,0,0,N/A,0,0.02
+8c70ac5d,2022,Susan Murray MD,30,25‑34,Male,White‑British,Cohabiting,Undergraduate,Employed‑full‑time,0,0,English,Settled,Owner‑occupied,£30‑45k,High,Private,0,0,0,0,0,0,None,0,0,0,N/A,0,0.02
+19225e58,2022,Kathleen Moran,20,18‑24,Male,Mixed,Married/Civil partnership,A‑Level,Student,0,0,English,British citizen,Owner‑occupied,<£10k,Low,Private,0,0,0,1,1,0,None,0,0,0,N/A,0,0.12000000000000001
+895b8ffb,2022,Denise Davenport,32,25‑34,Male,White‑British,Married/Civil partnership,A‑Level,Retired,0,1,English,Other,Private rented,£45‑60k,Low,Private,0,1,0,0,0,0,None,0,0,0,N/A,0,0.07
+47c5615c,2022,Mrs. Kristen Reyes,15,0‑17,Male,White‑British,Married/Civil partnership,A‑Level,Unemployed,0,0,English,Pre‑settled,Private rented,£20‑30k,Medium,Public,0,0,1,0,0,0,None,0,0,0,Full,0,0.07
+a58f32cd,2022,Katie Suarez,47,45‑54,Male,White‑British,Married/Civil partnership,No formal,Employed‑full‑time,3,0,English,British citizen,Social housing,£30‑45k,Medium,Public,0,0,1,0,0,0,None,0,0,0,N/A,1,0.07
+0a70ba90,2022,Desiree Tyler,63,55‑64,Male,White‑British,Single,A‑Level,Employed‑full‑time,2,0,English,British citizen,Owner‑occupied,£20‑30k,High,Private,0,0,0,0,0,0,None,0,0,0,N/A,0,0.02
+c349bd4e,2022,Timothy Romero,21,18‑24,Female,White‑British,Single,No formal,Student,0,0,English,Refugee,Private rented,<£10k,Low,Private,0,0,0,0,0,0,None,0,0,1,N/A,0,0.07
+f82c529c,2022,Diane Evans,36,35‑44,Male,Mixed,Single,Vocational,Employed‑full‑time,1,0,Polish,British citizen,Social housing,£30‑45k,Medium,Public,0,0,0,1,0,True,B&B,0,0,0,N/A,1,0.17
+8715b8f1,2022,Yvonne Burns,44,35‑44,Male,White‑British,Married/Civil partnership,A‑Level,Employed‑full‑time,0,0,Other,British citizen,Owner‑occupied,<£10k,Low,Private,0,0,1,0,1,True,Supported housing,0,0,0,N/A,0,0.22
+eb717d26,2022,Joshua Reed,34,25‑34,Female,Black‑Caribbean,Cohabiting,Vocational,Employed‑part‑time,0,0,Polish,Other,Owner‑occupied,£10‑20k,Low,Private,0,0,1,0,1,0,None,0,0,0,N/A,0,0.12000000000000001
+7357a272,2022,Kimberly Gibson,33,25‑34,Female,East‑Asian,Married/Civil partnership,A‑Level,Employed‑full‑time,2,0,English,British citizen,Private rented,£10‑20k,Medium,Private,0,0,0,1,0,0,None,0,1,0,N/A,0,0.12000000000000001
+d8e482ca,2022,Colin Terry,32,25‑34,Female,White‑British,Single,A‑Level,Employed‑full‑time,0,0,English,British citizen,Owner‑occupied,£30‑45k,Low,Private,1,0,1,0,0,0,None,0,0,0,N/A,0,0.12000000000000001
+fb9551f1,2022,Cynthia Rowe,29,25‑34,Female,White‑British,Married/Civil partnership,No formal,Employed‑full‑time,1,0,English,Pre‑settled,Social housing,£20‑30k,Medium,Private,0,0,0,0,0,0,None,0,0,0,N/A,0,0.02
+4e817aa7,2022,Patrick Thornton,37,35‑44,Male,Mixed,Single,Undergraduate,Student,0,1,English,Settled,Owner‑occupied,£20‑30k,Medium,Private,0,0,0,0,0,0,None,0,0,0,N/A,0,0.02
+b8aa6058,2022,Jasmin Alvarado,24,18‑24,Female,White‑Other,Married/Civil partnership,A‑Level,Employed‑full‑time,2,0,Polish,Settled,Private rented,>£60k,Low,Private,0,0,0,0,0,True,Supported housing,0,0,0,N/A,0,0.12000000000000001
+df16a1bc,2022,Veronica Simpson,58,55‑64,Male,White‑British,Single,A‑Level,Employed‑part‑time,0,0,Urdu,Settled,Owner‑occupied,£45‑60k,Low,Private,0,0,0,0,0,True,Supported housing,0,0,0,N/A,0,0.12000000000000001
+0af9d25e,2022,Jonathan Lawrence,18,18‑24,Female,White‑British,Married/Civil partnership,No formal,Employed‑full‑time,0,0,English,Settled,Owner‑occupied,£30‑45k,High,Public,0,0,0,0,0,0,None,0,0,0,N/A,0,0.02
+78effe34,2022,Shelly Alexander,44,35‑44,Male,Mixed,Married/Civil partnership,A‑Level,Disabled‑not‑working,0,0,Polish,Pre‑settled,Social housing,£20‑30k,Medium,Private,0,0,0,0,0,0,None,0,0,0,N/A,0,0.02
+f336793b,2022,Joyce Bowen,32,25‑34,Male,Mixed,Single,GCSE/O‑Level,Unemployed,1,0,Other,British citizen,Owner‑occupied,£30‑45k,Low,Public,0,0,0,1,0,0,None,0,0,0,N/A,0,0.07
+d6f35355,2022,Matthew Moore,54,45‑54,Male,White‑British,Cohabiting,A‑Level,Disabled‑not‑working,0,0,English,British citizen,Owner‑occupied,£45‑60k,Low,Public,0,0,0,0,0,0,None,0,0,0,N/A,0,0.02
+d285a1a0,2022,Wayne Morgan,30,25‑34,Male,White‑British,Single,A‑Level,Employed‑part‑time,0,0,Mandarin,Asylum seeker,Social housing,£45‑60k,High,Private,0,0,0,0,0,0,None,0,0,0,N/A,0,0.02
+61f86f09,2022,Marie Christian,58,55‑64,Female,White‑British,Single,A‑Level,Employed‑part‑time,2,0,English,Settled,Owner‑occupied,<£10k,Low,Public,0,0,0,0,0,0,None,0,0,0,N/A,0,0.02
+9363a8c0,2022,Shannon James,43,35‑44,Non‑binary,White‑British,Married/Civil partnership,GCSE/O‑Level,Disabled‑not‑working,0,0,Urdu,Asylum seeker,Owner‑occupied,£20‑30k,Low,Private,0,0,0,0,0,True,Supported housing,0,0,0,N/A,0,0.12000000000000001
+e68aef69,2022,Nathan Malone,27,25‑34,Female,White‑British,Divorced,Undergraduate,Retired,0,0,English,British citizen,Living with relatives,£30‑45k,Low,Private,0,0,1,0,0,0,None,0,0,0,N/A,0,0.07
+249b6aa5,2022,Amanda Jones,37,35‑44,Female,South‑Asian,Single,GCSE/O‑Level,Employed‑full‑time,1,0,English,British citizen,Private rented,>£60k,Low,Public,0,0,1,0,0,0,None,0,0,0,N/A,0,0.07
+c63c4e42,2022,Tammie Bright,24,18‑24,Female,White‑British,Single,A‑Level,Employed‑full‑time,0,1,English,British citizen,Owner‑occupied,£10‑20k,Medium,Public,0,0,0,0,0,0,None,0,0,0,N/A,0,0.02
+6169371b,2022,Jessica Garcia,44,35‑44,Female,White‑British,Married/Civil partnership,A‑Level,Employed‑full‑time,0,0,English,British citizen,Owner‑occupied,<£10k,Low,Private,0,0,0,0,0,0,None,0,0,0,N/A,0,0.02
+e8732b90,2022,Shelia Wallace,33,25‑34,Female,White‑British,Married/Civil partnership,GCSE/O‑Level,Employed‑full‑time,1,0,English,British citizen,Owner‑occupied,£45‑60k,Low,Private,0,0,0,0,0,0,None,0,0,0,N/A,0,0.02
+4aeb1c64,2022,Stephanie Williams,29,25‑34,Male,White‑British,Single,A‑Level,Employed‑full‑time,0,0,English,Settled,Social housing,£45‑60k,Medium,Private,0,0,0,0,0,0,None,0,0,0,N/A,0,0.02
+65b70e9f,2022,Elaine Brooks,49,45‑54,Male,White‑British,Single,No formal,Disabled‑not‑working,1,0,English,British citizen,Owner‑occupied,£10‑20k,High,Public,0,0,0,0,1,0,None,0,0,0,N/A,0,0.07
+c7e3aafc,2022,Joseph Knight,35,35‑44,Male,White‑British,Single,GCSE/O‑Level,Student,2,0,English,British citizen,Owner‑occupied,>£60k,High,Private,0,0,0,0,0,0,None,0,0,0,N/A,0,0.02
+3f7c6a20,2022,Carolyn Miller,15,0‑17,Female,Black‑Caribbean,Single,A‑Level,Employed‑full‑time,1,0,English,British citizen,Private rented,>£60k,Medium,Private,0,0,0,1,0,0,None,0,0,0,Full,0,0.07
+e06c2005,2022,Lisa Allen,38,35‑44,Female,White‑British,Single,GCSE/O‑Level,Employed‑full‑time,0,0,English,British citizen,Owner‑occupied,£30‑45k,Low,Private,0,0,0,0,0,0,None,0,1,0,N/A,0,0.07
+d299769f,2022,Briana Murray,21,18‑24,Female,White‑British,Single,Undergraduate,Student,0,0,English,Pre‑settled,Owner‑occupied,£10‑20k,Low,Public,1,0,0,0,0,1,None,0,0,0,N/A,0,0.12000000000000001
+532a1bc0,2022,David Smith,17,0‑17,Female,Mixed,Cohabiting,No formal,Student,2,0,Mandarin,British citizen,Private rented,<£10k,Medium,Private,0,0,0,0,0,True,B&B,0,0,0,Full,0,0.12000000000000001
+34093178,2022,Stephanie Byrd,29,25‑34,Female,Black‑Caribbean,Single,Undergraduate,Student,1,0,English,Settled,Owner‑occupied,>£60k,Low,Public,0,0,0,0,0,0,None,0,0,0,N/A,0,0.02
+9f193da2,2022,Jeremy Reed,32,25‑34,Female,White‑British,Single,GCSE/O‑Level,Employed‑part‑time,1,0,English,British citizen,Homeless/temporary,£45‑60k,High,Private,0,0,0,0,0,0,None,0,0,0,N/A,0,0.02
+53e2b9e1,2022,Margaret Coleman,36,35‑44,Female,White‑British,Married/Civil partnership,A‑Level,Employed‑full‑time,1,0,Polish,Asylum seeker,Living with relatives,£20‑30k,Medium,Private,0,0,0,0,0,0,None,0,0,0,N/A,0,0.02
+e8d35bcc,2022,Ryan Gonzalez,35,35‑44,Male,White‑Other,Married/Civil partnership,Vocational,Disabled‑not‑working,2,0,English,Pre‑settled,Homeless/temporary,£45‑60k,Low,Private,0,0,1,0,0,0,None,0,0,0,N/A,0,0.07
+e6f45bf2,2022,John Young,10,0‑17,Female,White‑British,Cohabiting,Undergraduate,Employed‑full‑time,1,1,English,Pre‑settled,Owner‑occupied,£45‑60k,Medium,Public,0,0,0,0,0,1,None,0,0,0,Full,0,0.07
+9d7e9e95,2022,Laura Haney,28,25‑34,Male,White‑British,Single,Postgraduate,Student,0,0,Mandarin,British citizen,Owner‑occupied,£45‑60k,Medium,Private,0,1,1,0,0,0,None,0,0,0,N/A,0,0.12000000000000001
+97214507,2022,William Barrett,17,0‑17,Female,White‑British,Single,A‑Level,Employed‑full‑time,1,0,English,British citizen,Owner‑occupied,£20‑30k,Medium,Private,0,1,0,0,0,0,None,1,0,0,Full,0,0.12000000000000001
+5dea5e98,2022,Keith Jennings,24,18‑24,Male,White‑British,Married/Civil partnership,A‑Level,Student,0,0,English,Settled,Owner‑occupied,£30‑45k,High,Private,0,0,0,0,0,True,Hostel,0,0,0,N/A,0,0.12000000000000001
+2b515d0c,2022,Amber Obrien,62,55‑64,Female,White‑British,Single,A‑Level,Employed‑part‑time,2,1,English,British citizen,Owner‑occupied,£45‑60k,Medium,Public,0,0,0,0,0,0,None,0,0,0,N/A,0,0.02

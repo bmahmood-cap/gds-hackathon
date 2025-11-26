@@ -1,0 +1,101 @@
+person_id,year,name,age,age_group,gender,ethnicity,marital_status,education_level,employment_status,num_children,disability_flag,primary_language,immigration_status,housing_tenure,annual_income_bracket,socio_economic_status,household_type,overcrowding_flag,damp_and_mould,single_parent_flag,council_tax_arrears,eviction_flag,history_temp_accommodation,temp_accommodation_status,familiar_domestic_abuse_flag,social_worker_involvement,youth_justice_history,school_attendance,future_homeless,risk_score
+770da115,2021,Sandra Aguilar,19,18‑24,Male,White‑Other,Married/Civil partnership,GCSE/O‑Level,Disabled‑not‑working,2,0,English,British citizen,Owner‑occupied,£30‑45k,Low,Private,0,0,0,0,0,0,None,0,0,0,N/A,0,0.02
+38f79e53,2021,Cameron Parker,38,35‑44,Male,Mixed,Single,A‑Level,Disabled‑not‑working,1,0,English,British citizen,Owner‑occupied,£45‑60k,High,Private,0,0,0,0,0,0,None,0,0,0,N/A,0,0.02
+56fb2035,2021,Rebecca Valencia,32,25‑34,Female,White‑British,Cohabiting,Undergraduate,Employed‑full‑time,1,0,English,Asylum seeker,Owner‑occupied,£30‑45k,High,Private,0,0,1,0,0,0,None,0,0,0,N/A,0,0.07
+47e3f798,2021,Christine Wright,32,25‑34,Male,Black‑African,Cohabiting,GCSE/O‑Level,Employed‑full‑time,3,0,Polish,British citizen,Social housing,£45‑60k,High,Private,0,0,1,0,0,True,Hostel,0,0,0,N/A,0,0.17
+5f91e2f4,2021,Richard Henson,35,35‑44,Male,White‑British,Married/Civil partnership,Vocational,Student,0,1,English,British citizen,Owner‑occupied,£20‑30k,Low,Public,0,0,0,0,0,0,None,0,0,0,N/A,0,0.02
+06211bd6,2021,Marc Moore,43,35‑44,Male,White‑British,Cohabiting,A‑Level,Employed‑part‑time,1,1,English,British citizen,Social housing,£45‑60k,Medium,Public,0,0,1,0,0,0,None,0,0,0,N/A,0,0.07
+7acbf8c2,2021,Sharon Cherry,23,18‑24,Male,White‑British,Single,GCSE/O‑Level,Student,0,0,English,British citizen,Social housing,£20‑30k,Low,Private,0,0,0,0,0,0,None,0,0,0,N/A,0,0.02
+9b80d420,2021,Sierra Johnson,50,45‑54,Male,White‑British,Single,A‑Level,Student,0,0,Polish,British citizen,Living with relatives,£45‑60k,Medium,Public,0,0,1,0,0,True,Hostel,0,0,0,N/A,0,0.17
+025ac06b,2021,Evelyn Galvan,27,25‑34,Male,White‑British,Married/Civil partnership,GCSE/O‑Level,Retired,1,0,English,Pre‑settled,Owner‑occupied,£30‑45k,Low,Private,0,0,0,0,0,0,None,0,0,0,N/A,0,0.02
+cc22ef7e,2021,Sharon Cochran,17,0‑17,Female,White‑British,Single,No formal,Employed‑part‑time,0,0,English,British citizen,Owner‑occupied,<£10k,Low,Private,0,0,0,0,0,True,B&B,0,0,0,Full,0,0.12000000000000001
+a303a657,2021,Richard Rodriguez,41,35‑44,Female,White‑British,Married/Civil partnership,Vocational,Employed‑full‑time,0,1,English,Settled,Private rented,£20‑30k,Low,Private,1,0,0,0,0,True,Supported housing,0,0,0,N/A,0,0.17
+aaa3c567,2021,Shannon Walker,35,35‑44,Male,White‑British,Single,GCSE/O‑Level,Employed‑part‑time,1,1,Other,Refugee,Social housing,>£60k,Low,Private,0,1,0,0,0,True,B&B,0,0,0,N/A,1,0.17
+50349040,2021,Julia Torres,16,0‑17,Female,White‑British,Single,Undergraduate,Employed‑full‑time,1,0,English,British citizen,Owner‑occupied,£30‑45k,Medium,Private,0,0,0,0,0,0,None,1,0,0,Full,0,0.07
+cc7d07ea,2021,Crystal Johnson,57,55‑64,Male,White‑British,Single,GCSE/O‑Level,Employed‑full‑time,4,0,English,Refugee,Homeless/temporary,£45‑60k,Low,Public,0,0,0,0,0,0,None,0,0,0,N/A,0,0.02
+f57f613f,2021,Garrett Lin,40,35‑44,Female,White‑British,Married/Civil partnership,Vocational,Employed‑full‑time,1,0,English,Settled,Private rented,<£10k,Medium,Private,0,0,0,0,0,0,None,0,0,0,N/A,0,0.02
+2fe7eb9c,2021,Diana May,35,35‑44,Male,White‑British,Married/Civil partnership,No formal,Employed‑full‑time,0,0,Other,British citizen,Social housing,£20‑30k,Low,Private,0,0,0,0,0,0,None,0,0,0,N/A,0,0.02
+928d41f0,2021,William Herrera,25,25‑34,Female,White‑British,Married/Civil partnership,GCSE/O‑Level,Employed‑full‑time,0,0,Mandarin,British citizen,Living with relatives,£30‑45k,High,Private,0,0,0,0,0,0,None,0,0,0,N/A,0,0.02
+f98a03f9,2021,Ashley Waller,26,25‑34,Female,White‑British,Single,A‑Level,Employed‑full‑time,0,0,English,British citizen,Owner‑occupied,>£60k,Medium,Private,0,0,0,0,0,0,None,0,0,0,N/A,0,0.02
+190825d6,2021,Victor Baker,26,25‑34,Female,White‑British,Married/Civil partnership,No formal,Employed‑full‑time,1,0,English,British citizen,Owner‑occupied,£10‑20k,Low,Private,0,0,0,0,0,0,None,0,0,0,N/A,0,0.02
+d1aa434d,2021,Jeffrey Chandler,11,0‑17,Female,White‑British,Single,Undergraduate,Retired,2,0,English,British citizen,Private rented,£45‑60k,Medium,Private,0,0,0,1,0,0,None,0,0,0,Full,0,0.07
+33f72823,2021,Larry Dixon,43,35‑44,Female,Black‑African,Married/Civil partnership,A‑Level,Disabled‑not‑working,2,0,Arabic,British citizen,Owner‑occupied,£20‑30k,Medium,Public,0,0,0,0,0,0,None,0,0,0,N/A,0,0.02
+c40aa686,2021,Kenneth Scott,32,25‑34,Female,White‑British,Cohabiting,No formal,Student,1,0,Polish,Settled,Private rented,>£60k,Low,Private,0,0,0,0,0,0,None,0,0,0,N/A,0,0.02
+7f043ce4,2021,April Frost,19,18‑24,Male,Black‑African,Married/Civil partnership,GCSE/O‑Level,Student,2,1,English,British citizen,Private rented,£20‑30k,High,Private,0,0,0,0,0,True,Rough sleeping,0,0,0,N/A,0,0.12000000000000001
+284011ac,2021,Michelle Harmon,20,18‑24,Male,Mixed,Married/Civil partnership,Vocational,Student,0,0,Polish,British citizen,Owner‑occupied,£20‑30k,Low,Private,0,1,0,0,0,True,Hostel,0,0,0,N/A,0,0.17
+fb55f1e5,2021,Helen Jones,23,18‑24,Male,White‑British,Single,A‑Level,Disabled‑not‑working,1,1,Other,British citizen,Owner‑occupied,£30‑45k,Medium,Private,0,0,1,0,0,0,None,0,0,0,N/A,0,0.07
+f2866890,2021,Erin Edwards,25,25‑34,Female,Mixed,Single,GCSE/O‑Level,Disabled‑not‑working,2,0,Polish,British citizen,Owner‑occupied,<£10k,High,Private,0,0,0,0,0,0,None,0,0,0,N/A,0,0.02
+d444d842,2021,Michelle Evans,22,18‑24,Male,Mixed,Single,GCSE/O‑Level,Employed‑part‑time,1,0,English,British citizen,Owner‑occupied,£45‑60k,Medium,Private,0,0,0,1,0,0,None,0,0,0,N/A,0,0.07
+5bed187c,2021,Jason Powell,33,25‑34,Female,Black‑African,Single,Postgraduate,Retired,3,0,English,Settled,Social housing,£30‑45k,Medium,Private,0,0,0,0,0,0,None,0,0,0,N/A,0,0.02
+2e6ba801,2021,Cameron Fisher,16,0‑17,Male,White‑British,Single,A‑Level,Disabled‑not‑working,0,0,English,British citizen,Owner‑occupied,£20‑30k,Medium,Private,1,0,0,1,0,0,None,0,0,0,Full,1,0.12000000000000001
+4b61dbe2,2021,Megan Orr,44,35‑44,Male,East‑Asian,Cohabiting,Vocational,Employed‑full‑time,0,0,English,British citizen,Private rented,£20‑30k,Medium,Private,0,0,0,0,0,0,None,0,0,0,N/A,0,0.02
+42c3fab8,2021,Elizabeth Kelley,31,25‑34,Female,White‑British,Single,Undergraduate,Student,3,0,English,British citizen,Owner‑occupied,£45‑60k,Medium,Private,0,0,1,0,0,0,None,0,0,0,N/A,1,0.07
+ad77844b,2021,Dustin Jordan,23,18‑24,Male,White‑British,Single,No formal,Employed‑full‑time,1,0,English,British citizen,Owner‑occupied,£10‑20k,High,Public,0,0,0,0,0,0,None,0,0,0,N/A,0,0.02
+01acab3f,2021,Mary Marshall,42,35‑44,Female,White‑Other,Single,GCSE/O‑Level,Employed‑full‑time,1,0,Urdu,British citizen,Private rented,£20‑30k,Low,Private,0,1,0,0,0,0,None,0,1,0,N/A,0,0.12000000000000001
+5e09d72b,2021,Daniel Kennedy,66,65+,Female,South‑Asian,Cohabiting,A‑Level,Employed‑full‑time,1,0,Mandarin,Pre‑settled,Private rented,<£10k,Medium,Private,0,0,0,1,0,0,None,0,0,0,N/A,1,0.07
+7e6a1942,2021,Rebecca Jackson,32,25‑34,Female,White‑British,Widowed,A‑Level,Employed‑full‑time,0,0,English,British citizen,Owner‑occupied,£20‑30k,Medium,Private,0,0,1,0,0,0,None,1,0,0,N/A,0,0.12000000000000001
+a0097517,2021,Jose Schultz,25,25‑34,Female,Black‑Caribbean,Married/Civil partnership,Vocational,Student,1,0,English,British citizen,Social housing,£10‑20k,Low,Private,0,0,0,0,0,0,None,0,0,0,N/A,0,0.02
+cd157337,2021,Robert Potter,60,55‑64,Male,White‑British,Single,GCSE/O‑Level,Employed‑full‑time,0,0,English,British citizen,Owner‑occupied,£45‑60k,Low,Private,0,0,0,0,0,0,None,0,0,0,N/A,0,0.02
+5e396e8d,2021,Courtney Gonzalez,31,25‑34,Male,Black‑African,Single,A‑Level,Employed‑full‑time,2,0,English,British citizen,Private rented,£20‑30k,Low,Private,1,0,1,0,0,0,None,1,0,0,N/A,0,0.17
+c42d4185,2021,David Alvarez,30,25‑34,Female,Other,Cohabiting,Undergraduate,Employed‑full‑time,1,0,Other,British citizen,Social housing,£45‑60k,High,Public,0,0,1,0,0,True,Hostel,0,0,0,N/A,0,0.17
+c9f28918,2021,Angel Perry,45,45‑54,Female,White‑British,Married/Civil partnership,A‑Level,Student,0,0,English,British citizen,Private rented,£45‑60k,Low,Private,0,0,0,0,0,0,None,0,0,0,N/A,0,0.02
+59b0c93e,2021,Cheyenne Horton,40,35‑44,Female,Other,Widowed,A‑Level,Retired,1,1,English,British citizen,Private rented,£20‑30k,Low,Public,0,0,0,0,0,0,None,0,0,0,N/A,0,0.02
+a36cb82e,2021,David Douglas Jr.,5,0‑17,Male,White‑British,Married/Civil partnership,Undergraduate,Employed‑full‑time,0,0,English,British citizen,Social housing,£45‑60k,Medium,Public,0,0,0,0,0,0,None,0,0,0,Full,0,0.02
+50cd3c84,2021,Patricia Rodriguez,23,18‑24,Male,East‑Asian,Cohabiting,A‑Level,Employed‑full‑time,2,0,English,Settled,Homeless/temporary,<£10k,Medium,Public,0,0,0,0,0,0,None,1,0,0,N/A,0,0.07
+8c4b0044,2021,Christopher Rubio,32,25‑34,Female,White‑British,Single,GCSE/O‑Level,Employed‑full‑time,1,0,English,British citizen,Homeless/temporary,£45‑60k,Low,Public,0,0,0,0,0,0,None,0,0,0,N/A,0,0.02
+22f3f37b,2021,Amber Wright,29,25‑34,Female,East‑Asian,Single,No formal,Employed‑part‑time,0,0,Arabic,British citizen,Private rented,£30‑45k,Low,Private,0,0,0,1,0,0,None,0,1,0,N/A,0,0.12000000000000001
+adcbb513,2021,Joyce Solis,39,35‑44,Male,White‑British,Married/Civil partnership,Vocational,Retired,0,0,Mandarin,Other,Social housing,£20‑30k,Medium,Private,0,0,0,0,0,0,None,0,0,0,N/A,0,0.02
+ecb1ec28,2021,Victoria Larson,28,25‑34,Male,Other,Single,A‑Level,Unemployed,1,0,English,British citizen,Private rented,£10‑20k,Low,Private,0,0,0,0,0,0,None,0,0,0,N/A,0,0.02
+81e8f596,2021,Stephanie Salazar,39,35‑44,Male,South‑Asian,Single,No formal,Unemployed,2,0,English,British citizen,Social housing,£10‑20k,Low,Private,1,0,0,0,0,True,B&B,0,0,0,N/A,0,0.17
+5c420b76,2021,Kathy Rivas,25,25‑34,Female,White‑British,Married/Civil partnership,Vocational,Employed‑full‑time,1,0,Other,Settled,Owner‑occupied,£45‑60k,High,Private,1,0,0,0,0,0,None,0,0,0,N/A,1,0.07
+5776ec03,2021,Stephanie Manning,24,18‑24,Male,White‑British,Cohabiting,GCSE/O‑Level,Employed‑full‑time,0,0,English,Settled,Owner‑occupied,£30‑45k,Medium,Private,0,0,0,0,0,True,Rough sleeping,0,0,0,N/A,0,0.12000000000000001
+060a07a0,2021,David Wright,36,35‑44,Male,White‑British,Single,No formal,Disabled‑not‑working,2,0,English,British citizen,Social housing,>£60k,Medium,Public,0,0,0,0,1,0,None,0,0,0,N/A,0,0.07
+f1f8f9fd,2021,Pamela Boyd,53,45‑54,Male,White‑British,Single,GCSE/O‑Level,Employed‑full‑time,2,0,Urdu,British citizen,Owner‑occupied,£10‑20k,Low,Private,0,0,0,0,0,0,None,0,0,0,N/A,0,0.02
+8a930014,2021,Denise Jones,21,18‑24,Female,East‑Asian,Cohabiting,Undergraduate,Employed‑full‑time,1,0,English,British citizen,Owner‑occupied,£45‑60k,Low,Private,0,0,0,0,0,0,None,0,0,0,N/A,0,0.02
+52d02fcb,2021,Devon Flores,59,55‑64,Female,Black‑African,Married/Civil partnership,Undergraduate,Retired,1,0,English,British citizen,Owner‑occupied,£45‑60k,Low,Public,1,0,0,1,0,0,None,1,0,0,N/A,0,0.17
+0756e2de,2021,Brenda Hall,40,35‑44,Male,White‑British,Married/Civil partnership,GCSE/O‑Level,Disabled‑not‑working,2,0,English,British citizen,Owner‑occupied,<£10k,Low,Private,0,0,0,0,0,0,None,0,0,0,N/A,0,0.02
+3605aad8,2021,Michelle Brown,64,55‑64,Male,South‑Asian,Single,GCSE/O‑Level,Employed‑full‑time,1,0,English,British citizen,Social housing,£45‑60k,Low,Private,0,0,0,1,0,0,None,0,1,0,N/A,0,0.12000000000000001
+8f80686d,2021,Joshua Perry,41,35‑44,Male,White‑British,Married/Civil partnership,No formal,Employed‑full‑time,0,0,Other,British citizen,Owner‑occupied,£20‑30k,High,Private,0,0,0,0,0,0,None,0,0,0,N/A,0,0.02
+97416d96,2021,Jason Stein,21,18‑24,Female,White‑British,Single,GCSE/O‑Level,Employed‑full‑time,1,0,English,Pre‑settled,Private rented,£10‑20k,Medium,Private,0,0,0,0,0,0,None,0,0,0,N/A,0,0.02
+e03791f6,2021,Melissa Gates,24,18‑24,Female,South‑Asian,Single,Undergraduate,Unemployed,1,0,Urdu,British citizen,Social housing,£30‑45k,Medium,Private,0,0,0,1,0,True,Supported housing,0,0,0,N/A,0,0.17
+800b546f,2021,Jamie Smith,60,55‑64,Female,Mixed,Single,Vocational,Employed‑full‑time,1,0,English,British citizen,Owner‑occupied,>£60k,Medium,Private,0,0,0,0,0,1,None,0,0,0,N/A,0,0.07
+af2b2c4d,2021,Paul Castaneda,23,18‑24,Male,White‑Other,Married/Civil partnership,GCSE/O‑Level,Employed‑full‑time,0,0,Other,British citizen,Owner‑occupied,£45‑60k,Low,Public,0,1,1,0,0,True,B&B,1,0,0,N/A,1,0.27
+6ffa39e9,2021,Jennifer Adkins,31,25‑34,Female,Other,Married/Civil partnership,GCSE/O‑Level,Student,0,0,English,British citizen,Owner‑occupied,£20‑30k,Low,Public,0,0,0,0,0,True,B&B,0,0,0,N/A,1,0.12000000000000001
+3b87365d,2021,Lindsey Walker,0,0‑17,Male,White‑British,Married/Civil partnership,GCSE/O‑Level,Unemployed,2,0,English,British citizen,Owner‑occupied,£30‑45k,Low,Private,1,0,0,0,0,0,None,0,0,0,Full,0,0.07
+83384c83,2021,Jeffrey Johnson,29,25‑34,Male,South‑Asian,Married/Civil partnership,Undergraduate,Employed‑full‑time,0,0,English,British citizen,Owner‑occupied,<£10k,Medium,Public,0,0,0,0,0,0,None,0,0,0,N/A,0,0.02
+d6618daa,2021,Michael Powell,13,0‑17,Female,White‑British,Cohabiting,GCSE/O‑Level,Disabled‑not‑working,2,0,English,Settled,Owner‑occupied,>£60k,Low,Public,0,0,0,0,0,1,None,0,0,0,Full,0,0.07
+c141576a,2021,John Anderson,8,0‑17,Female,Black‑African,Married/Civil partnership,A‑Level,Employed‑full‑time,1,0,English,British citizen,Social housing,£10‑20k,Medium,Private,0,0,0,1,0,0,None,0,0,0,Full,1,0.07
+75229373,2021,Alyssa Long,20,18‑24,Male,White‑British,Single,A‑Level,Disabled‑not‑working,0,0,English,British citizen,Private rented,<£10k,Medium,Private,0,0,0,0,0,0,None,0,0,0,N/A,0,0.02
+4db48376,2021,Alyssa Day,61,55‑64,Female,Black‑African,Divorced,GCSE/O‑Level,Employed‑full‑time,0,0,English,British citizen,Private rented,<£10k,Medium,Private,0,0,0,0,0,True,Supported housing,0,0,0,N/A,1,0.12000000000000001
+bddac3df,2021,Joel Williams,47,45‑54,Male,White‑British,Married/Civil partnership,GCSE/O‑Level,Employed‑full‑time,0,0,Mandarin,Refugee,Private rented,£30‑45k,Low,Private,0,0,0,0,0,True,Hostel,1,0,0,N/A,0,0.17
+1a5a4aa2,2021,Daniel Murphy,45,45‑54,Male,East‑Asian,Widowed,A‑Level,Retired,0,0,English,British citizen,Private rented,£20‑30k,Medium,Private,0,0,0,0,0,0,None,0,0,0,N/A,0,0.02
+ad6d81be,2021,Jamie Walton,28,25‑34,Female,South‑Asian,Single,GCSE/O‑Level,Disabled‑not‑working,0,0,English,British citizen,Owner‑occupied,<£10k,Medium,Private,0,0,0,0,0,True,B&B,0,0,0,N/A,0,0.12000000000000001
+46433a21,2021,Darlene Miller,10,0‑17,Female,South‑Asian,Married/Civil partnership,Vocational,Employed‑full‑time,1,0,Polish,British citizen,Owner‑occupied,>£60k,High,Private,0,1,0,0,0,0,None,0,0,0,Full,0,0.07
+5e81c7c2,2021,Joshua Cooke,38,35‑44,Male,White‑British,Single,GCSE/O‑Level,Employed‑part‑time,0,0,Other,British citizen,Owner‑occupied,£20‑30k,High,Private,0,0,0,0,0,0,None,1,0,0,N/A,0,0.07
+79d56e04,2021,Matthew Harrington,21,18‑24,Female,White‑British,Married/Civil partnership,A‑Level,Unemployed,0,0,English,British citizen,Owner‑occupied,£45‑60k,High,Private,1,0,0,0,0,0,None,0,0,0,N/A,0,0.07
+90c36e33,2021,Nicole Herring,12,0‑17,Female,White‑British,Single,A‑Level,Employed‑full‑time,2,0,English,British citizen,Private rented,£45‑60k,Low,Public,0,0,1,0,0,True,Rough sleeping,1,0,0,Full,0,0.22
+3b933aba,2021,Alex Hernandez,23,18‑24,Female,South‑Asian,Divorced,No formal,Disabled‑not‑working,0,0,English,British citizen,Owner‑occupied,£30‑45k,Medium,Private,1,0,0,0,0,0,None,1,0,0,N/A,0,0.12000000000000001
+1f8fddb0,2021,Michael Elliott,38,35‑44,Male,White‑Other,Married/Civil partnership,A‑Level,Employed‑full‑time,2,0,English,British citizen,Owner‑occupied,<£10k,Medium,Private,0,0,0,0,0,0,None,0,0,0,N/A,0,0.02
+7ad7e2ff,2021,Michael Wang,54,45‑54,Male,White‑British,Married/Civil partnership,A‑Level,Employed‑full‑time,1,0,English,British citizen,Private rented,£30‑45k,Low,Public,0,0,1,1,0,0,None,0,0,0,N/A,1,0.12000000000000001
+fbf96abe,2021,Lawrence Adkins,28,25‑34,Female,White‑British,Single,GCSE/O‑Level,Employed‑part‑time,0,0,Other,British citizen,Living with relatives,£10‑20k,Low,Private,0,1,1,0,0,0,None,0,0,0,N/A,1,0.12000000000000001
+b369fda8,2021,Robert Oconnell,46,45‑54,Male,White‑British,Divorced,A‑Level,Student,0,0,English,British citizen,Owner‑occupied,£45‑60k,Low,Private,0,0,0,1,0,0,None,0,0,0,N/A,0,0.07
+3fc59d48,2021,Alexander Collins,28,25‑34,Female,White‑British,Widowed,GCSE/O‑Level,Retired,0,0,English,British citizen,Social housing,£45‑60k,Low,Public,1,0,1,0,0,0,None,0,0,0,N/A,0,0.12000000000000001
+e1dc1ae3,2021,Tina Sanders,43,35‑44,Female,White‑British,Single,Undergraduate,Retired,2,0,English,British citizen,Owner‑occupied,£20‑30k,Low,Private,0,0,0,0,0,0,None,0,1,0,N/A,0,0.07
+fed3d122,2021,Angela Vaughn,12,0‑17,Female,White‑British,Married/Civil partnership,Vocational,Unemployed,1,0,English,British citizen,Private rented,£20‑30k,Medium,Private,0,0,0,1,0,0,None,0,0,0,Full,0,0.07
+483d5641,2021,Ashley Barton,41,35‑44,Male,East‑Asian,Single,No formal,Retired,2,0,English,Settled,Living with relatives,£30‑45k,Medium,Private,0,0,0,0,0,0,None,0,0,0,N/A,0,0.02
+8a7803b5,2021,Lindsay Martinez,35,35‑44,Male,White‑British,Single,Vocational,Employed‑full‑time,1,0,Other,British citizen,Owner‑occupied,>£60k,Low,Private,0,0,0,0,0,0,None,0,0,0,N/A,0,0.02
+6538fd98,2021,Dr. Hannah Patterson,16,0‑17,Male,White‑British,Single,GCSE/O‑Level,Retired,1,0,Polish,Settled,Owner‑occupied,£20‑30k,High,Private,0,0,0,0,0,0,None,0,0,0,Full,0,0.02
+c6f0dbbe,2021,Jonathan Peterson,15,0‑17,Female,White‑British,Single,A‑Level,Student,0,0,English,British citizen,Social housing,>£60k,Medium,Private,0,0,0,0,0,0,None,0,1,0,Full,0,0.07
+25230400,2021,Samantha Garcia,39,35‑44,Male,East‑Asian,Single,Undergraduate,Retired,1,0,Other,British citizen,Owner‑occupied,£30‑45k,Medium,Private,0,0,0,0,0,True,Supported housing,0,0,0,N/A,0,0.12000000000000001
+ee2c1460,2021,Madison Poole,33,25‑34,Female,White‑British,Married/Civil partnership,Vocational,Student,0,0,English,British citizen,Social housing,£30‑45k,High,Public,0,0,0,0,0,0,None,0,0,0,N/A,0,0.02
+aea68029,2021,Jessica Gross,39,35‑44,Female,Black‑African,Single,Undergraduate,Student,1,0,Polish,British citizen,Owner‑occupied,>£60k,Medium,Private,0,0,0,0,0,0,None,0,0,0,N/A,0,0.02
+50884b51,2021,Debra Morton,35,35‑44,Male,White‑British,Single,GCSE/O‑Level,Employed‑part‑time,0,0,English,British citizen,Owner‑occupied,>£60k,High,Private,0,0,0,0,0,0,None,0,0,0,N/A,0,0.02
+a58fa836,2021,Karen Graham,31,25‑34,Male,White‑British,Married/Civil partnership,A‑Level,Employed‑full‑time,2,0,English,British citizen,Owner‑occupied,£20‑30k,Medium,Private,1,0,0,0,0,1,None,0,0,0,N/A,0,0.12000000000000001
+5bca1eec,2021,Debra Christian,4,0‑17,Male,White‑Other,Married/Civil partnership,No formal,Employed‑full‑time,1,1,English,British citizen,Owner‑occupied,£45‑60k,Low,Private,0,0,0,0,0,True,Rough sleeping,0,0,0,None,0,0.17
+095b2578,2021,Angelica Keith,37,35‑44,Male,Other,Cohabiting,No formal,Student,0,1,English,British citizen,Social housing,£20‑30k,Medium,Public,1,0,0,0,0,0,None,0,0,0,N/A,0,0.07
+be5287c3,2021,John Bishop,5,0‑17,Male,Other,Single,GCSE/O‑Level,Employed‑full‑time,0,0,Arabic,British citizen,Private rented,£10‑20k,Low,Private,0,0,0,0,0,0,None,0,0,0,Partial,1,0.02
+6afd439c,2021,Allen Rosales,33,25‑34,Female,Mixed,Divorced,Vocational,Retired,0,0,English,British citizen,Owner‑occupied,£30‑45k,Medium,Private,0,0,0,0,0,0,None,0,0,0,N/A,0,0.02
+f18e8ffa,2021,Daniel Salinas,17,0‑17,Male,White‑British,Divorced,Postgraduate,Employed‑full‑time,0,0,English,Refugee,Owner‑occupied,£45‑60k,Low,Private,0,0,0,0,0,0,None,0,0,0,Partial,0,0.02
+a1f9049f,2021,Spencer Haynes,9,0‑17,Female,White‑British,Single,A‑Level,Employed‑full‑time,0,0,Arabic,British citizen,Owner‑occupied,£10‑20k,Low,Private,0,0,0,0,0,0,None,0,0,0,Full,0,0.02
+79f6ce8b,2021,Adam Vaughan,53,45‑54,Female,Black‑African,Single,No formal,Unemployed,0,0,English,British citizen,Owner‑occupied,<£10k,Low,Public,1,0,1,0,0,True,Supported housing,0,0,0,N/A,0,0.22
+45de5959,2021,Nathan Freeman,19,18‑24,Female,White‑British,Single,GCSE/O‑Level,Disabled‑not‑working,0,0,Polish,British citizen,Living with relatives,£45‑60k,Medium,Private,0,1,0,0,0,0,None,0,0,0,N/A,0,0.07
