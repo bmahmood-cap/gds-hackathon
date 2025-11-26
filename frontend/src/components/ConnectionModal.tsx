@@ -70,13 +70,14 @@ const ConnectionModal = ({ person, allPeople, onClose }: ConnectionModalProps) =
   const [activeTab, setActiveTab] = useState<TabType>('connections');
   const [signals, setSignals] = useState<Signals>({ ...person.signals });
   const [riskScore, setRiskScore] = useState<RiskScore>(() => calculateRiskScore(person.signals));
+  
+  // Get signal log events for this person and manage them in state
+  const personSignalLog = mockSignalLogs.find(log => log.personId === person.id);
+  const initialSignalLogEvents: SignalLogEvent[] = personSignalLog?.events || [];
+  const [signalLogEvents, setSignalLogEvents] = useState<SignalLogEvent[]>(initialSignalLogEvents);
 
   const connections = generateConnections(person);
   const networkData = generateNetworkData(person, allPeople);
-  
-  // Get signal log events for this person
-  const personSignalLog = mockSignalLogs.find(log => log.personId === person.id);
-  const signalLogEvents: SignalLogEvent[] = personSignalLog?.events || [];
 
   const getPersonById = (id: number): Person | undefined => {
     return allPeople.find(p => p.id === id);
@@ -100,6 +101,17 @@ const ConnectionModal = ({ person, allPeople, onClose }: ConnectionModalProps) =
   const handleClearAllSignals = () => {
     setSignals({ ...defaultSignals });
     setRiskScore(calculateRiskScore(defaultSignals));
+  };
+
+  // Handle updating risk score impact for a signal log event
+  const handleUpdateRiskScoreImpact = (eventId: number, newImpact: number) => {
+    setSignalLogEvents(prevEvents => 
+      prevEvents.map(event => 
+        event.id === eventId 
+          ? { ...event, riskScoreImpact: newImpact }
+          : event
+      )
+    );
   };
 
   const getDepartmentColor = (department: string): string => {
@@ -353,9 +365,38 @@ const ConnectionModal = ({ person, allPeople, onClose }: ConnectionModalProps) =
                             </div>
                             <p className="event-description">{event.description}</p>
                             <div className="event-impact">
-                              <span className={`impact-badge ${impactClass}`}>
-                                {impactText}
-                              </span>
+                              <div className="impact-edit-section">
+                                <span className="impact-label">Risk Impact:</span>
+                                <div className="impact-controls">
+                                  <button 
+                                    className="impact-btn decrease"
+                                    onClick={() => handleUpdateRiskScoreImpact(event.id, event.riskScoreImpact - 1)}
+                                    title="Decrease risk impact"
+                                  >
+                                    −
+                                  </button>
+                                  <input
+                                    type="number"
+                                    className="impact-input"
+                                    value={event.riskScoreImpact}
+                                    onChange={(e) => {
+                                      const value = e.target.value;
+                                      const parsed = value === '' ? 0 : parseInt(value, 10);
+                                      handleUpdateRiskScoreImpact(event.id, isNaN(parsed) ? 0 : parsed);
+                                    }}
+                                  />
+                                  <button 
+                                    className="impact-btn increase"
+                                    onClick={() => handleUpdateRiskScoreImpact(event.id, event.riskScoreImpact + 1)}
+                                    title="Increase risk impact"
+                                  >
+                                    +
+                                  </button>
+                                </div>
+                                <span className={`impact-badge ${impactClass}`}>
+                                  {impactText}
+                                </span>
+                              </div>
                               <span className={`risk-indicator ${event.riskScoreAfter}`}>
                                 → {getRiskScoreLabel(event.riskScoreAfter)}
                               </span>
