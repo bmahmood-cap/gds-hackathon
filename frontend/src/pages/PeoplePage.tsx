@@ -61,8 +61,6 @@ const PeoplePage = () => {
       Family: '#667eea',
       Community: '#48bb78',
       Neighborhood: '#ed8936',
-      Friends: '#f093fb',
-      School: '#4facfe',
     };
     return colors[department] || '#718096';
   };
