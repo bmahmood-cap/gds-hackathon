@@ -1,5 +1,17 @@
 export type UserRole = 'housing_officer' | 'social_worker' | 'youth_worker' | 'admin';
 
+export type RiskScore = 'red' | 'amber' | 'green';
+
+export interface Signals {
+  previousHomelessness: boolean;
+  temporaryAccommodation: boolean;
+  careStatus: boolean;
+  parentalSubstanceAbuse: boolean;
+  parentalCrimes: boolean;
+  youthJustice: boolean;
+  educationStatus: boolean;
+}
+
 export interface UserPermissions {
   canViewAllData: boolean;
   canEditData: boolean;
@@ -22,6 +34,8 @@ export interface Person {
   department: string;
   role: string;
   connectionIds: number[];
+  riskScore: RiskScore;
+  signals: Signals;
 }
 
 export interface Connection {

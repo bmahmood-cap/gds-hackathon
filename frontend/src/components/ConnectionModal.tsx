@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import NetworkGraph from './NetworkGraph';
-import type { Person, NetworkData, Connection } from '../types';
+import type { Person, NetworkData, Connection, Signals } from '../types';
+import { signalLabels, getRiskScoreColor, getRiskScoreLabel } from '../utils/riskUtils';
 import './ConnectionModal.css';
 
 interface ConnectionModalProps {
@@ -9,7 +10,7 @@ interface ConnectionModalProps {
   onClose: () => void;
 }
 
-type TabType = 'connections' | 'network';
+type TabType = 'connections' | 'network' | 'signals';
 
 function getRelationType(role: string): string {
   const types: Record<string, string> = {
@@ -116,6 +117,13 @@ const ConnectionModal = ({ person, allPeople, onClose }: ConnectionModalProps) =
             <span className="tab-icon">👥</span>
             People Map
           </button>
+          <button
+            className={`modal-tab ${activeTab === 'signals' ? 'active' : ''}`}
+            onClick={() => setActiveTab('signals')}
+          >
+            <span className="tab-icon">🚩</span>
+            Signals
+          </button>
         </div>
 
         <div className="modal-content">
@@ -186,6 +194,44 @@ const ConnectionModal = ({ person, allPeople, onClose }: ConnectionModalProps) =
                   <p>No network data available</p>
                 </div>
               )}
+            </div>
+          )}
+
+          {activeTab === 'signals' && (
+            <div className="signals-tab">
+              <div className="signals-header">
+                <div className="risk-score-display">
+                  <h3>Risk Assessment</h3>
+                  <div 
+                    className="risk-score-badge-large"
+                    style={{ 
+                      background: getRiskScoreColor(person.riskScore),
+                      boxShadow: `0 0 12px ${getRiskScoreColor(person.riskScore)}40`
+                    }}
+                  >
+                    {getRiskScoreLabel(person.riskScore)}
+                  </div>
+                </div>
+                <p>The following signals contribute to {person.name}'s risk score.</p>
+              </div>
+              
+              <div className="signals-list">
+                {(Object.keys(signalLabels) as Array<keyof Signals>).map((key) => {
+                  const isActive = person.signals[key];
+                  return (
+                    <div 
+                      key={key} 
+                      className={`signal-item ${isActive ? 'active' : 'inactive'}`}
+                    >
+                      <span className="signal-icon">{signalLabels[key].icon}</span>
+                      <span className="signal-label">{signalLabels[key].label}</span>
+                      <span className={`signal-status ${isActive ? 'flagged' : 'clear'}`}>
+                        {isActive ? '⚠️ Flagged' : '✓ Clear'}
+                      </span>
+                    </div>
+                  );
+                })}
+              </div>
             </div>
           )}
         </div>

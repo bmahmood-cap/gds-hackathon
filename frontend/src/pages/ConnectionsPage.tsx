@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { peopleApi } from '../services/api';
 import type { Connection, Person } from '../types';
+import { defaultSignals } from '../utils/riskUtils';
 import './ConnectionsPage.css';
 
 const ConnectionsPage = () => {
@@ -28,12 +29,12 @@ const ConnectionsPage = () => {
       setError('Failed to load relationships. Make sure the backend is running.');
       // Use mock data for demo - homelessness prevention context
       setPeople([
-        { id: 1, name: 'Tyler Wilson', email: 'tyler.w@email.com', department: 'Youth Housing', role: 'At-Risk Youth', connectionIds: [2, 3, 5] },
-        { id: 2, name: 'Maria Wilson', email: 'maria.w@email.com', department: 'Family Network', role: 'Parent', connectionIds: [1, 3] },
-        { id: 3, name: 'Emma Davis', email: 'emma.d@council.gov.uk', department: 'Child Protection', role: 'Social Worker', connectionIds: [1, 2, 4] },
-        { id: 4, name: 'Jack Roberts', email: 'jack.r@council.gov.uk', department: 'Youth Services', role: 'Youth Worker', connectionIds: [3, 5, 6] },
-        { id: 5, name: 'Sarah Mitchell', email: 'sarah.m@council.gov.uk', department: 'Youth Housing', role: 'Housing Officer', connectionIds: [1, 4, 6] },
-        { id: 6, name: 'Noah Anderson', email: 'noah.a@email.com', department: 'Care Leavers', role: 'Care Leaver', connectionIds: [4, 5] },
+        { id: 1, name: 'Tyler Wilson', email: 'tyler.w@email.com', department: 'Youth Housing', role: 'At-Risk Youth', connectionIds: [2, 3, 5], riskScore: 'red', signals: { ...defaultSignals, previousHomelessness: true, temporaryAccommodation: true, parentalSubstanceAbuse: true } },
+        { id: 2, name: 'Maria Wilson', email: 'maria.w@email.com', department: 'Family Network', role: 'Parent', connectionIds: [1, 3], riskScore: 'green', signals: defaultSignals },
+        { id: 3, name: 'Emma Davis', email: 'emma.d@council.gov.uk', department: 'Child Protection', role: 'Social Worker', connectionIds: [1, 2, 4], riskScore: 'green', signals: defaultSignals },
+        { id: 4, name: 'Jack Roberts', email: 'jack.r@council.gov.uk', department: 'Youth Services', role: 'Youth Worker', connectionIds: [3, 5, 6], riskScore: 'green', signals: defaultSignals },
+        { id: 5, name: 'Sarah Mitchell', email: 'sarah.m@council.gov.uk', department: 'Youth Housing', role: 'Housing Officer', connectionIds: [1, 4, 6], riskScore: 'green', signals: defaultSignals },
+        { id: 6, name: 'Noah Anderson', email: 'noah.a@email.com', department: 'Care Leavers', role: 'Care Leaver', connectionIds: [4, 5], riskScore: 'amber', signals: { ...defaultSignals, careStatus: true, previousHomelessness: true } },
       ]);
       setConnections([
         { id: 1, sourcePersonId: 1, targetPersonId: 2, relationType: 'Family', description: 'Parent-child relationship' },
