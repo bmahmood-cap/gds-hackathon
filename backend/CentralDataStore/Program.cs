@@ -10,6 +10,7 @@ builder.Services.AddOpenApi();
 builder.Services.AddSingleton<IDataStoreService, DataStoreService>();
 builder.Services.AddSingleton<IPeopleService, PeopleService>();
 builder.Services.AddSingleton<IBedrockService, BedrockService>();
+builder.Services.AddSingleton<IComprehendService, ComprehendService>();
 
 // Add CORS for React frontend
 builder.Services.AddCors(options =>
