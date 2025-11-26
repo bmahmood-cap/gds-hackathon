@@ -90,3 +90,29 @@ export interface BedrockStatus {
   mode: string;
   message: string;
 }
+
+export type SignalEventType = 
+  | 'moving_house'
+  | 'temporary_accommodation'
+  | 'death_of_loved_one'
+  | 'expelled'
+  | 'arrested'
+  | 'family_breakdown'
+  | 'job_loss'
+  | 'mental_health_crisis'
+  | 'substance_abuse_incident'
+  | 'care_placement_change';
+
+export interface SignalLogEvent {
+  id: number;
+  date: string;
+  eventType: SignalEventType;
+  description: string;
+  riskScoreImpact: number; // Positive means risk increased, negative means decreased
+  riskScoreAfter: RiskScore;
+}
+
+export interface PersonSignalLog {
+  personId: number;
+  events: SignalLogEvent[];
+}

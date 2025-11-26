@@ -1,8 +1,11 @@
 import { useState } from 'react';
 import NetworkGraph from './NetworkGraph';
-import type { Person, NetworkData, Connection, Signals } from '../types';
-import { signalLabels, getRiskScoreColor, getRiskScoreLabel } from '../utils/riskUtils';
+import SignalLogGraph from './SignalLogGraph';
+import type { Person, NetworkData, Connection, Signals, SignalLogEvent } from '../types';
+import { signalLabels, getRiskScoreColor, getRiskScoreLabel, signalEventLabels } from '../utils/riskUtils';
+import { mockSignalLogs } from '../data/mockData';
 import './ConnectionModal.css';
+import './SignalLogGraph.css';
 
 interface ConnectionModalProps {
   person: Person;
@@ -10,7 +13,7 @@ interface ConnectionModalProps {
   onClose: () => void;
 }
 
-type TabType = 'connections' | 'network' | 'signals';
+type TabType = 'connections' | 'network' | 'signals' | 'signalLog';
 
 function getRelationType(role: string): string {
   const types: Record<string, string> = {
@@ -60,6 +63,10 @@ const ConnectionModal = ({ person, allPeople, onClose }: ConnectionModalProps) =
 
   const connections = generateConnections(person);
   const networkData = generateNetworkData(person, allPeople);
+  
+  // Get signal log events for this person
+  const personSignalLog = mockSignalLogs.find(log => log.personId === person.id);
+  const signalLogEvents: SignalLogEvent[] = personSignalLog?.events || [];
 
   const getPersonById = (id: number): Person | undefined => {
     return allPeople.find(p => p.id === id);
@@ -123,6 +130,13 @@ const ConnectionModal = ({ person, allPeople, onClose }: ConnectionModalProps) =
           >
             <span className="tab-icon">🚩</span>
             Signals
+          </button>
+          <button
+            className={`modal-tab ${activeTab === 'signalLog' ? 'active' : ''}`}
+            onClick={() => setActiveTab('signalLog')}
+          >
+            <span className="tab-icon">📋</span>
+            Signal Log
           </button>
         </div>
 
@@ -232,6 +246,78 @@ const ConnectionModal = ({ person, allPeople, onClose }: ConnectionModalProps) =
                   );
                 })}
               </div>
+            </div>
+          )}
+
+          {activeTab === 'signalLog' && (
+            <div className="signal-log-tab">
+              <div className="signal-log-header">
+                <h3>Signal Log Timeline</h3>
+                <p>Life events affecting {person.name}'s risk assessment over time.</p>
+              </div>
+              
+              {signalLogEvents.length > 0 ? (
+                <>
+                  <div className="signal-log-graph-section">
+                    <h4>📈 Risk Score Over Time</h4>
+                    <SignalLogGraph events={signalLogEvents} width={680} height={280} />
+                  </div>
+                  
+                  <div className="signal-log-events">
+                    <h4>📋 Event Timeline</h4>
+                    <div className="event-timeline">
+                      {[...signalLogEvents].reverse().map((event) => {
+                        const eventLabel = signalEventLabels[event.eventType];
+                        const impactClass = event.riskScoreImpact > 0 
+                          ? 'positive' 
+                          : event.riskScoreImpact < 0 
+                            ? 'negative' 
+                            : 'neutral';
+                        const impactText = event.riskScoreImpact > 0 
+                          ? `+${event.riskScoreImpact} risk increase`
+                          : event.riskScoreImpact < 0 
+                            ? `${event.riskScoreImpact} risk decrease`
+                            : 'No change';
+                        
+                        return (
+                          <div 
+                            key={event.id} 
+                            className={`timeline-event risk-${event.riskScoreAfter}`}
+                          >
+                            <div className="event-header">
+                              <span className="event-type">
+                                <span className="event-icon">{eventLabel.icon}</span>
+                                {eventLabel.label}
+                              </span>
+                              <span className="event-date">
+                                {new Date(event.date).toLocaleDateString('en-GB', { 
+                                  day: 'numeric', 
+                                  month: 'short', 
+                                  year: 'numeric' 
+                                })}
+                              </span>
+                            </div>
+                            <p className="event-description">{event.description}</p>
+                            <div className="event-impact">
+                              <span className={`impact-badge ${impactClass}`}>
+                                {impactText}
+                              </span>
+                              <span className={`risk-indicator ${event.riskScoreAfter}`}>
+                                → {getRiskScoreLabel(event.riskScoreAfter)}
+                              </span>
+                            </div>
+                          </div>
+                        );
+                      })}
+                    </div>
+                  </div>
+                </>
+              ) : (
+                <div className="no-data">
+                  <span>📋</span>
+                  <p>No signal log events recorded for this person</p>
+                </div>
+              )}
             </div>
           )}
         </div>

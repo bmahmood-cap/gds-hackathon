@@ -357,6 +357,24 @@
   color: #68d391;
 }
 
+/* Signal Log Tab Styles */
+.signal-log-tab {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.signal-log-tab h3 {
+  color: #e2e8f0;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+}
+
+.signal-log-header p {
+  color: #a0aec0;
+  font-size: 0.9rem;
+}
+
 @media (max-width: 768px) {
   .modal-overlay {
     padding: 1rem;
