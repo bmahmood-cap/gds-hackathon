@@ -124,7 +124,9 @@ const SignalLogGraph = ({ events, width = 600, height = 300 }: SignalLogGraphPro
       .attr('stroke-width', 2)
       .attr('d', line);
 
-    // Add event points
+    // Add event points - remove any existing tooltip first
+    d3.select('.signal-tooltip').remove();
+    
     const tooltip = d3.select('body').append('div')
       .attr('class', 'signal-tooltip')
       .style('position', 'absolute')
