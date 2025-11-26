@@ -1,4 +1,4 @@
-import type { DataItem, Person, Connection, NetworkData, BedrockRequest, BedrockResponse, BedrockStatus } from '../types';
+import type { DataItem, Person, Connection, NetworkData, BedrockRequest, BedrockResponse, BedrockStatus, ComprehendAnalyzeRequest, ComprehendAnalyzeResponse, ComprehendStatus } from '../types';
 
 const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5050';
 
@@ -69,4 +69,14 @@ export const bedrockApi = {
       body: JSON.stringify(request),
     }),
   getStatus: () => fetchApi<BedrockStatus>('/api/bedrock/status'),
+};
+
+// Comprehend API
+export const comprehendApi = {
+  analyze: (request: ComprehendAnalyzeRequest) =>
+    fetchApi<ComprehendAnalyzeResponse>('/api/comprehend/analyze', {
+      method: 'POST',
+      body: JSON.stringify(request),
+    }),
+  getStatus: () => fetchApi<ComprehendStatus>('/api/comprehend/status'),
 };

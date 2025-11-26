@@ -116,3 +116,45 @@ export interface PersonSignalLog {
   personId: number;
   events: SignalLogEvent[];
 }
+
+// Comprehend types
+export interface ComprehendAnalyzeRequest {
+  text: string;
+  languageCode?: string;
+}
+
+export interface ComprehendAnalyzeResponse {
+  sentiment: SentimentResult | null;
+  entities: EntityResult[];
+  keyPhrases: KeyPhraseResult[];
+  isSimulated: boolean;
+}
+
+export interface SentimentResult {
+  sentiment: string;
+  scores: SentimentScores;
+}
+
+export interface SentimentScores {
+  positive: number;
+  negative: number;
+  neutral: number;
+  mixed: number;
+}
+
+export interface EntityResult {
+  text: string;
+  type: string;
+  score: number;
+}
+
+export interface KeyPhraseResult {
+  text: string;
+  score: number;
+}
+
+export interface ComprehendStatus {
+  connected: boolean;
+  mode: string;
+  message: string;
+}
