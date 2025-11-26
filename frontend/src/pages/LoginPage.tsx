@@ -8,9 +8,9 @@ const LoginPage = () => {
 
   const getRoleIcon = (role: UserRole): string => {
     const icons: Record<UserRole, string> = {
-      teacher: '👩‍🏫',
-      doctor: '👨‍⚕️',
-      parent: '👪',
+      housing_officer: '🏠',
+      social_worker: '👩‍⚕️',
+      youth_worker: '🤝',
       admin: '🔐',
     };
     return icons[role];
@@ -18,9 +18,9 @@ const LoginPage = () => {
 
   const getRoleLabel = (role: UserRole): string => {
     const labels: Record<UserRole, string> = {
-      teacher: 'Teacher',
-      doctor: 'Doctor',
-      parent: 'Parent',
+      housing_officer: 'Housing Officer',
+      social_worker: 'Social Worker',
+      youth_worker: 'Youth Worker',
       admin: 'Administrator',
     };
     return labels[role];
@@ -28,9 +28,9 @@ const LoginPage = () => {
 
   const getRoleDescription = (role: UserRole): string => {
     const descriptions: Record<UserRole, string> = {
-      teacher: 'View students in your class',
-      doctor: 'Access patient records',
-      parent: 'See your children\'s information',
+      housing_officer: 'Manage housing cases and at-risk individuals',
+      social_worker: 'Support vulnerable children and families',
+      youth_worker: 'Engage with young people at risk',
       admin: 'Full system access',
     };
     return descriptions[role];
@@ -44,9 +44,9 @@ const LoginPage = () => {
     <div className="login-page">
       <div className="login-container">
         <div className="login-header">
-          <span className="login-icon">🏢</span>
-          <h1>Central Data Store</h1>
-          <p>Select a user profile to continue</p>
+          <span className="login-icon">🏡</span>
+          <h1>Signify</h1>
+          <p>Early Homelessness Prevention for Young People</p>
         </div>
 
         <div className="user-profiles">
@@ -66,14 +66,14 @@ const LoginPage = () => {
               </div>
               <div className="profile-connections">
                 <span className="connection-count">{user.connectionIds.length}</span>
-                <span className="connection-label">connections</span>
+                <span className="connection-label">cases</span>
               </div>
             </button>
           ))}
         </div>
 
         <div className="login-footer">
-          <p>This is a demo application with mocked authentication</p>
+          <p>Demo application for local council employees</p>
         </div>
       </div>
     </div>

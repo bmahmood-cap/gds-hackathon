@@ -55,30 +55,33 @@ const AIAssistantPage = () => {
 
   const getSimulatedResponse = (input: string): string => {
     const lower = input.toLowerCase();
-    if (lower.includes('network') || lower.includes('connection')) {
-      return 'Based on the network analysis, the central data store shows strong connectivity patterns between the Engineering and Product departments. Key influencers in the network include individuals with cross-functional roles. Recommendations: 1) Foster more connections between Design and Sales teams, 2) Establish regular cross-department sync meetings.';
+    if (lower.includes('risk') || lower.includes('at-risk') || lower.includes('vulnerable')) {
+      return 'Based on the risk analysis, there are several young people showing early warning signs of homelessness. Key indicators include: family breakdown, school exclusion, and care leaver status. Recommendations: 1) Prioritise engagement with Tyler Wilson and Noah Anderson who show multiple risk factors, 2) Strengthen family mediation services, 3) Ensure care leavers have housing plans 6 months before leaving care.';
     }
-    if (lower.includes('data') || lower.includes('store')) {
-      return 'The central data store contains well-organized information across multiple categories including Database, Catalog, Analytics, HR, and Finance. Suggested optimizations: 1) Add tagging for better discoverability, 2) Implement access controls based on department, 3) Set up automated data quality checks.';
+    if (lower.includes('network') || lower.includes('connection') || lower.includes('relationship')) {
+      return 'The relationship network shows strong cross-agency collaboration between Housing Officers, Social Workers, and Youth Workers. Key observations: Tyler Wilson has good support coverage with connections to multiple services. Recommendations: 1) Establish regular multi-agency meetings for high-risk cases, 2) Ensure family members are engaged in support plans, 3) Consider peer mentoring programmes connecting care leavers with at-risk youth.';
     }
-    if (lower.includes('people') || lower.includes('team')) {
-      return 'Your team consists of 6 members across 5 departments. The Engineering team has the most internal connections, while Sales could benefit from more cross-functional relationships. Consider organizing team-building activities between Marketing and Engineering to strengthen the product feedback loop.';
+    if (lower.includes('housing') || lower.includes('accommodation')) {
+      return 'Housing analysis indicates several individuals require urgent accommodation support. Current caseload shows 3 young people in Youth Housing category and 2 Care Leavers needing housing transition support. Recommendations: 1) Explore supported lodgings options for 16-17 year olds, 2) Fast-track housing applications for care leavers approaching 18, 3) Develop partnerships with local housing associations for young person-specific accommodation.';
     }
-    return 'I have analyzed your request. The central data store provides a comprehensive view of your organization\'s data assets and people networks. Key insights include: strong interdepartmental collaboration, well-maintained data catalogs, and clear organizational structure. Feel free to ask about specific aspects like network analysis, data management, or team connections.';
+    if (lower.includes('prevention') || lower.includes('early intervention')) {
+      return 'Early intervention strategies should focus on: 1) School-based identification of at-risk students through attendance and behaviour monitoring, 2) Family mediation services to resolve housing-related conflicts, 3) Financial literacy and budgeting support for young people approaching independence, 4) Mental health support services integrated into housing support packages. The data suggests intervention is most effective when initiated 6-12 months before a potential crisis point.';
+    }
+    return 'I have analysed the Signify data for homelessness prevention insights. The system contains records of at-risk young people, their family networks, and support worker relationships. Key areas to explore include: risk assessments, relationship mapping, housing support pathways, and early intervention opportunities. Feel free to ask about specific individuals, risk factors, or prevention strategies.';
   };
 
   const suggestedPrompts = [
-    'Analyze the network connections in my organization',
-    'What insights can you provide about our data store?',
-    'How can we improve team collaboration?',
-    'Identify key influencers in the people network',
+    'Identify young people at highest risk of homelessness',
+    'Analyse the support network for at-risk youth',
+    'What housing options are available for care leavers?',
+    'Suggest early intervention strategies',
   ];
 
   return (
     <div className="ai-assistant-page">
       <header className="page-header">
         <h1>🤖 AI Assistant</h1>
-        <p>Powered by AWS Bedrock - Get AI-driven insights about your data and networks</p>
+        <p>Powered by AWS Bedrock - Get AI-driven insights for homelessness prevention</p>
       </header>
 
       <div className="status-card">
@@ -102,7 +105,7 @@ const AIAssistantPage = () => {
               <textarea
                 value={prompt}
                 onChange={(e) => setPrompt(e.target.value)}
-                placeholder="Ask me about your data, networks, or connections..."
+                placeholder="Ask about risk factors, support networks, or intervention strategies..."
                 rows={4}
                 disabled={loading}
               />
@@ -114,7 +117,7 @@ const AIAssistantPage = () => {
                 {loading ? (
                   <>
                     <span className="btn-spinner"></span>
-                    Analyzing...
+                    Analysing...
                   </>
                 ) : (
                   <>
@@ -158,17 +161,17 @@ const AIAssistantPage = () => {
           </div>
 
           <div className="info-card">
-            <h4>About AWS Bedrock Integration</h4>
+            <h4>About Signify AI</h4>
             <p>
-              This application integrates with AWS Bedrock to provide AI-powered 
-              insights about your data store and people networks. In demo mode, 
-              responses are simulated to showcase the functionality.
+              This AI assistant helps local council employees identify risk factors 
+              and intervention opportunities for preventing youth homelessness. 
+              In demo mode, responses are simulated to showcase the functionality.
             </p>
             <ul>
-              <li>Analyze network connections</li>
-              <li>Get data management recommendations</li>
-              <li>Identify collaboration opportunities</li>
-              <li>Generate insights from your data</li>
+              <li>Analyse risk factors for individuals</li>
+              <li>Map support networks and relationships</li>
+              <li>Identify early intervention opportunities</li>
+              <li>Get housing pathway recommendations</li>
             </ul>
           </div>
         </aside>

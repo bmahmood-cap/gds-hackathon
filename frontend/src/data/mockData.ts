@@ -1,56 +1,63 @@
 import type { User, Person } from '../types';
 
-// Mock users representing different roles
+// Mock users representing different roles in local council
 export const mockUsers: User[] = [
   {
     id: 1,
     name: 'Sarah Mitchell',
-    email: 'sarah.mitchell@school.edu',
-    role: 'teacher',
+    email: 'sarah.mitchell@council.gov.uk',
+    role: 'housing_officer',
     permissions: { canViewAllData: false, canEditData: false, canManageUsers: false },
-    connectionIds: [101, 102, 103, 104, 105], // Her students
+    connectionIds: [101, 102, 103, 104, 105], // At-risk individuals in her caseload
   },
   {
     id: 2,
-    name: 'Dr. James Chen',
-    email: 'james.chen@hospital.org',
-    role: 'doctor',
+    name: 'James Chen',
+    email: 'james.chen@council.gov.uk',
+    role: 'social_worker',
     permissions: { canViewAllData: false, canEditData: true, canManageUsers: false },
-    connectionIds: [201, 202, 203, 204], // His patients
+    connectionIds: [201, 202, 203, 204], // Children and young people in his care
   },
   {
     id: 3,
     name: 'Emily Parker',
-    email: 'emily.parker@email.com',
-    role: 'parent',
+    email: 'emily.parker@council.gov.uk',
+    role: 'youth_worker',
     permissions: { canViewAllData: false, canEditData: false, canManageUsers: false },
-    connectionIds: [101, 301], // Her children
+    connectionIds: [101, 301, 302], // Young people she works with
   },
   {
     id: 4,
     name: 'Admin User',
-    email: 'admin@system.org',
+    email: 'admin@council.gov.uk',
     role: 'admin',
     permissions: { canViewAllData: true, canEditData: true, canManageUsers: true },
     connectionIds: [],
   },
 ];
 
-// Mock people database - these are the "connections"
+// Mock people database - individuals at risk of homelessness and their support network
 export const mockPeople: Person[] = [
-  // Students (Teacher's connections)
-  { id: 101, name: 'Tommy Wilson', email: 'tommy.w@school.edu', department: 'Class 5A', role: 'Student', connectionIds: [1, 3] },
-  { id: 102, name: 'Emma Davis', email: 'emma.d@school.edu', department: 'Class 5A', role: 'Student', connectionIds: [1] },
-  { id: 103, name: 'Lucas Brown', email: 'lucas.b@school.edu', department: 'Class 5A', role: 'Student', connectionIds: [1] },
-  { id: 104, name: 'Sophia Martinez', email: 'sophia.m@school.edu', department: 'Class 5A', role: 'Student', connectionIds: [1] },
-  { id: 105, name: 'Oliver Johnson', email: 'oliver.j@school.edu', department: 'Class 5A', role: 'Student', connectionIds: [1] },
+  // At-risk young people (Housing Officer's caseload)
+  { id: 101, name: 'Tyler Wilson', email: 'tyler.w@email.com', department: 'Youth Housing', role: 'At-Risk Youth', connectionIds: [1, 3, 201] },
+  { id: 102, name: 'Emma Davis', email: 'emma.d@email.com', department: 'Youth Housing', role: 'At-Risk Youth', connectionIds: [1, 401] },
+  { id: 103, name: 'Lucas Brown', email: 'lucas.b@email.com', department: 'Family Support', role: 'Young Parent', connectionIds: [1, 402] },
+  { id: 104, name: 'Sophia Martinez', email: 'sophia.m@email.com', department: 'Care Leavers', role: 'Care Leaver', connectionIds: [1, 201] },
+  { id: 105, name: 'Oliver Johnson', email: 'oliver.j@email.com', department: 'Youth Housing', role: 'At-Risk Youth', connectionIds: [1, 301] },
   
-  // Patients (Doctor's connections)
-  { id: 201, name: 'Margaret Thompson', email: 'margaret.t@email.com', department: 'Primary Care', role: 'Patient', connectionIds: [2] },
-  { id: 202, name: 'Robert Anderson', email: 'robert.a@email.com', department: 'Primary Care', role: 'Patient', connectionIds: [2] },
-  { id: 203, name: 'Jennifer Lee', email: 'jennifer.l@email.com', department: 'Primary Care', role: 'Patient', connectionIds: [2] },
-  { id: 204, name: 'William Garcia', email: 'william.g@email.com', department: 'Primary Care', role: 'Patient', connectionIds: [2] },
+  // Children and young people (Social Worker's caseload)
+  { id: 201, name: 'Mia Thompson', email: 'mia.t@email.com', department: 'Child Protection', role: 'Vulnerable Child', connectionIds: [2, 101, 104] },
+  { id: 202, name: 'Noah Anderson', email: 'noah.a@email.com', department: 'Child Protection', role: 'Vulnerable Child', connectionIds: [2, 403] },
+  { id: 203, name: 'Ava Lee', email: 'ava.l@email.com', department: 'Family Support', role: 'At-Risk Child', connectionIds: [2, 404] },
+  { id: 204, name: 'Liam Garcia', email: 'liam.g@email.com', department: 'Care Leavers', role: 'Care Leaver', connectionIds: [2] },
   
-  // Children (Parent's connections)
-  { id: 301, name: 'Max Parker', email: 'max.p@school.edu', department: 'Class 3B', role: 'Child', connectionIds: [3] },
+  // Youth Worker's connections
+  { id: 301, name: 'Jack Roberts', email: 'jack.r@email.com', department: 'Youth Services', role: 'NEET Youth', connectionIds: [3, 105] },
+  { id: 302, name: 'Chloe Harris', email: 'chloe.h@email.com', department: 'Youth Services', role: 'At-Risk Youth', connectionIds: [3] },
+  
+  // Family members and guardians
+  { id: 401, name: 'Maria Davis', email: 'maria.d@email.com', department: 'Family Network', role: 'Parent', connectionIds: [102] },
+  { id: 402, name: 'Robert Brown', email: 'robert.b@email.com', department: 'Family Network', role: 'Grandparent', connectionIds: [103] },
+  { id: 403, name: 'Helen Anderson', email: 'helen.a@email.com', department: 'Family Network', role: 'Foster Carer', connectionIds: [202] },
+  { id: 404, name: 'David Lee', email: 'david.l@email.com', department: 'Family Network', role: 'Parent', connectionIds: [203] },
 ];
