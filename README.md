@@ -112,7 +112,7 @@ Set `UseSimulated` to `false` and configure AWS credentials to use live Bedrock 
 Set the `VITE_API_URL` environment variable or update `frontend/src/services/api.ts`:
 
 ```typescript
-const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5000';
+const API_BASE_URL = import.meta.env.VITE_API_URL || 'http://localhost:5050';
 ```
 
 ## 📸 Screenshots
