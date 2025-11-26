@@ -379,7 +379,11 @@ const ConnectionModal = ({ person, allPeople, onClose }: ConnectionModalProps) =
                                     type="number"
                                     className="impact-input"
                                     value={event.riskScoreImpact}
-                                    onChange={(e) => handleUpdateRiskScoreImpact(event.id, parseInt(e.target.value) || 0)}
+                                    onChange={(e) => {
+                                      const value = e.target.value;
+                                      const parsed = value === '' ? 0 : parseInt(value, 10);
+                                      handleUpdateRiskScoreImpact(event.id, isNaN(parsed) ? 0 : parsed);
+                                    }}
                                   />
                                   <button 
                                     className="impact-btn increase"
