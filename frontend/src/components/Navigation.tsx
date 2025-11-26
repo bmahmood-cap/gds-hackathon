@@ -1,16 +1,28 @@
 import { Link, useLocation } from 'react-router-dom';
+import { useAuth } from '../contexts/useAuth';
 import './Navigation.css';
 
 const Navigation = () => {
   const location = useLocation();
+  const { user, logout } = useAuth();
 
   const navItems = [
-    { path: '/', label: 'Data Store', icon: '📊' },
+    { path: '/', label: 'Dashboard', icon: '📊' },
     { path: '/upload', label: 'Upload Data', icon: '📤' },
     { path: '/connections', label: 'Connections Map', icon: '🔗' },
     { path: '/people', label: 'People Network', icon: '👥' },
     { path: '/ai-assistant', label: 'AI Assistant', icon: '🤖' },
   ];
+
+  const getRoleIcon = (role: string): string => {
+    const icons: Record<string, string> = {
+      teacher: '👩‍🏫',
+      doctor: '👨‍⚕️',
+      parent: '👪',
+      admin: '🔐',
+    };
+    return icons[role] || '👤';
+  };
 
   return (
     <nav className="navigation">
@@ -31,6 +43,17 @@ const Navigation = () => {
           </li>
         ))}
       </ul>
+      {user && (
+        <div className="nav-user">
+          <span className="user-info">
+            <span className="user-icon">{getRoleIcon(user.role)}</span>
+            <span className="user-name">{user.name}</span>
+          </span>
+          <button className="logout-btn" onClick={logout}>
+            Logout
+          </button>
+        </div>
+      )}
     </nav>
   );
 };

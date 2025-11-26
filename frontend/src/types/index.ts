@@ -1,3 +1,20 @@
+export type UserRole = 'teacher' | 'doctor' | 'parent' | 'admin';
+
+export interface UserPermissions {
+  canViewAllData: boolean;
+  canEditData: boolean;
+  canManageUsers: boolean;
+}
+
+export interface User {
+  id: number;
+  name: string;
+  email: string;
+  role: UserRole;
+  permissions: UserPermissions;
+  connectionIds: number[];
+}
+
 export interface Person {
   id: number;
   name: string;
