@@ -1,4 +1,4 @@
-import type { User, Person } from '../types';
+import type { User, Person, PersonSignalLog } from '../types';
 import { defaultSignals } from '../utils/riskUtils';
 
 // Mock users representing different roles in local council
@@ -242,5 +242,72 @@ export const mockPeople: Person[] = [
     connectionIds: [203],
     riskScore: 'green',
     signals: defaultSignals,
+  },
+];
+
+// Mock signal log data for tracking life events over time
+export const mockSignalLogs: PersonSignalLog[] = [
+  {
+    personId: 101, // Tyler Wilson - High Risk
+    events: [
+      { id: 1, date: '2023-01-15', eventType: 'family_breakdown', description: 'Parents separated, moved to temporary accommodation', riskScoreImpact: 2, riskScoreAfter: 'amber' },
+      { id: 2, date: '2023-03-22', eventType: 'expelled', description: 'Expelled from secondary school for persistent truancy', riskScoreImpact: 2, riskScoreAfter: 'red' },
+      { id: 3, date: '2023-05-10', eventType: 'temporary_accommodation', description: 'Placed in emergency B&B accommodation', riskScoreImpact: 1, riskScoreAfter: 'red' },
+      { id: 4, date: '2023-08-05', eventType: 'arrested', description: 'Arrested for shoplifting', riskScoreImpact: 2, riskScoreAfter: 'red' },
+      { id: 5, date: '2023-11-20', eventType: 'substance_abuse_incident', description: 'Overdose requiring hospital admission', riskScoreImpact: 2, riskScoreAfter: 'red' },
+      { id: 6, date: '2024-02-14', eventType: 'moving_house', description: 'Moved to supported housing', riskScoreImpact: -1, riskScoreAfter: 'red' },
+    ],
+  },
+  {
+    personId: 102, // Emma Davis - Medium Risk
+    events: [
+      { id: 1, date: '2023-06-01', eventType: 'moving_house', description: 'Family relocated due to domestic violence', riskScoreImpact: 1, riskScoreAfter: 'amber' },
+      { id: 2, date: '2023-09-15', eventType: 'temporary_accommodation', description: 'Placed in temporary accommodation by council', riskScoreImpact: 1, riskScoreAfter: 'amber' },
+      { id: 3, date: '2024-01-10', eventType: 'mental_health_crisis', description: 'Referred to CAMHS for anxiety', riskScoreImpact: 1, riskScoreAfter: 'amber' },
+    ],
+  },
+  {
+    personId: 104, // Sophia Martinez - High Risk
+    events: [
+      { id: 1, date: '2022-09-01', eventType: 'care_placement_change', description: 'Moved to third foster placement', riskScoreImpact: 1, riskScoreAfter: 'amber' },
+      { id: 2, date: '2022-12-10', eventType: 'death_of_loved_one', description: 'Biological mother passed away', riskScoreImpact: 2, riskScoreAfter: 'red' },
+      { id: 3, date: '2023-02-20', eventType: 'mental_health_crisis', description: 'Self-harm incident, hospital admission', riskScoreImpact: 2, riskScoreAfter: 'red' },
+      { id: 4, date: '2023-06-15', eventType: 'care_placement_change', description: 'Foster placement breakdown, moved to residential care', riskScoreImpact: 1, riskScoreAfter: 'red' },
+      { id: 5, date: '2023-10-01', eventType: 'expelled', description: 'Permanently excluded from school', riskScoreImpact: 1, riskScoreAfter: 'red' },
+    ],
+  },
+  {
+    personId: 201, // Mia Thompson - High Risk
+    events: [
+      { id: 1, date: '2023-02-01', eventType: 'family_breakdown', description: 'Parents reported to social services', riskScoreImpact: 2, riskScoreAfter: 'amber' },
+      { id: 2, date: '2023-04-15', eventType: 'care_placement_change', description: 'Emergency removal from home, placed in foster care', riskScoreImpact: 2, riskScoreAfter: 'red' },
+      { id: 3, date: '2023-07-20', eventType: 'mental_health_crisis', description: 'PTSD diagnosis following trauma assessment', riskScoreImpact: 1, riskScoreAfter: 'red' },
+      { id: 4, date: '2024-01-05', eventType: 'care_placement_change', description: 'Moved to long-term stable foster placement', riskScoreImpact: -1, riskScoreAfter: 'red' },
+    ],
+  },
+  {
+    personId: 301, // Jack Roberts - High Risk
+    events: [
+      { id: 1, date: '2022-11-01', eventType: 'expelled', description: 'Excluded from school for violent behavior', riskScoreImpact: 2, riskScoreAfter: 'amber' },
+      { id: 2, date: '2023-01-15', eventType: 'arrested', description: 'Cautioned for assault', riskScoreImpact: 2, riskScoreAfter: 'red' },
+      { id: 3, date: '2023-04-10', eventType: 'family_breakdown', description: 'Kicked out of family home', riskScoreImpact: 2, riskScoreAfter: 'red' },
+      { id: 4, date: '2023-06-20', eventType: 'temporary_accommodation', description: 'Placed in youth hostel', riskScoreImpact: 1, riskScoreAfter: 'red' },
+      { id: 5, date: '2023-09-01', eventType: 'job_loss', description: 'Lost apprenticeship due to attendance issues', riskScoreImpact: 1, riskScoreAfter: 'red' },
+    ],
+  },
+  {
+    personId: 105, // Oliver Johnson - Medium Risk
+    events: [
+      { id: 1, date: '2023-08-01', eventType: 'moving_house', description: 'Family evicted, temporary accommodation', riskScoreImpact: 2, riskScoreAfter: 'amber' },
+      { id: 2, date: '2023-11-10', eventType: 'arrested', description: 'Warning for possession of cannabis', riskScoreImpact: 1, riskScoreAfter: 'amber' },
+    ],
+  },
+  {
+    personId: 204, // Liam Garcia - Medium Risk
+    events: [
+      { id: 1, date: '2023-03-01', eventType: 'care_placement_change', description: 'Turned 18, leaving care services', riskScoreImpact: 1, riskScoreAfter: 'amber' },
+      { id: 2, date: '2023-05-15', eventType: 'moving_house', description: 'Moved to independent living with support', riskScoreImpact: 0, riskScoreAfter: 'amber' },
+      { id: 3, date: '2023-08-20', eventType: 'job_loss', description: 'Made redundant from part-time job', riskScoreImpact: 1, riskScoreAfter: 'amber' },
+    ],
   },
 ];

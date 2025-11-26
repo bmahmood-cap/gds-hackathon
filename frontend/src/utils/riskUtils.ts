@@ -1,4 +1,4 @@
-import type { RiskScore, Signals } from '../types';
+import type { RiskScore, Signals, SignalEventType } from '../types';
 
 export const defaultSignals: Signals = {
   previousHomelessness: false,
@@ -36,4 +36,17 @@ export const signalLabels: Record<keyof Signals, { label: string; icon: string }
   parentalCrimes: { label: 'Parental Crimes', icon: '🚨' },
   youthJustice: { label: 'Youth Justice', icon: '⚖️' },
   educationStatus: { label: 'Education Status', icon: '📚' },
+};
+
+export const signalEventLabels: Record<SignalEventType, { label: string; icon: string }> = {
+  moving_house: { label: 'Moving House', icon: '🏠' },
+  temporary_accommodation: { label: 'Placed in Temporary Accommodation', icon: '🏨' },
+  death_of_loved_one: { label: 'Death of a Loved One', icon: '💔' },
+  expelled: { label: 'Expelled from School', icon: '🚫' },
+  arrested: { label: 'Arrested', icon: '🚔' },
+  family_breakdown: { label: 'Family Breakdown', icon: '👪' },
+  job_loss: { label: 'Job Loss', icon: '💼' },
+  mental_health_crisis: { label: 'Mental Health Crisis', icon: '🧠' },
+  substance_abuse_incident: { label: 'Substance Abuse Incident', icon: '⚠️' },
+  care_placement_change: { label: 'Care Placement Change', icon: '🔄' },
 };
