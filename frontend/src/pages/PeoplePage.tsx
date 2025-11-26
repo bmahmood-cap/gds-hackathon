@@ -47,19 +47,24 @@ const PeoplePage = () => {
                  u.role === 'youth_worker' ? 'Youth Workers' : 'Staff'
         }));
       
-      // Generate network links based on connectionIds
+      const allNodes = [...peopleNodes, ...workerNodes];
+      const nodeIds = new Set(allNodes.map(n => n.id));
+      
+      // Generate network links based on connectionIds, filtering to valid nodes only
       const links = mockPeople.flatMap(p => 
-        p.connectionIds.map(targetId => ({
-          source: p.id,
-          target: targetId,
-          label: p.department === 'Youth Housing' ? 'Housing Support' : 
-                 p.department === 'Child Protection' ? 'Case Worker' :
-                 p.department === 'Care Leavers' ? 'Care Support' : 'Support'
-        }))
+        p.connectionIds
+          .filter(targetId => nodeIds.has(targetId))
+          .map(targetId => ({
+            source: p.id,
+            target: targetId,
+            label: p.department === 'Youth Housing' ? 'Housing Support' : 
+                   p.department === 'Child Protection' ? 'Case Worker' :
+                   p.department === 'Care Leavers' ? 'Care Support' : 'Support'
+          }))
       );
       
       setNetworkData({
-        nodes: [...peopleNodes, ...workerNodes],
+        nodes: allNodes,
         links: links,
       });
     } finally {
