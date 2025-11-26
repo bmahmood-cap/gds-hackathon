@@ -103,15 +103,40 @@ const ConnectionModal = ({ person, allPeople, onClose }: ConnectionModalProps) =
     setRiskScore(calculateRiskScore(defaultSignals));
   };
 
+  // Calculate risk score based on cumulative impact
+  const calculateRiskScoreFromImpact = (cumulativeImpact: number): RiskScore => {
+    if (cumulativeImpact >= 3) return 'red';
+    if (cumulativeImpact >= 1) return 'amber';
+    return 'green';
+  };
+
   // Handle updating risk score impact for a signal log event
   const handleUpdateRiskScoreImpact = (eventId: number, newImpact: number) => {
-    setSignalLogEvents(prevEvents => 
-      prevEvents.map(event => 
+    setSignalLogEvents(prevEvents => {
+      // First, update the impact for the target event
+      const updatedEvents = prevEvents.map(event => 
         event.id === eventId 
           ? { ...event, riskScoreImpact: newImpact }
           : event
-      )
-    );
+      );
+      
+      // Sort events by date to ensure proper recalculation
+      const sortedEvents = [...updatedEvents].sort((a, b) => 
+        new Date(a.date).getTime() - new Date(b.date).getTime()
+      );
+      
+      // Recalculate riskScoreAfter for all events based on cumulative impact
+      let cumulativeImpact = 0;
+      const recalculatedEvents = sortedEvents.map(event => {
+        cumulativeImpact += event.riskScoreImpact;
+        return {
+          ...event,
+          riskScoreAfter: calculateRiskScoreFromImpact(cumulativeImpact)
+        };
+      });
+      
+      return recalculatedEvents;
+    });
   };
 
   const getDepartmentColor = (department: string): string => {
