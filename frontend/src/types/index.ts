@@ -29,6 +29,7 @@ export interface User {
 
 export interface Person {
   id: number;
+  personId?: string; // Original person_id from dataset
   name: string;
   email: string;
   department: string;
@@ -36,6 +37,14 @@ export interface Person {
   connectionIds: number[];
   riskScore: RiskScore;
   signals: Signals;
+  // Additional fields from dataset
+  age?: number;
+  ageGroup?: string;
+  gender?: string;
+  ethnicity?: string;
+  housingTenure?: string;
+  employmentStatus?: string;
+  incomeLevel?: string;
 }
 
 export interface Connection {

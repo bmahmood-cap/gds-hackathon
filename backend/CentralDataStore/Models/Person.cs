@@ -3,11 +3,33 @@ namespace CentralDataStore.Models;
 public class Person
 {
     public int Id { get; set; }
+    public string? PersonId { get; set; } // Original person_id from dataset
     public string Name { get; set; } = string.Empty;
     public string Email { get; set; } = string.Empty;
     public string Department { get; set; } = string.Empty;
     public string Role { get; set; } = string.Empty;
     public List<int> ConnectionIds { get; set; } = new();
+    public string RiskScore { get; set; } = "green";
+    public Signals Signals { get; set; } = new();
+    // Additional fields from dataset
+    public int? Age { get; set; }
+    public string? AgeGroup { get; set; }
+    public string? Gender { get; set; }
+    public string? Ethnicity { get; set; }
+    public string? HousingTenure { get; set; }
+    public string? EmploymentStatus { get; set; }
+    public string? IncomeLevel { get; set; }
+}
+
+public class Signals
+{
+    public bool PreviousHomelessness { get; set; }
+    public bool TemporaryAccommodation { get; set; }
+    public bool CareStatus { get; set; }
+    public bool ParentalSubstanceAbuse { get; set; }
+    public bool ParentalCrimes { get; set; }
+    public bool YouthJustice { get; set; }
+    public bool EducationStatus { get; set; }
 }
 
 public class Connection

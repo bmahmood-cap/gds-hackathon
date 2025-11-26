@@ -60,6 +60,14 @@
 .modal-role {
   color: #a0aec0;
   font-size: 0.9rem;
+  display: block;
+}
+
+.modal-demographics {
+  color: #718096;
+  font-size: 0.8rem;
+  display: block;
+  margin-top: 0.25rem;
 }
 
 .modal-close {

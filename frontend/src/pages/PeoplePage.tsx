@@ -1,8 +1,8 @@
 import { useState, useEffect } from 'react';
 import { peopleApi } from '../services/api';
 import NetworkGraph from '../components/NetworkGraph';
+import { mockPeople, mockUsers } from '../data/mockData';
 import type { NetworkData, Person } from '../types';
-import { defaultSignals } from '../utils/riskUtils';
 import './PeoplePage.css';
 
 const PeoplePage = () => {
@@ -27,30 +27,40 @@ const PeoplePage = () => {
       setPeople(peopleData);
       setError(null);
     } catch {
-      setError('Failed to load network data. Make sure the backend is running.');
-      // Use mock data for demo - homelessness prevention context
-      const mockPeople: Person[] = [
-        { id: 1, name: 'Tyler Wilson', email: 'tyler.w@email.com', department: 'Youth Housing', role: 'At-Risk Youth', connectionIds: [2, 3, 5], riskScore: 'red', signals: { ...defaultSignals, previousHomelessness: true, temporaryAccommodation: true, parentalSubstanceAbuse: true } },
-        { id: 2, name: 'Maria Wilson', email: 'maria.w@email.com', department: 'Family Network', role: 'Parent', connectionIds: [1, 3], riskScore: 'green', signals: defaultSignals },
-        { id: 3, name: 'Emma Davis', email: 'emma.d@council.gov.uk', department: 'Child Protection', role: 'Social Worker', connectionIds: [1, 2, 4, 6], riskScore: 'green', signals: defaultSignals },
-        { id: 4, name: 'Jack Roberts', email: 'jack.r@council.gov.uk', department: 'Youth Services', role: 'Youth Worker', connectionIds: [3, 5, 6], riskScore: 'green', signals: defaultSignals },
-        { id: 5, name: 'Sarah Mitchell', email: 'sarah.m@council.gov.uk', department: 'Youth Housing', role: 'Housing Officer', connectionIds: [1, 4, 6], riskScore: 'green', signals: defaultSignals },
-        { id: 6, name: 'Noah Anderson', email: 'noah.a@email.com', department: 'Care Leavers', role: 'Care Leaver', connectionIds: [3, 4, 5], riskScore: 'amber', signals: { ...defaultSignals, careStatus: true, previousHomelessness: true } },
-      ];
+      setError('Failed to load network data. Using local dataset.');
+      // Use data from homelessness dataset for demo
       setPeople(mockPeople);
+      
+      // Create nodes for both people and workers (users)
+      const peopleNodes = mockPeople.map(p => ({ 
+        id: p.id, 
+        label: p.name, 
+        group: p.department 
+      }));
+      const workerNodes = mockUsers
+        .filter(u => u.id !== 4) // Exclude admin
+        .map(u => ({
+          id: u.id,
+          label: u.name,
+          group: u.role === 'housing_officer' ? 'Housing Officers' :
+                 u.role === 'social_worker' ? 'Social Workers' :
+                 u.role === 'youth_worker' ? 'Youth Workers' : 'Staff'
+        }));
+      
+      // Generate network links based on connectionIds
+      const links = mockPeople.flatMap(p => 
+        p.connectionIds.map(targetId => ({
+          source: p.id,
+          target: targetId,
+          label: p.department === 'Youth Housing' ? 'Housing Support' : 
+                 p.department === 'Child Protection' ? 'Case Worker' :
+                 p.department === 'Care Leavers' ? 'Care Support' : 'Support'
+        }))
+      );
+      
       setNetworkData({
-        nodes: mockPeople.map(p => ({ id: p.id, label: p.name, group: p.department })),
-        links: [
-          { source: 1, target: 2, label: 'Family' },
-          { source: 1, target: 3, label: 'Case Worker' },
-          { source: 1, target: 5, label: 'Housing Support' },
-          { source: 2, target: 3, label: 'Family Support' },
-          { source: 3, target: 4, label: 'Referral' },
-          { source: 3, target: 6, label: 'Case Worker' },
-          { source: 4, target: 5, label: 'Collaboration' },
-          { source: 4, target: 6, label: 'Youth Support' },
-          { source: 5, target: 6, label: 'Housing Support' },
-        ],
+        nodes: [...peopleNodes, ...workerNodes],
+        links: links,
       });
     } finally {
       setLoading(false);
@@ -65,6 +75,10 @@ const PeoplePage = () => {
       'Youth Services': '#9f7aea',
       'Care Leavers': '#ed8936',
       'Family Support': '#4fd1c5',
+      'Housing Officers': '#3182ce',
+      'Social Workers': '#d53f8c',
+      'Youth Workers': '#38a169',
+      'Staff': '#718096',
     };
     return colors[department] || '#718096';
   };
@@ -115,7 +129,7 @@ const PeoplePage = () => {
                     </div>
                     <div className="person-info">
                       <h4>{person.name}</h4>
-                      <span className="person-role">{person.role}</span>
+                      <span className="person-role">{person.role}{person.age ? ` • ${person.age} yrs` : ''}</span>
                       <span className="person-dept">{person.department}</span>
                     </div>
                     <span className="connection-count">
@@ -147,6 +161,30 @@ const PeoplePage = () => {
                       <label>📧 Email</label>
                       <span>{selectedPerson.email}</span>
                     </div>
+                    {selectedPerson.age && (
+                      <div className="detail-item">
+                        <label>🎂 Age</label>
+                        <span>{selectedPerson.age} years ({selectedPerson.ageGroup})</span>
+                      </div>
+                    )}
+                    {selectedPerson.gender && (
+                      <div className="detail-item">
+                        <label>👤 Gender</label>
+                        <span>{selectedPerson.gender}</span>
+                      </div>
+                    )}
+                    {selectedPerson.housingTenure && (
+                      <div className="detail-item">
+                        <label>🏠 Housing</label>
+                        <span>{selectedPerson.housingTenure}</span>
+                      </div>
+                    )}
+                    {selectedPerson.employmentStatus && (
+                      <div className="detail-item">
+                        <label>💼 Employment</label>
+                        <span>{selectedPerson.employmentStatus}</span>
+                      </div>
+                    )}
                     <div className="detail-item">
                       <label>🏷️ Category</label>
                       <span>{selectedPerson.department}</span>
