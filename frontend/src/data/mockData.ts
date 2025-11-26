@@ -340,7 +340,7 @@ export const mockPeople: Person[] = [
 // Mock signal log data for tracking life events over time
 export const mockSignalLogs: PersonSignalLog[] = [
   {
-    personId: 101, // Tyler Wilson - High Risk
+    personId: 2033, // Ryan Munoz - Youth Housing, High Risk
     events: [
       { id: 1, date: '2023-01-15', eventType: 'family_breakdown', description: 'Parents separated, moved to temporary accommodation', riskScoreImpact: 2, riskScoreAfter: 'amber' },
       { id: 2, date: '2023-03-22', eventType: 'expelled', description: 'Expelled from secondary school for persistent truancy', riskScoreImpact: 2, riskScoreAfter: 'red' },
@@ -351,15 +351,15 @@ export const mockSignalLogs: PersonSignalLog[] = [
     ],
   },
   {
-    personId: 102, // Emma Davis - Medium Risk
+    personId: 2881, // Matthew Foster - Care Leavers, High Risk
     events: [
       { id: 1, date: '2023-06-01', eventType: 'moving_house', description: 'Family relocated due to domestic violence', riskScoreImpact: 1, riskScoreAfter: 'amber' },
       { id: 2, date: '2023-09-15', eventType: 'temporary_accommodation', description: 'Placed in temporary accommodation by council', riskScoreImpact: 1, riskScoreAfter: 'amber' },
-      { id: 3, date: '2024-01-10', eventType: 'mental_health_crisis', description: 'Referred to CAMHS for anxiety', riskScoreImpact: 1, riskScoreAfter: 'amber' },
+      { id: 3, date: '2024-01-10', eventType: 'mental_health_crisis', description: 'Referred to CAMHS for anxiety', riskScoreImpact: 1, riskScoreAfter: 'red' },
     ],
   },
   {
-    personId: 104, // Sophia Martinez - High Risk
+    personId: 4023, // Jessica Callahan - Family Support, High Risk
     events: [
       { id: 1, date: '2022-09-01', eventType: 'care_placement_change', description: 'Moved to third foster placement', riskScoreImpact: 1, riskScoreAfter: 'amber' },
       { id: 2, date: '2022-12-10', eventType: 'death_of_loved_one', description: 'Biological mother passed away', riskScoreImpact: 2, riskScoreAfter: 'red' },
@@ -369,7 +369,7 @@ export const mockSignalLogs: PersonSignalLog[] = [
     ],
   },
   {
-    personId: 201, // Mia Thompson - High Risk
+    personId: 8860, // Kelly Donovan - Family Support, High Risk
     events: [
       { id: 1, date: '2023-02-01', eventType: 'family_breakdown', description: 'Parents reported to social services', riskScoreImpact: 2, riskScoreAfter: 'amber' },
       { id: 2, date: '2023-04-15', eventType: 'care_placement_change', description: 'Emergency removal from home, placed in foster care', riskScoreImpact: 2, riskScoreAfter: 'red' },
@@ -378,7 +378,7 @@ export const mockSignalLogs: PersonSignalLog[] = [
     ],
   },
   {
-    personId: 301, // Jack Roberts - High Risk
+    personId: 312, // Michelle Harmon - Youth Housing, High Risk
     events: [
       { id: 1, date: '2022-11-01', eventType: 'expelled', description: 'Excluded from school for violent behavior', riskScoreImpact: 2, riskScoreAfter: 'amber' },
       { id: 2, date: '2023-01-15', eventType: 'arrested', description: 'Cautioned for assault', riskScoreImpact: 2, riskScoreAfter: 'red' },
@@ -388,18 +388,51 @@ export const mockSignalLogs: PersonSignalLog[] = [
     ],
   },
   {
-    personId: 105, // Oliver Johnson - Medium Risk
+    personId: 1131, // Abigail Shaffer - Youth Housing, Medium Risk
     events: [
       { id: 1, date: '2023-08-01', eventType: 'moving_house', description: 'Family evicted, temporary accommodation', riskScoreImpact: 2, riskScoreAfter: 'amber' },
       { id: 2, date: '2023-11-10', eventType: 'arrested', description: 'Warning for possession of cannabis', riskScoreImpact: 1, riskScoreAfter: 'amber' },
     ],
   },
   {
-    personId: 204, // Liam Garcia - Medium Risk
+    personId: 9221, // Gabrielle Davis - Family Support, Medium Risk
     events: [
       { id: 1, date: '2023-03-01', eventType: 'care_placement_change', description: 'Turned 18, leaving care services', riskScoreImpact: 1, riskScoreAfter: 'amber' },
       { id: 2, date: '2023-05-15', eventType: 'moving_house', description: 'Moved to independent living with support', riskScoreImpact: 0, riskScoreAfter: 'amber' },
       { id: 3, date: '2023-08-20', eventType: 'job_loss', description: 'Made redundant from part-time job', riskScoreImpact: 1, riskScoreAfter: 'amber' },
+    ],
+  },
+  {
+    personId: 5562, // Lisa Hensley - Youth Housing, Medium Risk
+    events: [
+      { id: 1, date: '2023-02-15', eventType: 'temporary_accommodation', description: 'Placed in supported housing after leaving previous accommodation', riskScoreImpact: 1, riskScoreAfter: 'amber' },
+      { id: 2, date: '2023-07-01', eventType: 'job_loss', description: 'Lost part-time retail job', riskScoreImpact: 1, riskScoreAfter: 'amber' },
+    ],
+  },
+  {
+    personId: 2336, // Brian Ramirez - Youth Housing, Medium Risk
+    events: [
+      { id: 1, date: '2023-04-01', eventType: 'family_breakdown', description: 'Conflict at home, temporary separation from family', riskScoreImpact: 1, riskScoreAfter: 'amber' },
+      { id: 2, date: '2023-09-10', eventType: 'temporary_accommodation', description: 'Moved to youth housing program', riskScoreImpact: 1, riskScoreAfter: 'amber' },
+    ],
+  },
+  {
+    personId: 313, // Derek Zuniga - Care Leavers, Medium Risk
+    events: [
+      { id: 1, date: '2023-01-20', eventType: 'care_placement_change', description: 'Transitioned out of care system', riskScoreImpact: 1, riskScoreAfter: 'amber' },
+      { id: 2, date: '2023-06-15', eventType: 'mental_health_crisis', description: 'Anxiety diagnosis, started counselling', riskScoreImpact: 1, riskScoreAfter: 'amber' },
+    ],
+  },
+  {
+    personId: 751, // Allison Hill - Care Leavers, Low Risk
+    events: [
+      { id: 1, date: '2023-05-01', eventType: 'moving_house', description: 'Moved to stable independent accommodation', riskScoreImpact: -1, riskScoreAfter: 'green' },
+    ],
+  },
+  {
+    personId: 9364, // Noah Rhodes - Family Support, Low Risk
+    events: [
+      { id: 1, date: '2023-03-15', eventType: 'moving_house', description: 'Family relocated to new area', riskScoreImpact: 0, riskScoreAfter: 'green' },
     ],
   },
 ];
