@@ -67,10 +67,12 @@ const ConnectionModal = ({ person, allPeople, onClose }: ConnectionModalProps) =
 
   const getDepartmentColor = (department: string): string => {
     const colors: Record<string, string> = {
-      'Class 5A': '#667eea',
-      'Class 3B': '#48bb78',
-      'Primary Care': '#ed8936',
-      'Emergency': '#e53e3e',
+      'Youth Housing': '#667eea',
+      'Family Support': '#48bb78',
+      'Care Leavers': '#ed8936',
+      'Child Protection': '#e53e3e',
+      'Youth Services': '#9f7aea',
+      'Family Network': '#4fd1c5',
     };
     return colors[department] || '#9f7aea';
   };
@@ -95,6 +97,13 @@ const ConnectionModal = ({ person, allPeople, onClose }: ConnectionModalProps) =
             <div>
               <h2>{person.name}</h2>
               <span className="modal-role">{person.role} • {person.department}</span>
+              {(person.age || person.gender || person.ethnicity) && (
+                <span className="modal-demographics">
+                  {person.age && `${person.age} years`}
+                  {person.gender && ` • ${person.gender}`}
+                  {person.ethnicity && ` • ${person.ethnicity}`}
+                </span>
+              )}
             </div>
           </div>
           <button className="modal-close" onClick={onClose}>
@@ -239,7 +248,8 @@ const ConnectionModal = ({ person, allPeople, onClose }: ConnectionModalProps) =
         <div className="modal-footer">
           <div className="person-info-footer">
             <span>📧 {person.email}</span>
-            <span>🏷️ ID: {person.id}</span>
+            {person.age && <span>🎂 Age: {person.age}</span>}
+            {person.housingTenure && <span>🏠 {person.housingTenure}</span>}
           </div>
           <button className="modal-button" onClick={onClose}>
             Close

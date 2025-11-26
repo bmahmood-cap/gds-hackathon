@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import { peopleApi } from '../services/api';
+import { mockPeople } from '../data/mockData';
 import type { Connection, Person } from '../types';
-import { defaultSignals } from '../utils/riskUtils';
 import './ConnectionsPage.css';
 
 const ConnectionsPage = () => {
@@ -26,27 +26,34 @@ const ConnectionsPage = () => {
       setPeople(peopleData);
       setError(null);
     } catch {
-      setError('Failed to load relationships. Make sure the backend is running.');
-      // Use mock data for demo - homelessness prevention context
-      setPeople([
-        { id: 1, name: 'Tyler Wilson', email: 'tyler.w@email.com', department: 'Youth Housing', role: 'At-Risk Youth', connectionIds: [2, 3, 5], riskScore: 'red', signals: { ...defaultSignals, previousHomelessness: true, temporaryAccommodation: true, parentalSubstanceAbuse: true } },
-        { id: 2, name: 'Maria Wilson', email: 'maria.w@email.com', department: 'Family Network', role: 'Parent', connectionIds: [1, 3], riskScore: 'green', signals: defaultSignals },
-        { id: 3, name: 'Emma Davis', email: 'emma.d@council.gov.uk', department: 'Child Protection', role: 'Social Worker', connectionIds: [1, 2, 4], riskScore: 'green', signals: defaultSignals },
-        { id: 4, name: 'Jack Roberts', email: 'jack.r@council.gov.uk', department: 'Youth Services', role: 'Youth Worker', connectionIds: [3, 5, 6], riskScore: 'green', signals: defaultSignals },
-        { id: 5, name: 'Sarah Mitchell', email: 'sarah.m@council.gov.uk', department: 'Youth Housing', role: 'Housing Officer', connectionIds: [1, 4, 6], riskScore: 'green', signals: defaultSignals },
-        { id: 6, name: 'Noah Anderson', email: 'noah.a@email.com', department: 'Care Leavers', role: 'Care Leaver', connectionIds: [4, 5], riskScore: 'amber', signals: { ...defaultSignals, careStatus: true, previousHomelessness: true } },
-      ]);
-      setConnections([
-        { id: 1, sourcePersonId: 1, targetPersonId: 2, relationType: 'Family', description: 'Parent-child relationship' },
-        { id: 2, sourcePersonId: 1, targetPersonId: 3, relationType: 'Case Worker', description: 'Assigned social worker' },
-        { id: 3, sourcePersonId: 1, targetPersonId: 5, relationType: 'Housing Support', description: 'Housing case management' },
-        { id: 4, sourcePersonId: 2, targetPersonId: 3, relationType: 'Family Support', description: 'Family intervention support' },
-        { id: 5, sourcePersonId: 3, targetPersonId: 4, relationType: 'Referral', description: 'Cross-agency referral' },
-        { id: 6, sourcePersonId: 4, targetPersonId: 5, relationType: 'Collaboration', description: 'Joint case management' },
-        { id: 7, sourcePersonId: 4, targetPersonId: 6, relationType: 'Youth Support', description: 'Ongoing youth engagement' },
-        { id: 8, sourcePersonId: 5, targetPersonId: 6, relationType: 'Housing Support', description: 'Housing placement support' },
-        { id: 9, sourcePersonId: 3, targetPersonId: 6, relationType: 'Case Worker', description: 'Care leaver support' },
-      ]);
+      setError('Failed to load relationships. Using local dataset.');
+      // Use data from homelessness dataset for demo
+      setPeople(mockPeople);
+      // Generate connections based on the mockPeople connectionIds
+      const generatedConnections: Connection[] = [];
+      let connectionId = 1;
+      mockPeople.forEach(person => {
+        person.connectionIds.forEach(targetId => {
+          const targetPerson = mockPeople.find(p => p.id === targetId);
+          if (targetPerson && !generatedConnections.some(c => 
+            (c.sourcePersonId === person.id && c.targetPersonId === targetId) ||
+            (c.sourcePersonId === targetId && c.targetPersonId === person.id)
+          )) {
+            const relationType = person.department === 'Youth Housing' ? 'Housing Support' :
+                                  person.department === 'Child Protection' ? 'Case Worker' :
+                                  person.department === 'Care Leavers' ? 'Care Support' :
+                                  person.department === 'Family Support' ? 'Family Support' : 'Support';
+            generatedConnections.push({
+              id: connectionId++,
+              sourcePersonId: person.id,
+              targetPersonId: targetId,
+              relationType,
+              description: `${relationType} relationship`,
+            });
+          }
+        });
+      });
+      setConnections(generatedConnections);
     } finally {
       setLoading(false);
     }
@@ -62,9 +69,11 @@ const ConnectionsPage = () => {
       'Case Worker': '#667eea',
       'Housing Support': '#48bb78',
       'Family Support': '#9f7aea',
-      Referral: '#ed8936',
+      'Care Support': '#ed8936',
+      Referral: '#38b2ac',
       Collaboration: '#4fd1c5',
       'Youth Support': '#f687b3',
+      Support: '#718096',
     };
     return colors[type] || '#718096';
   };
