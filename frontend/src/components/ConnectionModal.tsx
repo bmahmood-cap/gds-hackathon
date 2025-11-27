@@ -167,7 +167,13 @@ const ConnectionModal = ({ person, allPeople, onClose }: ConnectionModalProps) =
 
   // Handle recording an action for a signal log event
   const handleRecordAction = (eventId: number, actionId: string) => {
-    const today = new Date().toISOString().split('T')[0];
+    // Format date as YYYY-MM-DD in local time zone for consistency
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = String(now.getMonth() + 1).padStart(2, '0');
+    const day = String(now.getDate()).padStart(2, '0');
+    const today = `${year}-${month}-${day}`;
+    
     const actionTaken: ActionTaken = {
       actionId,
       dateTaken: today,
@@ -495,7 +501,7 @@ const ConnectionModal = ({ person, allPeople, onClose }: ConnectionModalProps) =
                             </div>
                             
                             {/* Action Taken Section */}
-                            {event.actionTaken && actionTakenDetails && (
+                            {event.actionTaken && (
                               <div className="action-taken-section">
                                 <div className="action-taken-header">
                                   <span className="action-taken-label">✅ Action Taken:</span>
@@ -507,22 +513,41 @@ const ConnectionModal = ({ person, allPeople, onClose }: ConnectionModalProps) =
                                     })}
                                   </span>
                                 </div>
-                                <div 
-                                  className="action-taken-badge"
-                                  style={{ 
-                                    borderColor: getActionCategoryColor(actionTakenDetails.category),
-                                    background: `${getActionCategoryColor(actionTakenDetails.category)}15`
-                                  }}
-                                >
-                                  <span className="action-icon">{actionTakenDetails.icon}</span>
-                                  <span className="action-label">{actionTakenDetails.label}</span>
-                                  <span 
-                                    className="action-category-tag"
-                                    style={{ background: getActionCategoryColor(actionTakenDetails.category) }}
+                                {actionTakenDetails ? (
+                                  <div 
+                                    className="action-taken-badge"
+                                    style={{ 
+                                      borderColor: getActionCategoryColor(actionTakenDetails.category),
+                                      background: `${getActionCategoryColor(actionTakenDetails.category)}15`
+                                    }}
                                   >
-                                    {getActionCategoryLabel(actionTakenDetails.category)}
-                                  </span>
-                                </div>
+                                    <span className="action-icon">{actionTakenDetails.icon}</span>
+                                    <span className="action-label">{actionTakenDetails.label}</span>
+                                    <span 
+                                      className="action-category-tag"
+                                      style={{ background: getActionCategoryColor(actionTakenDetails.category) }}
+                                    >
+                                      {getActionCategoryLabel(actionTakenDetails.category)}
+                                    </span>
+                                  </div>
+                                ) : (
+                                  <div 
+                                    className="action-taken-badge"
+                                    style={{ 
+                                      borderColor: '#718096',
+                                      background: 'rgba(113, 128, 150, 0.15)'
+                                    }}
+                                  >
+                                    <span className="action-icon">📋</span>
+                                    <span className="action-label">{event.actionTaken.actionId}</span>
+                                    <span 
+                                      className="action-category-tag"
+                                      style={{ background: '#718096' }}
+                                    >
+                                      Unknown
+                                    </span>
+                                  </div>
+                                )}
                                 {event.actionTaken.notes && (
                                   <p className="action-notes">{event.actionTaken.notes}</p>
                                 )}
