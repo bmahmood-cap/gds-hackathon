@@ -113,9 +113,19 @@ export const signalEventActions: Record<SignalEventType, SignalAction[]> = {
   ],
 };
 
-// Get action by ID
+/**
+ * Get action by ID from the available actions for a signal event type.
+ * Returns undefined if the eventType doesn't exist in the mapping or if the action is not found.
+ * @param eventType - The type of signal event
+ * @param actionId - The ID of the action to find
+ * @returns The SignalAction if found, undefined otherwise
+ */
 export function getActionById(eventType: SignalEventType, actionId: string): SignalAction | undefined {
-  return signalEventActions[eventType]?.find(action => action.id === actionId);
+  const actions = signalEventActions[eventType];
+  if (!actions) {
+    return undefined;
+  }
+  return actions.find(action => action.id === actionId);
 }
 
 // Get action category color
