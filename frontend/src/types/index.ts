@@ -112,6 +112,19 @@ export type SignalEventType =
   | 'substance_abuse_incident'
   | 'care_placement_change';
 
+export interface SignalAction {
+  id: string;
+  label: string;
+  icon: string;
+  category: 'support' | 'referral' | 'intervention' | 'monitoring';
+}
+
+export interface ActionTaken {
+  actionId: string;
+  dateTaken: string;
+  notes?: string;
+}
+
 export interface SignalLogEvent {
   id: number;
   date: string;
@@ -119,6 +132,7 @@ export interface SignalLogEvent {
   description: string;
   riskScoreImpact: number; // Positive means risk increased, negative means decreased
   riskScoreAfter: RiskScore;
+  actionTaken?: ActionTaken;
 }
 
 export interface PersonSignalLog {

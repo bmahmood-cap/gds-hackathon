@@ -342,63 +342,63 @@ export const mockSignalLogs: PersonSignalLog[] = [
   {
     personId: 2033, // Ryan Munoz - High Risk (Youth Housing)
     events: [
-      { id: 1, date: '2023-01-15', eventType: 'family_breakdown', description: 'Parents separated, moved to temporary accommodation', riskScoreImpact: 2, riskScoreAfter: 'amber' },
-      { id: 2, date: '2023-03-22', eventType: 'expelled', description: 'Expelled from secondary school for persistent truancy', riskScoreImpact: 2, riskScoreAfter: 'red' },
-      { id: 3, date: '2023-05-10', eventType: 'temporary_accommodation', description: 'Placed in emergency B&B accommodation', riskScoreImpact: 1, riskScoreAfter: 'red' },
-      { id: 4, date: '2023-08-05', eventType: 'arrested', description: 'Arrested for shoplifting', riskScoreImpact: 2, riskScoreAfter: 'red' },
-      { id: 5, date: '2023-11-20', eventType: 'substance_abuse_incident', description: 'Overdose requiring hospital admission', riskScoreImpact: 2, riskScoreAfter: 'red' },
+      { id: 1, date: '2023-01-15', eventType: 'family_breakdown', description: 'Parents separated, moved to temporary accommodation', riskScoreImpact: 2, riskScoreAfter: 'amber', actionTaken: { actionId: 'emergency_placement', dateTaken: '2023-01-16', notes: 'Emergency placement arranged at youth hostel' } },
+      { id: 2, date: '2023-03-22', eventType: 'expelled', description: 'Expelled from secondary school for persistent truancy', riskScoreImpact: 2, riskScoreAfter: 'red', actionTaken: { actionId: 'education_referral', dateTaken: '2023-03-25', notes: 'Referred to alternative education provider' } },
+      { id: 3, date: '2023-05-10', eventType: 'temporary_accommodation', description: 'Placed in emergency B&B accommodation', riskScoreImpact: 1, riskScoreAfter: 'red', actionTaken: { actionId: 'housing_list', dateTaken: '2023-05-11', notes: 'Added to priority housing list' } },
+      { id: 4, date: '2023-08-05', eventType: 'arrested', description: 'Arrested for shoplifting', riskScoreImpact: 2, riskScoreAfter: 'red', actionTaken: { actionId: 'youth_justice_referral', dateTaken: '2023-08-07', notes: 'Youth justice team notified' } },
+      { id: 5, date: '2023-11-20', eventType: 'substance_abuse_incident', description: 'Overdose requiring hospital admission', riskScoreImpact: 2, riskScoreAfter: 'red', actionTaken: { actionId: 'substance_service', dateTaken: '2023-11-22', notes: 'Referred to substance misuse service' } },
       { id: 6, date: '2024-02-14', eventType: 'moving_house', description: 'Moved to supported housing', riskScoreImpact: -1, riskScoreAfter: 'red' },
     ],
   },
   {
     personId: 2881, // Matthew Foster - High Risk (Care Leavers)
     events: [
-      { id: 1, date: '2022-09-01', eventType: 'care_placement_change', description: 'Moved to third foster placement', riskScoreImpact: 1, riskScoreAfter: 'amber' },
-      { id: 2, date: '2022-12-10', eventType: 'death_of_loved_one', description: 'Biological mother passed away', riskScoreImpact: 2, riskScoreAfter: 'red' },
-      { id: 3, date: '2023-02-20', eventType: 'mental_health_crisis', description: 'Self-harm incident, hospital admission', riskScoreImpact: 2, riskScoreAfter: 'red' },
-      { id: 4, date: '2023-06-15', eventType: 'care_placement_change', description: 'Foster placement breakdown, moved to residential care', riskScoreImpact: 1, riskScoreAfter: 'red' },
+      { id: 1, date: '2022-09-01', eventType: 'care_placement_change', description: 'Moved to third foster placement', riskScoreImpact: 1, riskScoreAfter: 'amber', actionTaken: { actionId: 'key_worker', dateTaken: '2022-09-03', notes: 'New key worker assigned - Sarah Mitchell' } },
+      { id: 2, date: '2022-12-10', eventType: 'death_of_loved_one', description: 'Biological mother passed away', riskScoreImpact: 2, riskScoreAfter: 'red', actionTaken: { actionId: 'bereavement_counselling', dateTaken: '2022-12-15', notes: 'Urgent bereavement counselling arranged' } },
+      { id: 3, date: '2023-02-20', eventType: 'mental_health_crisis', description: 'Self-harm incident, hospital admission', riskScoreImpact: 2, riskScoreAfter: 'red', actionTaken: { actionId: 'camhs_referral', dateTaken: '2023-02-21', notes: 'Emergency CAMHS referral submitted' } },
+      { id: 4, date: '2023-06-15', eventType: 'care_placement_change', description: 'Foster placement breakdown, moved to residential care', riskScoreImpact: 1, riskScoreAfter: 'red', actionTaken: { actionId: 'placement_review', dateTaken: '2023-06-17', notes: 'Placement stability meeting scheduled' } },
       { id: 5, date: '2023-10-01', eventType: 'expelled', description: 'Permanently excluded from school', riskScoreImpact: 1, riskScoreAfter: 'red' },
     ],
   },
   {
     personId: 4023, // Jessica Callahan - High Risk (Family Support)
     events: [
-      { id: 1, date: '2023-02-01', eventType: 'family_breakdown', description: 'Parents reported to social services', riskScoreImpact: 2, riskScoreAfter: 'amber' },
-      { id: 2, date: '2023-04-15', eventType: 'care_placement_change', description: 'Emergency removal from home, placed in foster care', riskScoreImpact: 2, riskScoreAfter: 'red' },
-      { id: 3, date: '2023-07-20', eventType: 'mental_health_crisis', description: 'PTSD diagnosis following trauma assessment', riskScoreImpact: 1, riskScoreAfter: 'red' },
+      { id: 1, date: '2023-02-01', eventType: 'family_breakdown', description: 'Parents reported to social services', riskScoreImpact: 2, riskScoreAfter: 'amber', actionTaken: { actionId: 'safety_plan', dateTaken: '2023-02-03', notes: 'Initial safety plan created' } },
+      { id: 2, date: '2023-04-15', eventType: 'care_placement_change', description: 'Emergency removal from home, placed in foster care', riskScoreImpact: 2, riskScoreAfter: 'red', actionTaken: { actionId: 'key_worker', dateTaken: '2023-04-16', notes: 'Foster care key worker assigned' } },
+      { id: 3, date: '2023-07-20', eventType: 'mental_health_crisis', description: 'PTSD diagnosis following trauma assessment', riskScoreImpact: 1, riskScoreAfter: 'red', actionTaken: { actionId: 'counselling_service', dateTaken: '2023-07-25', notes: 'Specialist trauma counselling arranged' } },
       { id: 4, date: '2024-01-05', eventType: 'care_placement_change', description: 'Moved to long-term stable foster placement', riskScoreImpact: -1, riskScoreAfter: 'red' },
     ],
   },
   {
     personId: 8860, // Kelly Donovan - High Risk (Family Support)
     events: [
-      { id: 1, date: '2023-06-01', eventType: 'moving_house', description: 'Family relocated due to domestic violence', riskScoreImpact: 1, riskScoreAfter: 'amber' },
-      { id: 2, date: '2023-09-15', eventType: 'temporary_accommodation', description: 'Placed in temporary accommodation by council', riskScoreImpact: 1, riskScoreAfter: 'amber' },
+      { id: 1, date: '2023-06-01', eventType: 'moving_house', description: 'Family relocated due to domestic violence', riskScoreImpact: 1, riskScoreAfter: 'amber', actionTaken: { actionId: 'settle_in_visit', dateTaken: '2023-06-05', notes: 'Settle-in visit completed, family adjusting well' } },
+      { id: 2, date: '2023-09-15', eventType: 'temporary_accommodation', description: 'Placed in temporary accommodation by council', riskScoreImpact: 1, riskScoreAfter: 'amber', actionTaken: { actionId: 'support_package', dateTaken: '2023-09-18', notes: 'Support package arranged including weekly visits' } },
       { id: 3, date: '2024-01-10', eventType: 'mental_health_crisis', description: 'Referred to CAMHS for anxiety', riskScoreImpact: 1, riskScoreAfter: 'red' },
     ],
   },
   {
     personId: 312, // Michelle Harmon - High Risk (Youth Housing)
     events: [
-      { id: 1, date: '2022-11-01', eventType: 'expelled', description: 'Excluded from school for violent behavior', riskScoreImpact: 2, riskScoreAfter: 'amber' },
-      { id: 2, date: '2023-01-15', eventType: 'arrested', description: 'Cautioned for assault', riskScoreImpact: 2, riskScoreAfter: 'red' },
-      { id: 3, date: '2023-04-10', eventType: 'family_breakdown', description: 'Kicked out of family home', riskScoreImpact: 2, riskScoreAfter: 'red' },
-      { id: 4, date: '2023-06-20', eventType: 'temporary_accommodation', description: 'Placed in youth hostel', riskScoreImpact: 1, riskScoreAfter: 'red' },
+      { id: 1, date: '2022-11-01', eventType: 'expelled', description: 'Excluded from school for violent behavior', riskScoreImpact: 2, riskScoreAfter: 'amber', actionTaken: { actionId: 'education_plan', dateTaken: '2022-11-05', notes: 'Alternative education plan created with PRU' } },
+      { id: 2, date: '2023-01-15', eventType: 'arrested', description: 'Cautioned for assault', riskScoreImpact: 2, riskScoreAfter: 'red', actionTaken: { actionId: 'risk_assessment', dateTaken: '2023-01-17', notes: 'Full risk assessment completed' } },
+      { id: 3, date: '2023-04-10', eventType: 'family_breakdown', description: 'Kicked out of family home', riskScoreImpact: 2, riskScoreAfter: 'red', actionTaken: { actionId: 'family_mediation', dateTaken: '2023-04-12', notes: 'Family mediation attempted, unsuccessful' } },
+      { id: 4, date: '2023-06-20', eventType: 'temporary_accommodation', description: 'Placed in youth hostel', riskScoreImpact: 1, riskScoreAfter: 'red', actionTaken: { actionId: 'weekly_check', dateTaken: '2023-06-22', notes: 'Weekly check-in calls established' } },
       { id: 5, date: '2023-09-01', eventType: 'job_loss', description: 'Lost apprenticeship due to attendance issues', riskScoreImpact: 1, riskScoreAfter: 'red' },
     ],
   },
   {
     personId: 5562, // Lisa Hensley - Medium Risk (Youth Housing)
     events: [
-      { id: 1, date: '2023-08-01', eventType: 'moving_house', description: 'Family evicted, temporary accommodation', riskScoreImpact: 2, riskScoreAfter: 'amber' },
+      { id: 1, date: '2023-08-01', eventType: 'moving_house', description: 'Family evicted, temporary accommodation', riskScoreImpact: 2, riskScoreAfter: 'amber', actionTaken: { actionId: 'housing_support', dateTaken: '2023-08-03', notes: 'Housing support assessment completed' } },
       { id: 2, date: '2023-11-10', eventType: 'arrested', description: 'Warning for possession of cannabis', riskScoreImpact: 1, riskScoreAfter: 'amber' },
     ],
   },
   {
     personId: 313, // Derek Zuniga - Medium Risk (Care Leavers)
     events: [
-      { id: 1, date: '2023-03-01', eventType: 'care_placement_change', description: 'Turned 18, leaving care services', riskScoreImpact: 1, riskScoreAfter: 'amber' },
-      { id: 2, date: '2023-05-15', eventType: 'moving_house', description: 'Moved to independent living with support', riskScoreImpact: 0, riskScoreAfter: 'amber' },
+      { id: 1, date: '2023-03-01', eventType: 'care_placement_change', description: 'Turned 18, leaving care services', riskScoreImpact: 1, riskScoreAfter: 'amber', actionTaken: { actionId: 'transition_support', dateTaken: '2023-03-02', notes: 'Transition support plan activated' } },
+      { id: 2, date: '2023-05-15', eventType: 'moving_house', description: 'Moved to independent living with support', riskScoreImpact: 0, riskScoreAfter: 'amber', actionTaken: { actionId: 'settle_in_visit', dateTaken: '2023-05-20', notes: 'Settle-in visit - adapting well to independent living' } },
       { id: 3, date: '2023-08-20', eventType: 'job_loss', description: 'Made redundant from part-time job', riskScoreImpact: 1, riskScoreAfter: 'amber' },
     ],
   },

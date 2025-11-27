@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import NetworkGraph from './NetworkGraph';
 import SignalLogGraph from './SignalLogGraph';
-import type { Person, NetworkData, Connection, Signals, SignalLogEvent, RiskScore } from '../types';
-import { signalLabels, getRiskScoreColor, getRiskScoreLabel, signalEventLabels, defaultSignals } from '../utils/riskUtils';
+import type { Person, NetworkData, Connection, Signals, SignalLogEvent, RiskScore, ActionTaken } from '../types';
+import { signalLabels, getRiskScoreColor, getRiskScoreLabel, signalEventLabels, defaultSignals, signalEventActions, getActionById, getActionCategoryColor, getActionCategoryLabel } from '../utils/riskUtils';
 import { mockSignalLogs } from '../data/mockData';
 import './ConnectionModal.css';
 import './SignalLogGraph.css';
@@ -98,6 +98,9 @@ const ConnectionModal = ({ person, allPeople, onClose }: ConnectionModalProps) =
   const personSignalLog = mockSignalLogs.find(log => log.personId === person.id);
   const initialSignalLogEvents: SignalLogEvent[] = personSignalLog?.events || [];
   const [signalLogEvents, setSignalLogEvents] = useState<SignalLogEvent[]>(initialSignalLogEvents);
+  
+  // Track which events have expanded actions section
+  const [expandedEventId, setExpandedEventId] = useState<number | null>(null);
 
   const connections = generateConnections(person, allPeople);
   const networkData = generateNetworkData(person, allPeople);
@@ -160,6 +163,31 @@ const ConnectionModal = ({ person, allPeople, onClose }: ConnectionModalProps) =
       
       return recalculatedEvents;
     });
+  };
+
+  // Handle recording an action for a signal log event
+  const handleRecordAction = (eventId: number, actionId: string) => {
+    const today = new Date().toISOString().split('T')[0];
+    const actionTaken: ActionTaken = {
+      actionId,
+      dateTaken: today,
+    };
+    
+    setSignalLogEvents(prevEvents =>
+      prevEvents.map(event =>
+        event.id === eventId
+          ? { ...event, actionTaken }
+          : event
+      )
+    );
+    
+    // Collapse the actions section after recording
+    setExpandedEventId(null);
+  };
+
+  // Toggle expanded state for an event's actions
+  const toggleEventActions = (eventId: number) => {
+    setExpandedEventId(prev => prev === eventId ? null : eventId);
   };
 
   const getDepartmentColor = (department: string): string => {
@@ -402,6 +430,13 @@ const ConnectionModal = ({ person, allPeople, onClose }: ConnectionModalProps) =
                             ? `${event.riskScoreImpact} risk decrease`
                             : 'No change';
                         
+                        // Get available actions for this event type
+                        const availableActions = signalEventActions[event.eventType] || [];
+                        const isExpanded = expandedEventId === event.id;
+                        const actionTakenDetails = event.actionTaken 
+                          ? getActionById(event.eventType, event.actionTaken.actionId)
+                          : null;
+                        
                         return (
                           <div 
                             key={event.id} 
@@ -457,6 +492,78 @@ const ConnectionModal = ({ person, allPeople, onClose }: ConnectionModalProps) =
                               <span className={`risk-indicator ${event.riskScoreAfter}`}>
                                 → {getRiskScoreLabel(event.riskScoreAfter)}
                               </span>
+                            </div>
+                            
+                            {/* Action Taken Section */}
+                            {event.actionTaken && actionTakenDetails && (
+                              <div className="action-taken-section">
+                                <div className="action-taken-header">
+                                  <span className="action-taken-label">✅ Action Taken:</span>
+                                  <span className="action-taken-date">
+                                    {new Date(event.actionTaken.dateTaken).toLocaleDateString('en-GB', {
+                                      day: 'numeric',
+                                      month: 'short',
+                                      year: 'numeric'
+                                    })}
+                                  </span>
+                                </div>
+                                <div 
+                                  className="action-taken-badge"
+                                  style={{ 
+                                    borderColor: getActionCategoryColor(actionTakenDetails.category),
+                                    background: `${getActionCategoryColor(actionTakenDetails.category)}15`
+                                  }}
+                                >
+                                  <span className="action-icon">{actionTakenDetails.icon}</span>
+                                  <span className="action-label">{actionTakenDetails.label}</span>
+                                  <span 
+                                    className="action-category-tag"
+                                    style={{ background: getActionCategoryColor(actionTakenDetails.category) }}
+                                  >
+                                    {getActionCategoryLabel(actionTakenDetails.category)}
+                                  </span>
+                                </div>
+                                {event.actionTaken.notes && (
+                                  <p className="action-notes">{event.actionTaken.notes}</p>
+                                )}
+                              </div>
+                            )}
+                            
+                            {/* Available Actions Section */}
+                            <div className="actions-section">
+                              <button 
+                                className="actions-toggle-btn"
+                                onClick={() => toggleEventActions(event.id)}
+                              >
+                                {isExpanded ? '▼' : '▶'} {event.actionTaken ? 'Change Action' : 'Available Actions'} ({availableActions.length})
+                              </button>
+                              
+                              {isExpanded && (
+                                <div className="available-actions-grid">
+                                  {availableActions.map((action) => (
+                                    <button
+                                      key={action.id}
+                                      className={`action-option ${event.actionTaken?.actionId === action.id ? 'selected' : ''}`}
+                                      onClick={() => handleRecordAction(event.id, action.id)}
+                                      style={{ 
+                                        borderColor: getActionCategoryColor(action.category),
+                                        background: event.actionTaken?.actionId === action.id 
+                                          ? `${getActionCategoryColor(action.category)}30`
+                                          : 'transparent'
+                                      }}
+                                    >
+                                      <span className="action-option-icon">{action.icon}</span>
+                                      <span className="action-option-label">{action.label}</span>
+                                      <span 
+                                        className="action-option-category"
+                                        style={{ background: getActionCategoryColor(action.category) }}
+                                      >
+                                        {getActionCategoryLabel(action.category)}
+                                      </span>
+                                    </button>
+                                  ))}
+                                </div>
+                              )}
                             </div>
                           </div>
                         );
