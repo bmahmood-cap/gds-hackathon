@@ -2,6 +2,9 @@
 
 A modern web application for local council employees to identify and prevent youth homelessness through relationship mapping and early intervention. Features a React frontend, .NET API backend, and AWS Bedrock integration for AI-powered insights.
 
+🎥 **Watch the Demo on YouTube**  
+[![Watch the Demo](https://img.youtube.com/vi/Q0_tOh0PvZI/0.jpg)](https://youtu.be/Q0_tOh0PvZI)
+
 ## 🚀 Features
 
 - **Dashboard**: View and manage at-risk individuals in your caseload
